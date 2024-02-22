@@ -1,6 +1,7 @@
 const { separatedTrailing, separatedTrailing1 } = require('./helpers.js');
 
 const { type_item } = require('./grammar/type_item.js');
+const { type_declaration } = require('./grammar/type_declaration.js');
 const { symbols } = require('./grammar/symbols.js');
 const { keywords } = require('./grammar/keywords.js');
 const { literals } = require('./grammar/literals.js');
@@ -37,7 +38,7 @@ module.exports = grammar({
       $.build,
       $.test,
       $.function,
-      $.type_decl,
+      $.type_declaration,
       $.entry_point
     ),
 
@@ -59,8 +60,6 @@ module.exports = grammar({
     ),
 
     entry_point: $ => seq($.ident, $.body),
-
-    type_decl: $ => "TODO: Type Decl",
 
     function: $ => seq(
       repeat($.annotation),
@@ -90,9 +89,12 @@ module.exports = grammar({
 
     statement: $ => "TODO",
 
+    ...type_declaration,
+
+    ...type_item,
+
     ...symbols,
     ...keywords,
-    ...type_item,
     ...literals,
 
     _ident,

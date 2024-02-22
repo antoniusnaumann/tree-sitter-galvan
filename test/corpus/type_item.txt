@@ -1,0 +1,205 @@
+=====================================
+Basic Type
+=====================================
+
+type Alias = Type
+
+---
+(source
+  (type_declaration
+    (alias_type
+      (type_keyword) 
+      (type_ident)
+      (assign)
+      (type_item
+        (basic_type
+          (type_ident))))))
+
+=====================================
+Result Type
+=====================================
+
+type Alias = Result!Error
+
+---
+(source
+  (type_declaration
+    (alias_type
+      (type_keyword) 
+      (type_ident)
+      (assign)
+      (type_item
+        (result_type
+          (type_item
+            (basic_type
+              (type_ident)))
+          (exclamation_mark)
+          (type_item
+            (basic_type
+              (type_ident))))))))
+
+=====================================
+Nested Result Type
+=====================================
+
+type Alias = Result!Result!Error
+
+---
+(source
+  (type_declaration
+    (alias_type
+      (type_keyword) 
+      (type_ident)
+      (assign)
+      (type_item
+        (result_type
+          (type_item
+            (result_type
+              (type_item
+                (basic_type
+                  (type_ident)))
+              (exclamation_mark)
+              (type_item
+                (basic_type
+                  (type_ident)))))
+          (exclamation_mark)
+          (type_item
+            (basic_type
+              (type_ident))))))))
+
+=====================================
+Optional Type
+=====================================
+
+type Alias = Optional?
+
+---
+(source
+  (type_declaration
+    (alias_type
+      (type_keyword) 
+      (type_ident)
+      (assign)
+      (type_item
+        (optional_type
+          (type_item
+            (basic_type
+              (type_ident)))
+          (question_mark))))))
+
+=====================================
+Array Type
+=====================================
+
+type Alias = [Item]
+
+---
+(source
+  (type_declaration
+    (alias_type
+      (type_keyword) 
+      (type_ident)
+      (assign)
+      (type_item
+        (array_type
+          (bracket_open)
+          (type_item
+            (basic_type
+              (type_ident)))
+          (bracket_close))))))
+
+=====================================
+Dictionary Type
+=====================================
+
+type Alias = {Key:Value}
+
+---
+(source
+  (type_declaration
+    (alias_type
+      (type_keyword) 
+      (type_ident)
+      (assign)
+      (type_item
+        (dict_type
+          (brace_open)
+          (type_item
+            (basic_type
+              (type_ident)))
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident)))
+          (brace_close))))))
+
+=====================================
+Ordered Dictionary Type
+=====================================
+
+type Alias = [Key:Value]
+
+---
+(source
+  (type_declaration
+    (alias_type
+      (type_keyword) 
+      (type_ident)
+      (assign)
+      (type_item
+        (ordered_dict_type
+          (bracket_open)
+          (type_item
+            (basic_type
+              (type_ident)))
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident)))
+          (bracket_close))))))
+
+=====================================
+Set Type
+=====================================
+
+type Alias = {Item}
+
+---
+(source
+  (type_declaration
+    (alias_type
+      (type_keyword) 
+      (type_ident)
+      (assign)
+      (type_item
+        (set_type
+          (brace_open)
+          (type_item
+            (basic_type
+              (type_ident)))
+          (brace_close))))))
+
+=====================================
+Tuple Type
+=====================================
+
+type Alias = (Item1, Item2)
+
+---
+(source
+  (type_declaration
+    (alias_type
+      (type_keyword) 
+      (type_ident)
+      (assign)
+      (type_item
+        (tuple_type
+          (paren_open)
+          (type_item
+            (basic_type
+              (type_ident)))
+          (comma)
+          (type_item
+            (basic_type
+              (type_ident)))
+          (paren_close))))))
