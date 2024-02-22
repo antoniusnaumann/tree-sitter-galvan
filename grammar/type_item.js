@@ -12,7 +12,7 @@ const type_item = {
     $.basic_type,
   ),
 
-  result_type: $ => prec.right(seq(
+  result_type: $ => prec.left(seq(
     $.type_item,
     $.exclamation_mark,
     optional($.type_item)
