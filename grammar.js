@@ -1,33 +1,31 @@
-import { type_item } from './grammar/type_item.js';
-import { symbols } from './grammar/symbols.js';
-import { keywords } from './grammar/keywords.js';
-import { _comment, _space, _newline } from './grammar/space.js';
+const { separatedTrailing, separatedTrailing1 } = require('./helpers.js');
+
+const { type_item } = require('./grammar/type_item.js');
+const { symbols } = require('./grammar/symbols.js');
+const { keywords } = require('./grammar/keywords.js');
+const { literals } = require('./grammar/literals.js');
+const { _comment, _space, _newline } = require('./grammar/space.js');
+
+// TODO: Allow symbols from other alphabets in idents
+const _ident = $ => /[a-z][a-z0-9_]*/;
+const _type_ident = $ => /[A-Z][A-Za-z0-9_]*/;
 
 module.exports = grammar({
   name: 'Galvan',
+  extras: $ => [
+    $._comment,
+    /\s+/
+  ],
+
+  // word: $ => $._word,
 
   rules: {
-    ...symbols,
-    ...keywords,
-    ...type_item,
-
-    extras: $ => [
-      _comment,
-      /[ \t]+/
-    ],
-    source_file: $ => seq(
-      optional(repeat($._newline)),
-      repeat(seq(
-        optional(repeat($._newline)),
-        $._toplevel,
-        optional(repeat($._newline))
-      )),
-    ),
+    source_file: $ => repeat($._toplevel),
 
     body: $ => seq(
       $.brace_open,
       repeat(seq(
-        $.statement, 
+        $.statement,
         repeat1(choice($._newline, $._semicolon)))
       ),
       optional($.statement),
@@ -45,30 +43,69 @@ module.exports = grammar({
 
     main: $ => seq(
       $.main_keyword,
-      $.brace_open,
       $.body,
-      $.brace_close
     ),
+
+    build: $ => seq(
+      $.build_keyword,
+      // TODO: Special body rules
+      $.body,
+    ),
+
+    test: $ => seq(
+      $.test_keyword,
+      optional($.string_literal),
+      $.body,
+    ),
+
+    entry_point: $ => seq($.ident, $.body),
+
+    type_decl: $ => "TODO: Type Decl",
 
     function: $ => seq(
       repeat($.annotation),
       $.fn_signature,
-      $.brace_open,
       $.body,
-      $.brace_close
     ),
 
     fn_signature: $ => seq(
-      optional($.fn_modifiers),
+      optional($._fn_modifiers),
       $.fn_keyword,
       $.ident,
       $.param_list,
       optional($.return_type)
     ),
 
+    _fn_modifiers: $ => $.visibility,
+
+    param_list: $ => seq($.paren_open, separatedTrailing($, $.param, ','), $.paren_close),
+    param: $ => "TODO: param",
+
     return_type: $ => seq(
       $.single_arrow,
       $.type_item
     ),
+
+    annotation: $ => "TODO: Annotation",
+
+    statement: $ => "TODO",
+
+    ...symbols,
+    ...keywords,
+    ...type_item,
+    ...literals,
+
+    _ident,
+    _type_ident,
+
+    // _word: $ => /[A-Za-z0-9_]*/,
+    ident: $ => $._ident,
+    type_ident: $ => $._type_ident,
+
+    // _word: $ => token(choice($.type_ident, $.ident)),
+
+    _newline,
+    _space,
+    _comment,
   }
 });

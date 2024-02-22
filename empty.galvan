@@ -1,0 +1,8 @@
+test "This is an empty test" {
+}
+
+build {}
+
+pub fn empty() {}
+
+main {}

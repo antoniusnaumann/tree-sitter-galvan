@@ -1,42 +1,21 @@
-export const symbols = {
+const symbols = {
   // Punctuation
-  colon: $ => /:/,
-  _semicolon: $ => /;/,
-  comma: $ => seq(
-    ',',
-    optional(repeat($._newline))
-  ),
-  dot: $ => /./,
-  question_mark: $ => /?/,
-  exclamation_mark: $ => /!/,
+  colon: $ => ':',
+  _semicolon: $ => ';',
+  comma: $ => ',',
+  dot: $ => '.',
+  question_mark: $ => '?',
+  exclamation_mark: $ => '!',
 
   // Braces
-  paren_open: $ => seq(
-    '(',
-    optional(repeat($._newline))
-  ),
-  paren_close: $ => seq(
-    optional(repeat($._newline)),
-    ')',
-  ),
+  paren_open: $ => '(',
+  paren_close: $ => ')',
 
-  bracket_open: $ => seq(
-    '[',
-    optional(repeat($._newline))
-  ),
-  bracket_close: $ => seq(
-    optional(repeat($._newline)),
-    ']',
-  ),
+  bracket_open: $ => '[',
+  bracket_close: $ => ']',
 
-  brace_open: $ => seq(
-    '{',
-    optional(repeat($._newline))
-  ),
-  brace_close: $ => seq(
-    optional(repeat($._newline)),
-    '}',
-  ),
+  brace_open: $ => '{',
+  brace_close: $ => '}',
 
   // Arrows
   single_arrow: $ => token(choice("->", "→")),
@@ -119,5 +98,6 @@ export const symbols = {
   concat: $ => '++',
   remove: $ => '--',
   contains: $ => token(choice('in', '∈', '∊')),
+};
 
-}
+module.exports = { symbols };

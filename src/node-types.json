@@ -1,11 +1,494 @@
 [
   {
-    "type": "source_file",
+    "type": "body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "brace_close",
+          "named": true
+        },
+        {
+          "type": "brace_open",
+          "named": true
+        },
+        {
+          "type": "statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "boolean_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "false_keyword",
+          "named": true
+        },
+        {
+          "type": "true_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "build",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "body",
+          "named": true
+        },
+        {
+          "type": "build_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "entry_point",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "body",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fn_signature",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "fn_keyword",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "param_list",
+          "named": true
+        },
+        {
+          "type": "return_type",
+          "named": true
+        },
+        {
+          "type": "visibility",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation",
+          "named": true
+        },
+        {
+          "type": "body",
+          "named": true
+        },
+        {
+          "type": "fn_signature",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ident",
     "named": true,
     "fields": {}
   },
   {
-    "type": "hello",
+    "type": "main",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "body",
+          "named": true
+        },
+        {
+          "type": "main_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "param_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "param",
+          "named": true
+        },
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "return_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "single_arrow",
+          "named": true
+        },
+        {
+          "type": "type_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "build",
+          "named": true
+        },
+        {
+          "type": "entry_point",
+          "named": true
+        },
+        {
+          "type": "function",
+          "named": true
+        },
+        {
+          "type": "main",
+          "named": true
+        },
+        {
+          "type": "test",
+          "named": true
+        },
+        {
+          "type": "type_decl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "raw_string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "test",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "body",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "test_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "visibility",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "pub_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
     "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "add_assign",
+    "named": true
+  },
+  {
+    "type": "and",
+    "named": true
+  },
+  {
+    "type": "annotation",
+    "named": true
+  },
+  {
+    "type": "assign",
+    "named": true
+  },
+  {
+    "type": "brace_close",
+    "named": true
+  },
+  {
+    "type": "brace_open",
+    "named": true
+  },
+  {
+    "type": "build_keyword",
+    "named": true
+  },
+  {
+    "type": "concat",
+    "named": true
+  },
+  {
+    "type": "contains",
+    "named": true
+  },
+  {
+    "type": "div_assign",
+    "named": true
+  },
+  {
+    "type": "divide",
+    "named": true
+  },
+  {
+    "type": "equal",
+    "named": true
+  },
+  {
+    "type": "false_keyword",
+    "named": true
+  },
+  {
+    "type": "fn_keyword",
+    "named": true
+  },
+  {
+    "type": "greater",
+    "named": true
+  },
+  {
+    "type": "greater_equal",
+    "named": true
+  },
+  {
+    "type": "identical",
+    "named": true
+  },
+  {
+    "type": "less",
+    "named": true
+  },
+  {
+    "type": "less_equal",
+    "named": true
+  },
+  {
+    "type": "let_keyword",
+    "named": true
+  },
+  {
+    "type": "main_keyword",
+    "named": true
+  },
+  {
+    "type": "minus",
+    "named": true
+  },
+  {
+    "type": "mul_assign",
+    "named": true
+  },
+  {
+    "type": "multiply",
+    "named": true
+  },
+  {
+    "type": "mut_keyword",
+    "named": true
+  },
+  {
+    "type": "not_equal",
+    "named": true
+  },
+  {
+    "type": "not_identical",
+    "named": true
+  },
+  {
+    "type": "number_literal",
+    "named": true
+  },
+  {
+    "type": "or",
+    "named": true
+  },
+  {
+    "type": "param",
+    "named": true
+  },
+  {
+    "type": "paren_close",
+    "named": true
+  },
+  {
+    "type": "paren_open",
+    "named": true
+  },
+  {
+    "type": "plus",
+    "named": true
+  },
+  {
+    "type": "pow_assign",
+    "named": true
+  },
+  {
+    "type": "power",
+    "named": true
+  },
+  {
+    "type": "pub_keyword",
+    "named": true
+  },
+  {
+    "type": "raw_string_literal",
+    "named": true
+  },
+  {
+    "type": "ref_keyword",
+    "named": true
+  },
+  {
+    "type": "rem_assign",
+    "named": true
+  },
+  {
+    "type": "remainder",
+    "named": true
+  },
+  {
+    "type": "remove",
+    "named": true
+  },
+  {
+    "type": "single_arrow",
+    "named": true
+  },
+  {
+    "type": "statement",
+    "named": true
+  },
+  {
+    "type": "sub_assign",
+    "named": true
+  },
+  {
+    "type": "test_keyword",
+    "named": true
+  },
+  {
+    "type": "true_keyword",
+    "named": true
+  },
+  {
+    "type": "type_decl",
+    "named": true
+  },
+  {
+    "type": "type_item",
+    "named": true
+  },
+  {
+    "type": "xor",
+    "named": true
   }
 ]
