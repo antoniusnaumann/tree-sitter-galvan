@@ -1,7 +1,7 @@
 {
   "name": "Galvan",
   "rules": {
-    "source_file": {
+    "source": {
       "type": "REPEAT",
       "content": {
         "type": "SYMBOL",

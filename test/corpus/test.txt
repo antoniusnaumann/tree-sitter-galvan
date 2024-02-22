@@ -1,0 +1,29 @@
+=====================================
+Named Test Declarations
+=====================================
+
+test "example test" {}
+---
+(source
+  (test
+    (test_keyword)
+    (string_literal)
+    (body
+      (brace_open)
+      (brace_close))))
+
+=====================================
+Unnamed Test Declarations
+=====================================
+
+test {
+  // Empty
+}
+---
+(source
+  (test
+    (test_keyword)
+    (body
+      (brace_open)
+      (brace_close))))
+

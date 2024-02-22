@@ -200,7 +200,7 @@
     }
   },
   {
-    "type": "source_file",
+    "type": "source",
     "named": true,
     "fields": {},
     "children": {

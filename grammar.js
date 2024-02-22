@@ -20,7 +20,7 @@ module.exports = grammar({
   // word: $ => $._word,
 
   rules: {
-    source_file: $ => repeat($._toplevel),
+    source: $ => repeat($._toplevel),
 
     body: $ => seq(
       $.brace_open,
