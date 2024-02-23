@@ -1,0 +1,181 @@
+====================
+Empty 
+====================
+
+type Empty
+
+---
+
+(source
+  (type_declaration
+    (empty_type
+      (type_keyword)
+      (type_ident))))
+
+====================
+With field
+====================
+
+type StructWithField {
+  a: Int
+}
+
+---
+
+(source
+  (type_declaration
+    (struct_type
+      (type_keyword)
+      (type_ident)
+      (brace_open)
+      (struct_field
+        (ident)
+        (colon)
+        (type_item
+          (basic_type
+            (type_ident))))
+      (brace_close))))
+
+====================
+Without field
+====================
+
+type EmptyStruct {}
+
+---
+
+(source
+  (type_declaration
+    (struct_type
+      (type_keyword)
+      (type_ident)
+      (brace_open)
+      (brace_close))))
+
+====================
+Public 
+====================
+
+pub type EmptyStruct {}
+
+---
+
+(source
+  (type_declaration
+    (struct_type
+      (visibility
+        (pub_keyword))
+      (type_keyword)
+      (type_ident)
+      (brace_open)
+      (brace_close))))
+
+====================
+Comma-separated 
+====================
+
+type EmptyStruct { a: Int, b: String }
+
+---
+
+(source
+  (type_declaration
+    (struct_type
+      (type_keyword)
+      (type_ident)
+      (brace_open)
+      (struct_field
+        (ident)
+        (colon)
+        (type_item
+          (basic_type
+            (type_ident))))
+      (struct_field
+        (ident)
+        (colon)
+        (type_item
+          (basic_type
+            (type_ident))))
+      (brace_close))))
+
+====================
+Newline-separated 
+====================
+
+type EmptyStruct { 
+  a: Int
+  b: String 
+}
+
+---
+
+(source
+  (type_declaration
+    (struct_type
+      (type_keyword)
+      (type_ident)
+      (brace_open)
+      (struct_field
+        (ident)
+        (colon)
+        (type_item
+          (basic_type
+            (type_ident))))
+      (struct_field
+        (ident)
+        (colon)
+        (type_item
+          (basic_type
+            (type_ident))))
+      (brace_close))))
+
+====================
+Complex fields
+====================
+
+type ComplexFields { 
+  a: Int!
+  b: { String : [Float?] } 
+}
+
+---
+
+(source
+  (type_declaration
+    (struct_type
+      (type_keyword)
+      (type_ident)
+      (brace_open)
+      (struct_field
+        (ident)
+        (colon)
+        (type_item
+          (result_type
+            (type_item
+              (basic_type
+                (type_ident)))
+            (exclamation_mark))))
+      (struct_field
+        (ident)
+        (colon)
+        (type_item
+          (dict_type
+            (brace_open)
+            (type_item
+              (basic_type
+                (type_ident)))
+            (colon)
+            (type_item
+              (array_type
+                (bracket_open)
+                (type_item 
+                  (optional_type
+                    (type_item
+                      (basic_type
+                        (type_ident)))
+                  (question_mark)))
+                (bracket_close)))
+              (brace_close))))
+      (brace_close))))
+
+
