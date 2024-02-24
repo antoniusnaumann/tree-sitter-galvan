@@ -59,6 +59,30 @@ type Pair(Int, String)
       (paren_close))))
 
 ====================
+Generic tuple type 
+====================
+
+type Generic(a, b)
+
+---
+
+(source
+  (type_declaration
+    (tuple_struct
+      (type_keyword)
+      (type_ident)
+      (paren_open)
+      (tuple_field
+        (type_item
+          (generic_type
+            (ident))))
+      (tuple_field
+        (type_item
+          (generic_type
+            (ident))))
+      (paren_close))))
+
+====================
 Public field 
 ====================
 

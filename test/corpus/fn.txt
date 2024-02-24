@@ -41,6 +41,31 @@ fn single_parameter(a: Int) {}
       (brace_close))))
 
 =====================================
+Generic Function
+=====================================
+
+fn generic_function(a: t) {}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (generic_type
+              (ident))))
+        (paren_close)))
+    (body
+      (brace_open)
+      (brace_close))))
+
+
+=====================================
 Ref Parameter
 =====================================
 

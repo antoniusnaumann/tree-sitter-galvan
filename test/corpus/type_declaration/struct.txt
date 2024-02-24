@@ -37,6 +37,31 @@ type StructWithField {
       (brace_close))))
 
 ====================
+With generic field
+====================
+
+type StructWithGenericField {
+  a: something
+}
+
+---
+
+(source
+  (type_declaration
+    (struct
+      (type_keyword)
+      (type_ident)
+      (brace_open)
+      (struct_field
+        (ident)
+        (colon)
+        (type_item
+          (generic_type
+            (ident))))
+      (brace_close))))
+
+
+====================
 Without field
 ====================
 

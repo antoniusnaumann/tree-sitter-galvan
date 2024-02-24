@@ -18,7 +18,7 @@ module.exports = grammar({
     /\s+/
   ],
 
-  // word: $ => $._word,
+  word: $ => $._word,
 
   rules: {
     source: $ => repeat($._toplevel),
@@ -105,7 +105,7 @@ module.exports = grammar({
     _ident,
     _type_ident,
 
-    // _word: $ => /[A-Za-z0-9_]*/,
+    _word: $ => /[A-Za-z0-9_]*/,
     ident: $ => $._ident,
     type_ident: $ => $._type_ident,
 

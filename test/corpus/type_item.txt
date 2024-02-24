@@ -109,6 +109,35 @@ type Alias = [Item]
           (bracket_close))))))
 
 =====================================
+Nested Array Type
+=====================================
+
+type Alias = [[[Item]]]
+
+---
+(source
+  (type_declaration
+    (alias
+      (type_keyword) 
+      (type_ident)
+      (assign)
+      (type_item
+        (array_type
+          (bracket_open)
+          (type_item
+            (array_type
+              (bracket_open)
+              (type_item
+                (array_type
+                  (bracket_open)
+                  (type_item
+                    (basic_type
+                  (type_ident)))
+                  (bracket_close)))
+              (bracket_close)))
+            (bracket_close))))))
+
+=====================================
 Dictionary Type
 =====================================
 

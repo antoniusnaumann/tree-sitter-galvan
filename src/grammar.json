@@ -1,5 +1,6 @@
 {
   "name": "Galvan",
+  "word": "_word",
   "rules": {
     "source": {
       "type": "REPEAT",
@@ -666,6 +667,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "generic_type"
+        },
+        {
+          "type": "SYMBOL",
           "name": "basic_type"
         }
       ]
@@ -843,6 +848,15 @@
         {
           "type": "SYMBOL",
           "name": "paren_close"
+        }
+      ]
+    },
+    "generic_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "ident"
         }
       ]
     },
@@ -1639,6 +1653,10 @@
     "_type_ident": {
       "type": "PATTERN",
       "value": "[A-Z][A-Za-z0-9_]*"
+    },
+    "_word": {
+      "type": "PATTERN",
+      "value": "[A-Za-z0-9_]*"
     },
     "ident": {
       "type": "SYMBOL",

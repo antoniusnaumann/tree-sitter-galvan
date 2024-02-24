@@ -9,6 +9,7 @@ const type_item = {
     $.ordered_dict_type,
     $.set_type,
     $.tuple_type,
+    $.generic_type,
     $.basic_type,
   ),
 
@@ -55,6 +56,12 @@ const type_item = {
     $.paren_open,
     separatedTrailing1($, $.type_item, $.comma),
     $.paren_close
+  ),
+
+  // Type parameters for generics are lower case in Galvan
+  // This way, there is no need to declare them in angle brackets
+  generic_type: $ => seq(
+      $.ident
   ),
 
   basic_type: $ => seq(
