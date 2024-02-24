@@ -1,5 +1,28 @@
 [
   {
+    "type": "access_operator",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bracket_close",
+          "named": true
+        },
+        {
+          "type": "bracket_open",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "alias",
     "named": true,
     "fields": {},
@@ -467,6 +490,10 @@
           "named": true
         },
         {
+          "type": "group",
+          "named": true
+        },
+        {
           "type": "ident",
           "named": true
         },
@@ -607,6 +634,29 @@
       "types": [
         {
           "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "group",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
           "named": true
         }
       ]
@@ -789,6 +839,44 @@
         },
         {
           "type": "paren_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "postfix_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "postfix_operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "postfix_operator",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "access_operator",
+          "named": true
+        },
+        {
+          "type": "exclamation_mark",
           "named": true
         }
       ]
@@ -1397,10 +1485,6 @@
   },
   {
     "type": "plus",
-    "named": true
-  },
-  {
-    "type": "postfix_expression",
     "named": true
   },
   {

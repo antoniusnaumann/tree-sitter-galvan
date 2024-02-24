@@ -1,4 +1,5 @@
 const { separatedTrailing, separatedTrailing1 } = require("../helpers");
+const { expression_precedence } = require("../precedence");
 
 const expression = {
   expression: $ => choice(
@@ -13,6 +14,7 @@ const expression = {
     $.literal,
     $.ident,
     $.closure,
+    $.group,
   ),
 
   else_expression: $ => "TODO: else expression",
@@ -21,7 +23,21 @@ const expression = {
 
   operator_expression: $ => "TODO: operator expression",
 
-  postfix_expression: $ => "TODO: postfix expression",
+  postfix_expression: $ => seq(
+    $.expression,
+    $.postfix_operator,
+  ),
+
+  postfix_operator: $ => choice(
+    $.exclamation_mark, 
+    $.access_operator,
+  ),
+
+  access_operator: $ => seq(
+    $.bracket_open,
+    $.expression,
+    $.bracket_close,
+  ),
 
   member_expression: $ => "TODO: member expression",
 
@@ -94,16 +110,22 @@ const expression = {
     $.expression,
   ),
 
-  closure: $ => seq(
+  closure: $ => prec(expression_precedence.closure, seq(
     $.pipe,
     separatedTrailing($, $.closure_argument, $.comma),
     $.pipe,
     choice($.expression, $.body),
-  ),
+  )),
 
   closure_argument: $ => seq(
     $.ident,
     optional(seq($.colon, $.type_item)),
+  ),
+
+  group: $ => seq(
+    $.paren_open,
+    $.expression,
+    $.paren_close,
   ),
 };
 

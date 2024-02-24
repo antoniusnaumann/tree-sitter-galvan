@@ -24,7 +24,7 @@ module.exports = grammar({
   rules: {
     source: $ => repeat($._toplevel),
 
-    body: $ => prec(10, seq(
+    body: $ => prec(100, seq(
       $.brace_open,
       repeat(seq(
         $.statement,
@@ -93,7 +93,7 @@ module.exports = grammar({
 
     annotation: $ => "TODO: Annotation",
 
-    statement: $ => prec(5, choice(
+    statement: $ => prec(99, choice(
       $.assignment,
       $.declaration,
       $.expression,

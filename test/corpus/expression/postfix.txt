@@ -1,0 +1,56 @@
+=====================================
+Yeet expression
+=====================================
+
+main {
+  a()!
+}
+
+---
+
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+        (statement
+          (expression
+            (postfix_expression
+              (expression
+                (function_call
+                  (ident)
+                  (paren_open)
+                  (paren_close)))
+              (postfix_operator
+                (exclamation_mark)))))
+      (brace_close))))
+
+=====================================
+Access expression
+=====================================
+
+main {
+  a[5]
+}
+
+---
+
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+        (statement
+          (expression
+            (postfix_expression
+              (expression
+                (ident))
+              (postfix_operator
+                (access_operator
+                  (bracket_open)
+                  (expression
+                    (literal
+                      (number_literal)))
+                  (bracket_close))))))
+      (brace_close))))
+
