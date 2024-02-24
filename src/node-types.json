@@ -420,6 +420,29 @@
     }
   },
   {
+    "type": "else_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "body",
+          "named": true
+        },
+        {
+          "type": "else_keyword",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "empty_struct",
     "named": true,
     "fields": {},
@@ -1380,7 +1403,7 @@
     "named": true
   },
   {
-    "type": "else_expression",
+    "type": "else_keyword",
     "named": true
   },
   {

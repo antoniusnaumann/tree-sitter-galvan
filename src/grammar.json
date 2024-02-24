@@ -411,8 +411,21 @@
       ]
     },
     "else_expression": {
-      "type": "STRING",
-      "value": "TODO: else expression"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "else_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "body"
+        }
+      ]
     },
     "trailing_closure_expression": {
       "type": "STRING",

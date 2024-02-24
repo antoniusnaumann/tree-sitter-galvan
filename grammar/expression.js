@@ -17,7 +17,11 @@ const expression = {
     $.group,
   ),
 
-  else_expression: $ => "TODO: else expression",
+  else_expression: $ => seq(
+    $.expression,
+    $.else_keyword,
+    $.body,
+  ),
 
   trailing_closure_expression: $ => "TODO: trailing closure",
 
