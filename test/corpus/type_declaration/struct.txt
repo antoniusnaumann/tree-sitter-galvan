@@ -8,7 +8,7 @@ type Empty
 
 (source
   (type_declaration
-    (empty_type
+    (empty_struct
       (type_keyword)
       (type_ident))))
 
@@ -24,7 +24,7 @@ type StructWithField {
 
 (source
   (type_declaration
-    (struct_type
+    (struct
       (type_keyword)
       (type_ident)
       (brace_open)
@@ -46,7 +46,7 @@ type EmptyStruct {}
 
 (source
   (type_declaration
-    (struct_type
+    (struct
       (type_keyword)
       (type_ident)
       (brace_open)
@@ -62,7 +62,7 @@ pub type EmptyStruct {}
 
 (source
   (type_declaration
-    (struct_type
+    (struct
       (visibility
         (pub_keyword))
       (type_keyword)
@@ -80,7 +80,7 @@ type EmptyStruct { a: Int, b: String }
 
 (source
   (type_declaration
-    (struct_type
+    (struct
       (type_keyword)
       (type_ident)
       (brace_open)
@@ -111,7 +111,7 @@ type EmptyStruct {
 
 (source
   (type_declaration
-    (struct_type
+    (struct
       (type_keyword)
       (type_ident)
       (brace_open)
@@ -142,7 +142,7 @@ type ComplexFields {
 
 (source
   (type_declaration
-    (struct_type
+    (struct
       (type_keyword)
       (type_ident)
       (brace_open)

@@ -7,7 +7,7 @@ type Alias = Type
 ---
 (source
   (type_declaration
-    (alias_type
+    (alias
       (type_keyword) 
       (type_ident)
       (assign)
@@ -24,7 +24,7 @@ type Alias = Result!Error
 ---
 (source
   (type_declaration
-    (alias_type
+    (alias
       (type_keyword) 
       (type_ident)
       (assign)
@@ -47,7 +47,7 @@ type Alias = Result!Result!Error
 ---
 (source
   (type_declaration
-    (alias_type
+    (alias
       (type_keyword) 
       (type_ident)
       (assign)
@@ -76,7 +76,7 @@ type Alias = Optional?
 ---
 (source
   (type_declaration
-    (alias_type
+    (alias
       (type_keyword) 
       (type_ident)
       (assign)
@@ -96,7 +96,7 @@ type Alias = [Item]
 ---
 (source
   (type_declaration
-    (alias_type
+    (alias
       (type_keyword) 
       (type_ident)
       (assign)
@@ -117,7 +117,7 @@ type Alias = {Key:Value}
 ---
 (source
   (type_declaration
-    (alias_type
+    (alias
       (type_keyword) 
       (type_ident)
       (assign)
@@ -142,7 +142,7 @@ type Alias = [Key:Value]
 ---
 (source
   (type_declaration
-    (alias_type
+    (alias
       (type_keyword) 
       (type_ident)
       (assign)
@@ -167,7 +167,7 @@ type Alias = {Item}
 ---
 (source
   (type_declaration
-    (alias_type
+    (alias
       (type_keyword) 
       (type_ident)
       (assign)
@@ -188,7 +188,7 @@ type Alias = (Item1, Item2)
 ---
 (source
   (type_declaration
-    (alias_type
+    (alias
       (type_keyword) 
       (type_ident)
       (assign)

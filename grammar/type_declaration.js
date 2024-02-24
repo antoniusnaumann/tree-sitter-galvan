@@ -2,11 +2,11 @@ const { separatedTrailing } = require("../helpers");
 
 const type_declaration = {
   type_declaration: $ => choice(
-    $.struct_type,
-    $.alias_type,
+    $.struct,
+    $.alias,
     // $.enum_type,
-    $.tuple_type,
-    $.empty_type,
+    $.tuple_struct,
+    $.empty_struct,
   ),
 
   _type_prelude: $ => seq(
@@ -15,7 +15,7 @@ const type_declaration = {
     $.type_ident,
   ),
 
-  struct_type: $ => seq(
+  struct: $ => seq(
     $._type_prelude,
     $.brace_open,
     separatedTrailing($,
@@ -31,13 +31,13 @@ const type_declaration = {
     $.type_item,
   ),
 
-  alias_type: $ => seq(
+  alias: $ => seq(
     $._type_prelude,
     $.assign,
     $.type_item
   ),
 
-  tuple_type: $ => seq(
+  tuple_struct: $ => seq(
     $._type_prelude,
     $.paren_open,
     separatedTrailing($,
@@ -46,7 +46,12 @@ const type_declaration = {
     $.paren_close,
   ),
 
-  empty_type: $ => seq(
+  tuple_field: $ => seq(
+    optional($.visibility),
+    $.type_item,
+  ),
+
+  empty_struct: $ => seq(
     $._type_prelude,
   ),
 };

@@ -1,6 +1,6 @@
 [
   {
-    "type": "alias_type",
+    "type": "alias",
     "named": true,
     "fields": {},
     "children": {
@@ -162,7 +162,7 @@
     }
   },
   {
-    "type": "empty_type",
+    "type": "empty_struct",
     "named": true,
     "fields": {},
     "children": {
@@ -462,34 +462,7 @@
     }
   },
   {
-    "type": "struct_field",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "colon",
-          "named": true
-        },
-        {
-          "type": "ident",
-          "named": true
-        },
-        {
-          "type": "type_item",
-          "named": true
-        },
-        {
-          "type": "visibility",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "struct_type",
+    "type": "struct",
     "named": true,
     "fields": {},
     "children": {
@@ -524,6 +497,33 @@
     }
   },
   {
+    "type": "struct_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "colon",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "type_item",
+          "named": true
+        },
+        {
+          "type": "visibility",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "test",
     "named": true,
     "fields": {},
@@ -541,6 +541,60 @@
         },
         {
           "type": "test_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tuple_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "type_item",
+          "named": true
+        },
+        {
+          "type": "visibility",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tuple_struct",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
+          "named": true
+        },
+        {
+          "type": "tuple_field",
+          "named": true
+        },
+        {
+          "type": "type_ident",
+          "named": true
+        },
+        {
+          "type": "type_keyword",
+          "named": true
+        },
+        {
+          "type": "visibility",
           "named": true
         }
       ]
@@ -582,19 +636,19 @@
       "required": true,
       "types": [
         {
-          "type": "alias_type",
+          "type": "alias",
           "named": true
         },
         {
-          "type": "empty_type",
+          "type": "empty_struct",
           "named": true
         },
         {
-          "type": "struct_type",
+          "type": "struct",
           "named": true
         },
         {
-          "type": "tuple_type",
+          "type": "tuple_struct",
           "named": true
         }
       ]

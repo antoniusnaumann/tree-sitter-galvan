@@ -1,0 +1,105 @@
+====================
+Empty tuple type 
+====================
+
+type Empty()
+
+---
+
+(source
+  (type_declaration
+    (tuple_struct
+      (type_keyword)
+      (type_ident)
+      (paren_open)
+      (paren_close))))
+
+====================
+Simple tuple type 
+====================
+
+type Simple(Int)
+
+---
+
+(source
+  (type_declaration
+    (tuple_struct
+      (type_keyword)
+      (type_ident)
+      (paren_open)
+      (tuple_field
+        (type_item
+          (basic_type
+            (type_ident))))
+      (paren_close))))
+
+====================
+With two fields
+====================
+
+type Pair(Int, String)
+
+---
+
+(source
+  (type_declaration
+    (tuple_struct
+      (type_keyword)
+      (type_ident)
+      (paren_open)
+      (tuple_field
+        (type_item
+          (basic_type
+            (type_ident))))
+      (tuple_field
+        (type_item
+          (basic_type
+            (type_ident))))
+      (paren_close))))
+
+====================
+Public field 
+====================
+
+type Public(pub Int)
+
+---
+
+(source
+  (type_declaration
+    (tuple_struct
+      (type_keyword)
+      (type_ident)
+      (paren_open)
+      (tuple_field
+        (visibility
+          (pub_keyword))
+        (type_item
+          (basic_type
+            (type_ident))))
+      (paren_close))))
+
+====================
+Public tuple struct 
+====================
+
+pub type Public(Int)
+
+---
+
+(source
+  (type_declaration
+    (tuple_struct
+      (visibility
+          (pub_keyword))
+      (type_keyword)
+      (type_ident)
+      (paren_open)
+      (tuple_field
+        (type_item
+          (basic_type
+            (type_ident))))
+      (paren_close))))
+
+
