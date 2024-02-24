@@ -26,6 +26,7 @@ const type_declaration = {
 
   struct_field: $ => seq(
     optional($.visibility),
+    optional($.declaration_modifier),
     $.ident,
     $.colon,
     $.type_item,

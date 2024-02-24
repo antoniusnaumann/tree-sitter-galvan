@@ -1,0 +1,241 @@
+=====================================
+Empty Function Declaration
+=====================================
+
+fn empty() {}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (brace_close))))
+
+=====================================
+Single Parameter
+=====================================
+
+fn single_parameter(a: Int) {}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident))))
+        (paren_close)))
+    (body
+      (brace_open)
+      (brace_close))))
+
+=====================================
+Ref Parameter
+=====================================
+
+fn celebrate(ref person: Human) {}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (param
+          (declaration_modifier
+            (ref_keyword))
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident))))
+        (paren_close)))
+    (body
+      (brace_open)
+      (brace_close))))
+
+=====================================
+Mut Parameter
+=====================================
+
+fn rename(mut self: Dog) {}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (param
+          (declaration_modifier
+            (mut_keyword))
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident))))
+        (paren_close)))
+    (body
+      (brace_open)
+      (brace_close))))
+
+=====================================
+Two Parameters
+=====================================
+
+fn two_parameters(a: Int, b: Float) {}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident))))
+        (comma)
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident))))
+        (paren_close)))
+    (body
+      (brace_open)
+      (brace_close))))
+
+=====================================
+Trailing Comma
+=====================================
+
+fn two_parameters(a: Int, b: Float,) {}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident))))
+        (comma)
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident))))
+        (comma)
+        (paren_close)))
+    (body
+      (brace_open)
+      (brace_close))))
+
+=====================================
+Return Type
+=====================================
+
+fn add(a: Int, b: Int) -> Int {}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident))))
+        (comma)
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident))))
+        (paren_close))
+        (return_type
+          (single_arrow)
+          (type_item
+            (basic_type
+              (type_ident)))))
+    (body
+      (brace_open)
+      (brace_close))))
+
+
+=====================================
+Complex Parameter
+=====================================
+
+fn get(key: String, from: { String : Float }) -> Float {}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident))))
+        (comma)
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (dict_type
+              (brace_open)
+              (type_item
+                (basic_type
+                  (type_ident)))
+              (colon)
+              (type_item
+                (basic_type
+                  (type_ident)))
+              (brace_close))))
+        (paren_close))
+        (return_type
+          (single_arrow)
+          (type_item
+            (basic_type
+              (type_ident)))))
+
+    (body
+      (brace_open)
+      (brace_close))))
+
+
+

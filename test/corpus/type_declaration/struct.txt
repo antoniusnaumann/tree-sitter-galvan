@@ -178,4 +178,70 @@ type ComplexFields {
               (brace_close))))
       (brace_close))))
 
+====================
+Ref field
+====================
+
+type Cat {
+  name: String
+  ref servant: Human
+}
+
+---
+
+(source
+  (type_declaration
+    (struct
+      (type_keyword)
+      (type_ident)
+      (brace_open)
+      (struct_field
+        (ident)
+        (colon)
+        (type_item
+          (basic_type
+            (type_ident))))
+      (struct_field
+        (declaration_modifier
+          (ref_keyword))
+        (ident)
+        (colon)
+        (type_item
+          (basic_type
+            (type_ident))))
+      (brace_close))))
+
+====================
+Mut field
+====================
+
+type Cat {
+  name: String
+  // Note: This is not allowed - but the parser should allow it so that we can emit an error here
+  mut servant: Human
+}
+
+---
+
+(source
+  (type_declaration
+    (struct
+      (type_keyword)
+      (type_ident)
+      (brace_open)
+      (struct_field
+        (ident)
+        (colon)
+        (type_item
+          (basic_type
+            (type_ident))))
+      (struct_field
+        (declaration_modifier
+          (mut_keyword))
+        (ident)
+        (colon)
+        (type_item
+          (basic_type
+            (type_ident))))
+      (brace_close))))
 

@@ -135,6 +135,29 @@
     "fields": {}
   },
   {
+    "type": "declaration_modifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "let_keyword",
+          "named": true
+        },
+        {
+          "type": "mut_keyword",
+          "named": true
+        },
+        {
+          "type": "ref_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "dict_type",
     "named": true,
     "fields": {},
@@ -328,6 +351,33 @@
     }
   },
   {
+    "type": "param",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "colon",
+          "named": true
+        },
+        {
+          "type": "declaration_modifier",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "type_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "param_list",
     "named": true,
     "fields": {},
@@ -335,6 +385,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "comma",
+          "named": true
+        },
         {
           "type": "param",
           "named": true
@@ -506,6 +560,10 @@
       "types": [
         {
           "type": "colon",
+          "named": true
+        },
+        {
+          "type": "declaration_modifier",
           "named": true
         },
         {
@@ -855,10 +913,6 @@
   },
   {
     "type": "or",
-    "named": true
-  },
-  {
-    "type": "param",
     "named": true
   },
   {
