@@ -1,0 +1,19 @@
+name: Parser Tests
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Tree Sitter CLI
+        run: cargo install tree-sitter-cli
+      - name: Generate Tree Sitter Grammar
+        run: tree-sitter generate
+      - name: Run Tree Sitter Tests
+        run: tree-sitter test
