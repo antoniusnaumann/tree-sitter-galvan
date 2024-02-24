@@ -5,6 +5,7 @@ const { type_declaration } = require('./grammar/type_declaration.js');
 const { symbols } = require('./grammar/symbols.js');
 const { keywords } = require('./grammar/keywords.js');
 const { literals } = require('./grammar/literals.js');
+const { expression } = require('./grammar/expression.js');
 const { _comment, _space, _newline } = require('./grammar/space.js');
 
 // TODO: Allow symbols from other alphabets in idents
@@ -23,7 +24,7 @@ module.exports = grammar({
   rules: {
     source: $ => repeat($._toplevel),
 
-    body: $ => seq(
+    body: $ => prec(10, seq(
       $.brace_open,
       repeat(seq(
         $.statement,
@@ -31,7 +32,7 @@ module.exports = grammar({
       ),
       optional($.statement),
       $.brace_close,
-    ),
+    )),
 
     _toplevel: $ => choice(
       $.main,
@@ -92,7 +93,20 @@ module.exports = grammar({
 
     annotation: $ => "TODO: Annotation",
 
-    statement: $ => "TODO",
+    statement: $ => prec(5, choice(
+      $.assignment,
+      $.declaration,
+      $.expression,
+      // $.block,
+    )),
+    
+    assignment: $ => "TODO: Assignment",
+
+    declaration: $ => "TODO: Declaration",
+
+    ...expression,
+
+    // block: $ => $.body,
 
     ...type_declaration,
 

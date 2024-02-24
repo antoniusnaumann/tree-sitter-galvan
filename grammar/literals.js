@@ -1,5 +1,6 @@
 const literals = {
   literal: $ => choice(
+    $.none_keyword,
     $.boolean_literal,
     $.string_literal,
     $.number_literal
@@ -28,7 +29,6 @@ const literals = {
     $.true_keyword,
     $.false_keyword
   ),
-
 };
 
 module.exports = { literals };

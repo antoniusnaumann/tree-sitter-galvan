@@ -17,6 +17,8 @@ const symbols = {
   brace_open: $ => '{',
   brace_close: $ => '}',
 
+  pipe: $ => '|',
+
   // Arrows
   single_arrow: $ => token(choice("->", "→")),
   double_arrow: $ => token(choice("=>", "⇒")),

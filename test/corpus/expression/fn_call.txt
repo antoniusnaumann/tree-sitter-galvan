@@ -1,0 +1,126 @@
+=====================================
+No arguments
+=====================================
+
+main {
+  call()
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (paren_close))))
+      (brace_close))))
+
+=====================================
+Single argument
+=====================================
+
+main {
+  call(a)
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (function_call_arg
+              (expression
+                (ident)))
+            (paren_close))))
+      (brace_close))))
+
+=====================================
+Two arguments
+=====================================
+
+main {
+  add(a, b)
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (function_call_arg
+              (expression
+                (ident)))
+            (comma)
+            (function_call_arg
+              (expression
+                (ident)))
+            (paren_close))))
+      (brace_close))))
+
+=====================================
+Mutable argument
+=====================================
+
+main {
+  call(mut a)
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (function_call_arg
+              (declaration_modifier
+                (mut_keyword))
+              (expression
+                (ident)))
+            (paren_close))))
+      (brace_close))))
+
+
+=====================================
+Ref argument
+=====================================
+
+main {
+  call(ref a)
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (function_call_arg
+              (declaration_modifier
+                (ref_keyword))
+              (expression
+                (ident)))
+            (paren_close))))
+      (brace_close))))
+

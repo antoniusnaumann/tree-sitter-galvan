@@ -1,0 +1,14 @@
+=====================================
+Empty
+=====================================
+
+main {
+  // Empty
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (brace_close))))

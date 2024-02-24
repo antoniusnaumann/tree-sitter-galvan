@@ -31,6 +31,33 @@
     }
   },
   {
+    "type": "array_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bracket_close",
+          "named": true
+        },
+        {
+          "type": "bracket_open",
+          "named": true
+        },
+        {
+          "type": "comma",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "array_type",
     "named": true,
     "fields": {},
@@ -130,9 +157,144 @@
     }
   },
   {
+    "type": "closure",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "body",
+          "named": true
+        },
+        {
+          "type": "closure_argument",
+          "named": true
+        },
+        {
+          "type": "comma",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "pipe",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "closure_argument",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "colon",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "type_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "collection_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array_literal",
+          "named": true
+        },
+        {
+          "type": "dict_literal",
+          "named": true
+        },
+        {
+          "type": "ordered_dict_literal",
+          "named": true
+        },
+        {
+          "type": "set_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "comma",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "constructor_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma",
+          "named": true
+        },
+        {
+          "type": "constructor_call_arg",
+          "named": true
+        },
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
+          "named": true
+        },
+        {
+          "type": "type_ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constructor_call_arg",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "colon",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "declaration_modifier",
@@ -152,6 +314,56 @@
         },
         {
           "type": "ref_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dict_element",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "colon",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dict_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "brace_close",
+          "named": true
+        },
+        {
+          "type": "brace_open",
+          "named": true
+        },
+        {
+          "type": "colon",
+          "named": true
+        },
+        {
+          "type": "comma",
+          "named": true
+        },
+        {
+          "type": "dict_element",
           "named": true
         }
       ]
@@ -227,6 +439,61 @@
     }
   },
   {
+    "type": "expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "closure",
+          "named": true
+        },
+        {
+          "type": "collection_literal",
+          "named": true
+        },
+        {
+          "type": "constructor_call",
+          "named": true
+        },
+        {
+          "type": "else_expression",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "member_expression",
+          "named": true
+        },
+        {
+          "type": "operator_expression",
+          "named": true
+        },
+        {
+          "type": "postfix_expression",
+          "named": true
+        },
+        {
+          "type": "trailing_closure_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "fn_signature",
     "named": true,
     "fields": {},
@@ -281,6 +548,56 @@
     }
   },
   {
+    "type": "function_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma",
+          "named": true
+        },
+        {
+          "type": "function_call_arg",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_call_arg",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "declaration_modifier",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "generic_type",
     "named": true,
     "fields": {},
@@ -299,6 +616,33 @@
     "type": "ident",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        },
+        {
+          "type": "none_keyword",
+          "named": true
+        },
+        {
+          "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "main",
@@ -333,6 +677,37 @@
         },
         {
           "type": "type_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ordered_dict_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bracket_close",
+          "named": true
+        },
+        {
+          "type": "bracket_open",
+          "named": true
+        },
+        {
+          "type": "colon",
+          "named": true
+        },
+        {
+          "type": "comma",
+          "named": true
+        },
+        {
+          "type": "dict_element",
           "named": true
         }
       ]
@@ -458,6 +833,33 @@
     }
   },
   {
+    "type": "set_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "brace_close",
+          "named": true
+        },
+        {
+          "type": "brace_open",
+          "named": true
+        },
+        {
+          "type": "comma",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "set_type",
     "named": true,
     "fields": {},
@@ -510,6 +912,29 @@
         },
         {
           "type": "type_declaration",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "declaration",
+          "named": true
+        },
+        {
+          "type": "expression",
           "named": true
         }
       ]
@@ -819,6 +1244,10 @@
     "named": true
   },
   {
+    "type": "assignment",
+    "named": true
+  },
+  {
     "type": "brace_close",
     "named": true
   },
@@ -851,11 +1280,19 @@
     "named": true
   },
   {
+    "type": "declaration",
+    "named": true
+  },
+  {
     "type": "div_assign",
     "named": true
   },
   {
     "type": "divide",
+    "named": true
+  },
+  {
+    "type": "else_expression",
     "named": true
   },
   {
@@ -903,6 +1340,10 @@
     "named": true
   },
   {
+    "type": "member_expression",
+    "named": true
+  },
+  {
     "type": "minus",
     "named": true
   },
@@ -919,6 +1360,10 @@
     "named": true
   },
   {
+    "type": "none_keyword",
+    "named": true
+  },
+  {
     "type": "not_equal",
     "named": true
   },
@@ -928,6 +1373,10 @@
   },
   {
     "type": "number_literal",
+    "named": true
+  },
+  {
+    "type": "operator_expression",
     "named": true
   },
   {
@@ -943,7 +1392,15 @@
     "named": true
   },
   {
+    "type": "pipe",
+    "named": true
+  },
+  {
     "type": "plus",
+    "named": true
+  },
+  {
+    "type": "postfix_expression",
     "named": true
   },
   {
@@ -987,15 +1444,15 @@
     "named": true
   },
   {
-    "type": "statement",
-    "named": true
-  },
-  {
     "type": "sub_assign",
     "named": true
   },
   {
     "type": "test_keyword",
+    "named": true
+  },
+  {
+    "type": "trailing_closure_expression",
     "named": true
   },
   {
