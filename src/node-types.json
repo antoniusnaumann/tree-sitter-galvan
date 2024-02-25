@@ -744,10 +744,6 @@
           "named": true
         },
         {
-          "type": "group",
-          "named": true
-        },
-        {
           "type": "ident",
           "named": true
         },
@@ -888,29 +884,6 @@
       "types": [
         {
           "type": "ident",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "group",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "expression",
-          "named": true
-        },
-        {
-          "type": "paren_close",
-          "named": true
-        },
-        {
-          "type": "paren_open",
           "named": true
         }
       ]
@@ -1442,6 +1415,33 @@
     }
   },
   {
+    "type": "trailing_closure_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "body",
+          "named": true
+        },
+        {
+          "type": "comma",
+          "named": true
+        },
+        {
+          "type": "function_call_arg",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "tuple_field",
     "named": true,
     "fields": {},
@@ -1843,10 +1843,6 @@
   },
   {
     "type": "test_keyword",
-    "named": true
-  },
-  {
-    "type": "trailing_closure_expression",
     "named": true
   },
   {

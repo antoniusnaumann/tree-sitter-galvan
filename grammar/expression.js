@@ -13,7 +13,7 @@ const expression = {
     $.literal,
     $.ident,
     $.closure,
-    $.group,
+    // $.group,
   ),
 
   else_expression: $ => seq(
@@ -22,7 +22,13 @@ const expression = {
     $.body,
   ),
 
-  trailing_closure_expression: $ => "TODO: trailing closure",
+  trailing_closure_expression: $ => prec.left(expression_precedence.trailing_closure, seq(
+    $.ident,
+    optional(seq(
+      repeat(seq($.function_call_arg, $.comma)),
+      $.function_call_arg)),
+    $.body
+  )),
 
   postfix_expression: $ => prec(expression_precedence.postfix, seq(
     $.expression,

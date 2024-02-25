@@ -463,10 +463,6 @@
         {
           "type": "SYMBOL",
           "name": "closure"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "group"
         }
       ]
     },
@@ -488,8 +484,54 @@
       ]
     },
     "trailing_closure_expression": {
-      "type": "STRING",
-      "value": "TODO: trailing closure"
+      "type": "PREC_LEFT",
+      "value": -1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "ident"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "function_call_arg"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "comma"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "function_call_arg"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "body"
+          }
+        ]
+      }
     },
     "postfix_expression": {
       "type": "PREC",
@@ -978,7 +1020,7 @@
     },
     "closure": {
       "type": "PREC",
-      "value": -1,
+      "value": -2,
       "content": {
         "type": "SEQ",
         "members": [
