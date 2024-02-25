@@ -122,7 +122,18 @@
   {
     "type": "array_type",
     "named": true,
-    "fields": {},
+    "fields": {
+      "element": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_item",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -133,10 +144,6 @@
         },
         {
           "type": "bracket_open",
-          "named": true
-        },
-        {
-          "type": "type_item",
           "named": true
         }
       ]
@@ -605,7 +612,28 @@
   {
     "type": "dict_type",
     "named": true,
-    "fields": {},
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_item",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_item",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -620,10 +648,6 @@
         },
         {
           "type": "colon",
-          "named": true
-        },
-        {
-          "type": "type_item",
           "named": true
         }
       ]
@@ -1025,17 +1049,24 @@
   {
     "type": "optional_type",
     "named": true,
-    "fields": {},
+    "fields": {
+      "element": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_item",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "question_mark",
-          "named": true
-        },
-        {
-          "type": "type_item",
           "named": true
         }
       ]
@@ -1075,7 +1106,28 @@
   {
     "type": "ordered_dict_type",
     "named": true,
-    "fields": {},
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_item",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_item",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1090,10 +1142,6 @@
         },
         {
           "type": "colon",
-          "named": true
-        },
-        {
-          "type": "type_item",
           "named": true
         }
       ]
@@ -1194,17 +1242,34 @@
   {
     "type": "result_type",
     "named": true,
-    "fields": {},
+    "fields": {
+      "error": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type_item",
+            "named": true
+          }
+        ]
+      },
+      "success": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_item",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "exclamation_mark",
-          "named": true
-        },
-        {
-          "type": "type_item",
           "named": true
         }
       ]
@@ -1259,7 +1324,18 @@
   {
     "type": "set_type",
     "named": true,
-    "fields": {},
+    "fields": {
+      "element": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_item",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1270,10 +1346,6 @@
         },
         {
           "type": "brace_open",
-          "named": true
-        },
-        {
-          "type": "type_item",
           "named": true
         }
       ]

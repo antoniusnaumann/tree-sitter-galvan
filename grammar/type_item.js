@@ -14,41 +14,41 @@ const type_item = {
   ),
 
   result_type: $ => prec.left(seq(
-    $.type_item,
+    field('success', $.type_item),
     $.exclamation_mark,
-    optional($.type_item)
+    field('error', optional($.type_item))
   )),
 
   optional_type: $ => seq(
-    $.type_item,
+    field('element', $.type_item),
     $.question_mark,
   ),
 
   set_type: $ => seq(
     $.brace_open,
-    $.type_item,
+    field('element', $.type_item),
     $.brace_close,
   ),
 
   array_type: $ => seq(
     $.bracket_open,
-    $.type_item,
+    field('element', $.type_item),
     $.bracket_close
   ),
 
   dict_type: $ => seq(
     $.brace_open,
-    $.type_item,
+    field('key', $.type_item),
     $.colon,
-    $.type_item,
+    field('value', $.type_item),
     $.brace_close
   ),
 
   ordered_dict_type: $ => seq(
     $.bracket_open,
-    $.type_item,
+    field('key', $.type_item),
     $.colon,
-    $.type_item,
+    field('value', $.type_item),
     $.bracket_close
   ),
 

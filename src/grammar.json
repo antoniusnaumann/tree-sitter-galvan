@@ -1960,24 +1960,32 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "type_item"
+            "type": "FIELD",
+            "name": "success",
+            "content": {
+              "type": "SYMBOL",
+              "name": "type_item"
+            }
           },
           {
             "type": "SYMBOL",
             "name": "exclamation_mark"
           },
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "type_item"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "FIELD",
+            "name": "error",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "type_item"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
           }
         ]
       }
@@ -1986,8 +1994,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "type_item"
+          "type": "FIELD",
+          "name": "element",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_item"
+          }
         },
         {
           "type": "SYMBOL",
@@ -2003,8 +2015,12 @@
           "name": "brace_open"
         },
         {
-          "type": "SYMBOL",
-          "name": "type_item"
+          "type": "FIELD",
+          "name": "element",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_item"
+          }
         },
         {
           "type": "SYMBOL",
@@ -2020,8 +2036,12 @@
           "name": "bracket_open"
         },
         {
-          "type": "SYMBOL",
-          "name": "type_item"
+          "type": "FIELD",
+          "name": "element",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_item"
+          }
         },
         {
           "type": "SYMBOL",
@@ -2037,16 +2057,24 @@
           "name": "brace_open"
         },
         {
-          "type": "SYMBOL",
-          "name": "type_item"
+          "type": "FIELD",
+          "name": "key",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_item"
+          }
         },
         {
           "type": "SYMBOL",
           "name": "colon"
         },
         {
-          "type": "SYMBOL",
-          "name": "type_item"
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_item"
+          }
         },
         {
           "type": "SYMBOL",
@@ -2062,16 +2090,24 @@
           "name": "bracket_open"
         },
         {
-          "type": "SYMBOL",
-          "name": "type_item"
+          "type": "FIELD",
+          "name": "key",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_item"
+          }
         },
         {
           "type": "SYMBOL",
           "name": "colon"
         },
         {
-          "type": "SYMBOL",
-          "name": "type_item"
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_item"
+          }
         },
         {
           "type": "SYMBOL",
