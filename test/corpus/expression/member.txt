@@ -1,0 +1,107 @@
+=====================================
+Member field access
+=====================================
+
+main {
+  member.field
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (member_expression
+            (expression
+              (ident))
+            (member_access_operator
+              (member_call_operator))
+            (expression
+              (ident)))))
+      (brace_close))))
+
+=====================================
+Chained member field access
+=====================================
+
+main {
+  member.field.other_field
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (member_expression
+            (expression
+              (member_expression
+                (expression
+                  (ident))
+                (member_access_operator
+                  (member_call_operator))
+                (expression
+                  (ident))))
+            (member_access_operator
+              (member_call_operator))
+            (expression
+              (ident)))))
+      (brace_close))))
+
+=====================================
+Member function call
+=====================================
+
+main {
+  member.call()
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (member_expression
+            (expression
+              (ident))
+            (member_access_operator
+              (member_call_operator))
+            (expression
+              (function_call
+                (ident)
+                (paren_open)
+                (paren_close))))))
+      (brace_close))))
+
+=====================================
+Safe member function call
+=====================================
+
+main {
+  member?.call()
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (member_expression
+            (expression
+              (ident))
+            (member_access_operator
+              (safe_call_operator))
+            (expression
+              (function_call
+                (ident)
+                (paren_open)
+                (paren_close))))))
+      (brace_close))))
