@@ -101,9 +101,18 @@ module.exports = grammar({
       // $.block,
     )),
     
-    assignment: $ => "TODO: Assignment",
+    assignment: $ => seq(
+      $.expression,
+      $._assignment_operator,
+      $.expression,
+    ),
 
-    declaration: $ => "TODO: Declaration",
+    declaration: $ => seq(
+      $.declaration_modifier,
+      $.ident,
+      optional(seq($.colon, $.type_item)),
+      optional(seq($.assign, $.expression)),
+    ),
 
     ...expression,
 

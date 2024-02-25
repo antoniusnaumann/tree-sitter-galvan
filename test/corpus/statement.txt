@@ -1,0 +1,138 @@
+=====================================
+Declaration with Assignment
+=====================================
+
+main {
+  mut result = call()
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (declaration
+          (declaration_modifier
+            (mut_keyword))
+          (ident)
+          (assign)
+          (expression
+            (function_call
+              (ident)
+              (paren_open)
+              (paren_close)))))
+      (brace_close))))
+
+=====================================
+Typed Declaration with Assignment
+=====================================
+
+main {
+  mut result: Result = call()
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (declaration
+          (declaration_modifier
+            (mut_keyword))
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident)))
+          (assign)
+          (expression
+            (function_call
+              (ident)
+              (paren_open)
+              (paren_close)))))
+      (brace_close))))
+
+=====================================
+Typed Declaration without Assignment
+=====================================
+
+main {
+  mut result: Result
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (declaration
+          (declaration_modifier
+            (mut_keyword))
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident)))))
+      (brace_close))))
+
+=====================================
+Assignment
+=====================================
+
+main {
+  result = 5 + 3
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (assignment
+          (expression
+            (ident))
+          (assign)
+          (expression
+            (arithmetic_expression
+              (expression
+                (literal
+                  (number_literal)))
+              (plus)
+              (expression
+                (literal
+                  (number_literal)))))))
+      (brace_close))))
+
+=====================================
+Add Assignment
+=====================================
+
+main {
+  result += 5 * 3
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (assignment
+          (expression
+            (ident))
+          (add_assign)
+          (expression
+            (arithmetic_expression
+              (expression
+                (literal
+                  (number_literal)))
+              (multiply)
+              (expression
+                (literal
+                  (number_literal)))))))
+      (brace_close))))
+

@@ -143,6 +143,49 @@
     }
   },
   {
+    "type": "assignment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "add_assign",
+          "named": true
+        },
+        {
+          "type": "assign",
+          "named": true
+        },
+        {
+          "type": "div_assign",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "mul_assign",
+          "named": true
+        },
+        {
+          "type": "pow_assign",
+          "named": true
+        },
+        {
+          "type": "rem_assign",
+          "named": true
+        },
+        {
+          "type": "sub_assign",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "basic_type",
     "named": true,
     "fields": {},
@@ -446,6 +489,41 @@
         },
         {
           "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "assign",
+          "named": true
+        },
+        {
+          "type": "colon",
+          "named": true
+        },
+        {
+          "type": "declaration_modifier",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "type_item",
           "named": true
         }
       ]
@@ -1576,10 +1654,6 @@
     "named": true
   },
   {
-    "type": "assignment",
-    "named": true
-  },
-  {
     "type": "brace_close",
     "named": true
   },
@@ -1613,10 +1687,6 @@
   },
   {
     "type": "custom_infix_operator",
-    "named": true
-  },
-  {
-    "type": "declaration",
     "named": true
   },
   {

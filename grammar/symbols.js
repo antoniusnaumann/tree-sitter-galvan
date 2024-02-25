@@ -33,7 +33,7 @@ const symbols = {
   power: $ => '^',
 
   // Assignment
-  assignment_operator: $ => choice(
+  _assignment_operator: $ => choice(
     $.assign,
     $.add_assign,
     $.sub_assign,

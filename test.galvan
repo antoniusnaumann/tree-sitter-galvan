@@ -1,4 +1,9 @@
 main {
-    5 + 7 * 4 == 28
-    5 * 7 + 4
+    let dog = Dog(name: "bello")
+
+    dog.wuff()
+}
+
+fn wuff(self: Dog) {
+    print("wuff!")
 }
