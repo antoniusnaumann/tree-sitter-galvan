@@ -22,7 +22,7 @@ main {
                   (paren_open)
                   (paren_close)))
               (postfix_operator
-                (exclamation_mark)))))
+                (yeet_operator)))))
       (brace_close))))
 
 =====================================
@@ -53,4 +53,3 @@ main {
                       (number_literal)))
                   (bracket_close))))))
       (brace_close))))
-

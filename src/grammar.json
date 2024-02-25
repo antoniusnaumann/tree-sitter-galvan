@@ -436,30 +436,38 @@
       "value": "TODO: operator expression"
     },
     "postfix_expression": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "postfix_operator"
-        }
-      ]
+      "type": "PREC",
+      "value": 40,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "postfix_operator"
+          }
+        ]
+      }
     },
     "postfix_operator": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "exclamation_mark"
+          "name": "yeet_operator"
         },
         {
           "type": "SYMBOL",
           "name": "access_operator"
         }
       ]
+    },
+    "yeet_operator": {
+      "type": "STRING",
+      "value": "!"
     },
     "access_operator": {
       "type": "SEQ",
@@ -479,8 +487,49 @@
       ]
     },
     "member_expression": {
+      "type": "PREC_LEFT",
+      "value": 30,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "member_access_operator"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        ]
+      }
+    },
+    "member_access_operator": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "member_call_operator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "safe_call_operator"
+        }
+      ]
+    },
+    "member_call_operator": {
       "type": "STRING",
-      "value": "TODO: member expression"
+      "value": "."
+    },
+    "safe_call_operator": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "?."
+      }
     },
     "collection_literal": {
       "type": "CHOICE",

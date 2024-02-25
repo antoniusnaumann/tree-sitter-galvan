@@ -27,23 +27,36 @@ const expression = {
 
   operator_expression: $ => "TODO: operator expression",
 
-  postfix_expression: $ => seq(
+  postfix_expression: $ => prec(expression_precedence.postfix, seq(
     $.expression,
     $.postfix_operator,
-  ),
+  )),
 
   postfix_operator: $ => choice(
-    $.exclamation_mark, 
+    $.yeet_operator, 
     $.access_operator,
   ),
 
+  yeet_operator: $ => "!",
   access_operator: $ => seq(
     $.bracket_open,
     $.expression,
     $.bracket_close,
   ),
 
-  member_expression: $ => "TODO: member expression",
+  member_expression: $ => prec.left(expression_precedence.member, seq(
+    $.expression,
+    $.member_access_operator,
+    $.expression,
+  )),
+
+  member_access_operator: $ => choice(
+    $.member_call_operator,
+    $.safe_call_operator,
+  ),
+
+  member_call_operator: $ => ".",
+  safe_call_operator: $ => token("?."),
 
   collection_literal: $ => choice(
     $.array_literal,

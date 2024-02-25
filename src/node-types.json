@@ -485,6 +485,11 @@
     }
   },
   {
+    "type": "exclamation_mark",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "expression",
     "named": true,
     "fields": {},
@@ -737,6 +742,49 @@
     }
   },
   {
+    "type": "member_access_operator",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "member_call_operator",
+          "named": true
+        },
+        {
+          "type": "safe_call_operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "member_call_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "member_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "member_access_operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "optional_type",
     "named": true,
     "fields": {},
@@ -899,7 +947,7 @@
           "named": true
         },
         {
-          "type": "exclamation_mark",
+          "type": "yeet_operator",
           "named": true
         }
       ]
@@ -1331,11 +1379,24 @@
     }
   },
   {
+    "type": "yeet_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
     "type": "\"",
     "named": false
   },
   {
     "type": ",",
+    "named": false
+  },
+  {
+    "type": ".",
     "named": false
   },
   {
@@ -1411,10 +1472,6 @@
     "named": true
   },
   {
-    "type": "exclamation_mark",
-    "named": true
-  },
-  {
     "type": "false_keyword",
     "named": true
   },
@@ -1448,10 +1505,6 @@
   },
   {
     "type": "main_keyword",
-    "named": true
-  },
-  {
-    "type": "member_expression",
     "named": true
   },
   {
@@ -1544,6 +1597,10 @@
   },
   {
     "type": "remove",
+    "named": true
+  },
+  {
+    "type": "safe_call_operator",
     "named": true
   },
   {

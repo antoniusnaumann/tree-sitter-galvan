@@ -1,5 +1,7 @@
 const expression_precedence = {
   closure: 50,
+  postfix: 40,
+  member: 30,
 };
 
 const operator_precedence = {

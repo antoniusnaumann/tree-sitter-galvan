@@ -49,4 +49,31 @@ main {
               (brace_close)))))
       (brace_close))))
 
+=====================================
+Yeet after else
+=====================================
+
+main {
+  a else { }!
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (postfix_expression
+            (expression
+              (else_expression
+                (expression
+                  (ident))
+                (else_keyword)
+                (body
+                  (brace_open)
+                  (brace_close))))
+            (postfix_operator
+              (yeet_operator)))))
+      (brace_close))))
 
