@@ -53,3 +53,38 @@ main {
                       (number_literal)))
                   (bracket_close))))))
       (brace_close))))
+
+=====================================
+Access operator on member field
+=====================================
+
+main {
+  a.b[5]
+}
+
+---
+
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+        (statement
+          (expression
+            (postfix_expression
+              (expression
+                (member_expression
+                  (expression
+                    (ident))
+                  (member_call_operator)
+                  (expression
+                    (ident))))
+              (postfix_operator
+                (access_operator
+                  (bracket_open)
+                  (expression
+                    (literal
+                      (number_literal)))
+                  (bracket_close))))))
+      (brace_close))))
+

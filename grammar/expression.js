@@ -13,7 +13,7 @@ const expression = {
     $.literal,
     $.ident,
     $.closure,
-    // $.group,
+    $.group,
   ),
 
   else_expression: $ => seq(
@@ -128,11 +128,11 @@ const expression = {
     optional(seq($.colon, $.type_item)),
   ),
 
-  group: $ => seq(
+  group: $ => prec(expression_precedence.group, seq(
     $.paren_open,
     $.expression,
     $.paren_close,
-  ),
+  )),
 };
 
 module.exports = { expression };

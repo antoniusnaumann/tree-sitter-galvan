@@ -463,6 +463,10 @@
         {
           "type": "SYMBOL",
           "name": "closure"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "group"
         }
       ]
     },
@@ -485,7 +489,7 @@
     },
     "trailing_closure_expression": {
       "type": "PREC_LEFT",
-      "value": -1,
+      "value": -2,
       "content": {
         "type": "SEQ",
         "members": [
@@ -1020,7 +1024,7 @@
     },
     "closure": {
       "type": "PREC",
-      "value": -2,
+      "value": -3,
       "content": {
         "type": "SEQ",
         "members": [
@@ -1124,21 +1128,25 @@
       ]
     },
     "group": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "paren_open"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "paren_close"
-        }
-      ]
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "paren_open"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "paren_close"
+          }
+        ]
+      }
     },
     "_infix_expression": {
       "type": "CHOICE",
