@@ -24,18 +24,6 @@ const symbols = {
   double_arrow: $ => token(choice("=>", "⇒")),
 
   // Operators
-  // custom_infix
-
-  // Arithmetic
-  arithmetic_operator: $ => choice(
-    $.plus,
-    $.minus,
-    $.multiply,
-    $.divide,
-    $.remainder,
-    $.power
-  ),
-
   // Individual arithmetic operator rules as named rules
   plus: $ => '+',
   minus: $ => '-',
@@ -64,7 +52,7 @@ const symbols = {
   rem_assign: $ => '%=',
 
   // Comparison
-  comparison_operator: $ => choice(
+  _comparison_operator: $ => choice(
     $.equal,
     $.not_equal,
     $.greater,
@@ -84,18 +72,10 @@ const symbols = {
   identical: $ => token(choice('===', '≡')),
   not_identical: $ => token(choice('!==', '≢')),
 
-  logical_infix_operator: $ => choice($.and, $.or, $.xor),
-
   and: $ => token(choice('and', '&&')),
   or: $ => token(choice('or', '||')),
   xor: $ => token(choice('xor', '^^')),
   not: $ => token(choice('not', '!')),
-
-  collection_operator: $ => choice(
-    $.concat,
-    $.remove,
-    $.contains
-  ),
 
   concat: $ => '++',
   remove: $ => '--',

@@ -16,8 +16,7 @@ main {
           (member_expression
             (expression
               (ident))
-            (member_access_operator
-              (member_call_operator))
+            (member_call_operator)
             (expression
               (ident)))))
       (brace_close))))
@@ -42,12 +41,10 @@ main {
               (member_expression
                 (expression
                   (ident))
-                (member_access_operator
-                  (member_call_operator))
+                (member_call_operator)
                 (expression
                   (ident))))
-            (member_access_operator
-              (member_call_operator))
+            (member_call_operator)
             (expression
               (ident)))))
       (brace_close))))
@@ -70,8 +67,7 @@ main {
           (member_expression
             (expression
               (ident))
-            (member_access_operator
-              (member_call_operator))
+            (member_call_operator)
             (expression
               (function_call
                 (ident)
@@ -97,11 +93,68 @@ main {
           (member_expression
             (expression
               (ident))
-            (member_access_operator
-              (safe_call_operator))
+            (safe_call_operator)
             (expression
               (function_call
                 (ident)
                 (paren_open)
                 (paren_close))))))
       (brace_close))))
+
+=====================================
+As second arithmetic operand
+=====================================
+
+main {
+  a + member.field
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (arithmetic_expression
+            (expression
+              (ident))
+            (plus)
+            (expression
+              (member_expression
+                (expression
+                  (ident))
+                (member_call_operator)
+                (expression
+                  (ident)))))))
+      (brace_close))))
+
+=====================================
+As first arithmetic operand
+=====================================
+
+main {
+  member.field + a
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (arithmetic_expression
+            (expression
+              (member_expression
+                (expression
+                  (ident))
+                (member_call_operator)
+                (expression
+                  (ident))))
+            (plus)
+            (expression
+              (ident)))))
+      (brace_close))))
+
+

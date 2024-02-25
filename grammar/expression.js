@@ -5,9 +5,8 @@ const expression = {
   expression: $ => choice(
     $.else_expression,
     $.trailing_closure_expression,
-    $.operator_expression,
+    $._infix_expression,
     $.postfix_expression,
-    $.member_expression,
     $.collection_literal,
     $.function_call,
     $.constructor_call,
@@ -25,8 +24,6 @@ const expression = {
 
   trailing_closure_expression: $ => "TODO: trailing closure",
 
-  operator_expression: $ => "TODO: operator expression",
-
   postfix_expression: $ => prec(expression_precedence.postfix, seq(
     $.expression,
     $.postfix_operator,
@@ -43,20 +40,6 @@ const expression = {
     $.expression,
     $.bracket_close,
   ),
-
-  member_expression: $ => prec.left(expression_precedence.member, seq(
-    $.expression,
-    $.member_access_operator,
-    $.expression,
-  )),
-
-  member_access_operator: $ => choice(
-    $.member_call_operator,
-    $.safe_call_operator,
-  ),
-
-  member_call_operator: $ => ".",
-  safe_call_operator: $ => token("?."),
 
   collection_literal: $ => choice(
     $.array_literal,

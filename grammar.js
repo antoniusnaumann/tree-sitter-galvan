@@ -6,6 +6,7 @@ const { symbols } = require('./grammar/symbols.js');
 const { keywords } = require('./grammar/keywords.js');
 const { literals } = require('./grammar/literals.js');
 const { expression } = require('./grammar/expression.js');
+const { infix } = require('./grammar/infix.js');
 const { _comment, _space, _newline } = require('./grammar/space.js');
 
 // TODO: Allow symbols from other alphabets in idents
@@ -106,6 +107,7 @@ module.exports = grammar({
 
     ...expression,
 
+    ...infix,
     // block: $ => $.body,
 
     ...type_declaration,

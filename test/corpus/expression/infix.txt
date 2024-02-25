@@ -1,0 +1,73 @@
+=====================================
+Arithmetic expression order
+=====================================
+
+main {
+  a + b * c
+}
+
+---
+
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+        (statement
+          (expression
+            (arithmetic_expression
+              (expression
+                (ident))
+              (plus)
+              (expression
+                (arithmetic_expression
+                  (expression
+                    (ident))
+                  (multiply)
+                  (expression
+                    (ident)))))))
+      (brace_close))))
+
+=====================================
+Comparison expression order
+=====================================
+
+main {
+  a + b * c < 5 - 7
+}
+
+---
+
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+        (statement
+          (expression
+            (comparison_expression
+              (expression
+                (arithmetic_expression
+                  (expression
+                    (ident))
+                  (plus)
+                  (expression
+                    (arithmetic_expression
+                      (expression
+                        (ident))
+                      (multiply)
+                      (expression
+                        (ident))))))
+            (less)
+            (expression
+              (arithmetic_expression
+                (expression
+                  (literal
+                    (number_literal)))
+                (minus)
+                (expression
+                  (literal
+                    (number_literal))))))))
+      (brace_close))))
+
+
