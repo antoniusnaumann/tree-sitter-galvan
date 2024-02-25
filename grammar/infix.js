@@ -52,9 +52,9 @@ const infix = {
 
 function operation($, precedence, operator) {
   return prec.left(precedence, seq(
-    $.expression,
-    operator,
-    $.expression,
+    field('lhs', $.expression),
+    field('operator', operator),
+    field('rhs', $.expression),
   ));
 }
 

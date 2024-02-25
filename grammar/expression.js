@@ -17,9 +17,9 @@ const expression = {
   ),
 
   else_expression: $ => seq(
-    $.expression,
+    field('receiver', $.expression),
     $.else_keyword,
-    $.body,
+    field('body', $.body),
   ),
 
   trailing_closure_expression: $ => prec.left(expression_precedence.trailing_closure, seq(
@@ -48,7 +48,7 @@ const expression = {
   yeet_operator: $ => "!",
   access_operator: $ => seq(
     $.bracket_open,
-    $.expression,
+    field('key', $.expression),
     $.bracket_close,
   ),
 
@@ -91,9 +91,9 @@ const expression = {
   ),
 
   dict_element: $ => seq(
-    $.expression,
+    field('key', $.expression),
     $.colon,
-    $.expression,
+    field('value', $.expression),
   ),
 
   function_call: $ => seq(
@@ -116,16 +116,16 @@ const expression = {
   ),
 
   constructor_call_arg: $ => seq(
-    $.ident,
+    field('field', $.ident),
     $.colon,
-    $.expression,
+    field('value', $.expression),
   ),
 
   closure: $ => prec(expression_precedence.closure, seq(
     $.pipe,
     separatedTrailing($, $.closure_argument, $.comma),
     $.pipe,
-    choice($.expression, $.body),
+    field('body', choice($.expression, $.body)),
   )),
 
   closure_argument: $ => seq(
