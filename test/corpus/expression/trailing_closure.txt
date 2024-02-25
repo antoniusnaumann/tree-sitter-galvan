@@ -1,0 +1,186 @@
+=====================================
+Empty
+=====================================
+
+main {
+  a { }
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (trailing_closure_expression
+            (ident)
+            (body
+              (brace_open)
+              (brace_close)))))
+      (brace_close))))
+
+=====================================
+Set after identifier
+=====================================
+
+// Test this as it could be confused for a trailing closure
+main {
+  a
+  { }
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (ident)))
+      (statement
+        (expression
+          (collection_literal
+            (set_literal
+              (brace_open)
+              (brace_close)))))
+      (brace_close))))
+
+=====================================
+Single argument
+=====================================
+
+main {
+  repeat 5 { print(3) }
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (trailing_closure_expression
+            (ident)
+            (function_call_arg
+              (expression
+                (literal
+                  (number_literal))))
+            (body
+              (brace_open)
+                (statement
+                  (expression
+                    (function_call
+                      (ident)
+                      (paren_open)
+                      (function_call_arg
+                        (expression
+                          (literal
+                            (number_literal))))
+                      (paren_close))))
+              (brace_close)))))
+      (brace_close))))
+
+=====================================
+Closure argument
+=====================================
+
+main {
+  try something |unwrapped| { print(unwrapped) }
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (trailing_closure_expression
+            (ident)
+            (function_call_arg
+              (expression
+                (ident)))
+            (pipe)
+            (closure_argument
+              (ident))
+            (pipe)
+            (body
+              (brace_open)
+                (statement
+                  (expression
+                    (function_call
+                      (ident)
+                      (paren_open)
+                      (function_call_arg
+                        (expression
+                          (ident)))
+                      (paren_close))))
+              (brace_close)))))
+      (brace_close))))
+
+=====================================
+If-Else
+=====================================
+
+main {
+  if 5 == 5 { 
+    print("Yay")
+  } else {
+    print("Nay")
+  }
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (else_expression
+            (expression
+              (trailing_closure_expression
+                (ident)
+                (function_call_arg
+                  (expression
+                    (comparison_expression
+                      (expression
+                        (literal
+                          (number_literal)))
+                      (equal)
+                      (expression
+                        (literal
+                          (number_literal))))))
+                (body
+                  (brace_open)
+                    (statement
+                      (expression
+                        (function_call
+                          (ident)
+                          (paren_open)
+                          (function_call_arg
+                            (expression
+                              (literal
+                                (string_literal))))
+                          (paren_close))))
+                  (brace_close))))
+            (else_keyword)
+            (body
+              (brace_open)
+              (statement
+                (expression
+                  (function_call
+                    (ident)
+                    (paren_open)
+                    (function_call_arg
+                      (expression
+                        (literal
+                          (string_literal))))
+                    (paren_close))))
+              (brace_close)))))
+      (brace_close))))
+
+
+

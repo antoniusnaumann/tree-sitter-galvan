@@ -1454,6 +1454,10 @@
           "named": true
         },
         {
+          "type": "closure_argument",
+          "named": true
+        },
+        {
           "type": "comma",
           "named": true
         },
@@ -1463,6 +1467,10 @@
         },
         {
           "type": "ident",
+          "named": true
+        },
+        {
+          "type": "pipe",
           "named": true
         }
       ]

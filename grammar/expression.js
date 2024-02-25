@@ -27,7 +27,12 @@ const expression = {
     optional(seq(
       repeat(seq($.function_call_arg, $.comma)),
       $.function_call_arg)),
-    $.body
+    optional(seq(
+      $.pipe,
+      separatedTrailing1($, $.closure_argument, $.comma),
+      $.pipe,
+    )),
+    $.body,
   )),
 
   postfix_expression: $ => prec(expression_precedence.postfix, seq(
@@ -36,7 +41,7 @@ const expression = {
   )),
 
   postfix_operator: $ => choice(
-    $.yeet_operator, 
+    $.yeet_operator,
     $.access_operator,
   ),
 
@@ -71,7 +76,7 @@ const expression = {
     $.bracket_open,
     choice(
       $.colon,
-      separatedTrailing1($, $.dict_element, $.comma), 
+      separatedTrailing1($, $.dict_element, $.comma),
     ),
     $.bracket_close,
   ),
@@ -80,7 +85,7 @@ const expression = {
     $.brace_open,
     choice(
       $.colon,
-      separatedTrailing1($, $.dict_element, $.comma), 
+      separatedTrailing1($, $.dict_element, $.comma),
     ),
     $.brace_close,
   ),
