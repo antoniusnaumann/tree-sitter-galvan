@@ -24,9 +24,7 @@ const expression = {
 
   trailing_closure_expression: $ => prec.left(expression_precedence.trailing_closure, seq(
     $.ident,
-    optional(seq(
-      repeat(seq($.function_call_arg, $.comma)),
-      $.function_call_arg)),
+    optional(field('arguments', $._trailing_argument_list)),
     optional(seq(
       $.pipe,
       separatedTrailing1($, $.closure_argument, $.comma),
@@ -34,6 +32,11 @@ const expression = {
     )),
     $.body,
   )),
+
+  _trailing_argument_list: $ => seq(
+    repeat(seq($.function_call_arg, $.comma)),
+    $.function_call_arg,
+  ),
 
   postfix_expression: $ => prec(expression_precedence.postfix, seq(
     $.expression,

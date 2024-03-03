@@ -98,9 +98,10 @@ module.exports = grammar({
       $.assignment,
       $.declaration,
       $.expression,
+      $.free_function,
       // $.block,
     )),
-    
+
     assignment: $ => seq(
       $.expression,
       $._assignment_operator,
@@ -112,6 +113,11 @@ module.exports = grammar({
       $.ident,
       optional(seq($.colon, $.type_item)),
       optional(seq($.assign, $.expression)),
+    ),
+
+    free_function: $ => seq(
+      $.ident,
+      field("arguments", $._trailing_argument_list),
     ),
 
     ...expression,

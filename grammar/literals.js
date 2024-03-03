@@ -20,8 +20,13 @@ const literals = {
       seq(/[1-9]/, repeat(/\d/))
     ),
     optional(choice(
-      seq('.', repeat1(/\d/), optional(seq('_', choice('f32', 'f64')))), // Directly integrating float_suffix
-      seq('_', choice('u8', 'u16', 'u32', 'u64', 'u128', 'i8', 'i16', 'i32', 'i64', 'i128', 'isize', 'usize')) // Directly integrating integer_suffix
+      seq('.', repeat1(/\d/), 
+        optional(seq(
+          optional('_'), 
+          choice('f32', 'f64')))), 
+      seq(
+        optional('_'), 
+        choice('u8', 'u16', 'u32', 'u64', 'u128', 'i8', 'i16', 'i32', 'i64', 'i128', 'isize', 'usize')) 
     ))
   )),
 
