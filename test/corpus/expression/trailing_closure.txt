@@ -26,7 +26,7 @@ Set after identifier
 
 // Test this as it could be confused for a trailing closure
 main {
-  a
+  a;
   { }
 }
 ---
@@ -125,7 +125,7 @@ If-Else
 =====================================
 
 main {
-  if 5 == 5 { 
+  if 5 == 5 {
     print("Yay")
   } else {
     print("Nay")

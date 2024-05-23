@@ -1,5 +1,5 @@
 ====================
-Empty 
+Empty
 ====================
 
 type Empty
@@ -78,7 +78,7 @@ type EmptyStruct {}
       (brace_close))))
 
 ====================
-Public 
+Public
 ====================
 
 pub type EmptyStruct {}
@@ -96,7 +96,7 @@ pub type EmptyStruct {}
       (brace_close))))
 
 ====================
-Comma-separated 
+Comma-separated
 ====================
 
 type EmptyStruct { a: Int, b: String }
@@ -124,12 +124,12 @@ type EmptyStruct { a: Int, b: String }
       (brace_close))))
 
 ====================
-Newline-separated 
+Newline-separated
 ====================
 
-type EmptyStruct { 
-  a: Int
-  b: String 
+type EmptyStruct {
+  a: Int,
+  b: String
 }
 
 ---
@@ -158,9 +158,9 @@ type EmptyStruct {
 Complex fields
 ====================
 
-type ComplexFields { 
-  a: Int!
-  b: { String : [Float?] } 
+type ComplexFields {
+  a: Int!,
+  b: { String : [Float?] }
 }
 
 ---
@@ -193,7 +193,7 @@ type ComplexFields {
             (type_item
               (array_type
                 (bracket_open)
-                (type_item 
+                (type_item
                   (optional_type
                     (type_item
                       (basic_type
@@ -208,7 +208,7 @@ Ref field
 ====================
 
 type Cat {
-  name: String
+  name: String,
   ref servant: Human
 }
 
@@ -241,7 +241,7 @@ Mut field
 ====================
 
 type Cat {
-  name: String
+  name: String,
   // Note: This is not allowed - but the parser should allow it so that we can emit an error here
   mut servant: Human
 }

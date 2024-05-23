@@ -29,20 +29,8 @@
                   "name": "statement"
                 },
                 {
-                  "type": "REPEAT1",
-                  "content": {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "_newline"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "_semicolon"
-                      }
-                    ]
-                  }
+                  "type": "SYMBOL",
+                  "name": "_semicolon"
                 }
               ]
             }
@@ -1857,7 +1845,7 @@
     },
     "custom_infix_operator": {
       "type": "STRING",
-      "value": "TODO: Rule for custom infix"
+      "value": "$$$"
     },
     "type_declaration": {
       "type": "CHOICE",
@@ -1932,20 +1920,8 @@
                     "type": "SEQ",
                     "members": [
                       {
-                        "type": "REPEAT1",
-                        "content": {
-                          "type": "CHOICE",
-                          "members": [
-                            {
-                              "type": "STRING",
-                              "value": ","
-                            },
-                            {
-                              "type": "SYMBOL",
-                              "name": "_newline"
-                            }
-                          ]
-                        }
+                        "type": "STRING",
+                        "value": ","
                       },
                       {
                         "type": "SYMBOL",
@@ -1958,20 +1934,8 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "REPEAT1",
-                      "content": {
-                        "type": "CHOICE",
-                        "members": [
-                          {
-                            "type": "STRING",
-                            "value": ","
-                          },
-                          {
-                            "type": "SYMBOL",
-                            "name": "_newline"
-                          }
-                        ]
-                      }
+                      "type": "STRING",
+                      "value": ","
                     },
                     {
                       "type": "BLANK"
@@ -2076,20 +2040,8 @@
                     "type": "SEQ",
                     "members": [
                       {
-                        "type": "REPEAT1",
-                        "content": {
-                          "type": "CHOICE",
-                          "members": [
-                            {
-                              "type": "STRING",
-                              "value": ","
-                            },
-                            {
-                              "type": "SYMBOL",
-                              "name": "_newline"
-                            }
-                          ]
-                        }
+                        "type": "STRING",
+                        "value": ","
                       },
                       {
                         "type": "SYMBOL",
@@ -2102,20 +2054,8 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "REPEAT1",
-                      "content": {
-                        "type": "CHOICE",
-                        "members": [
-                          {
-                            "type": "STRING",
-                            "value": ","
-                          },
-                          {
-                            "type": "SYMBOL",
-                            "name": "_newline"
-                          }
-                        ]
-                      }
+                      "type": "STRING",
+                      "value": ","
                     },
                     {
                       "type": "BLANK"
@@ -3258,6 +3198,10 @@
     {
       "type": "SYMBOL",
       "name": "_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_newline"
     },
     {
       "type": "PATTERN",

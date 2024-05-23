@@ -29,7 +29,7 @@ Typed Declaration with Assignment
 =====================================
 
 main {
-  mut result: Result = call()
+  mut result: Result = call();
 }
 ---
 (source
@@ -112,7 +112,7 @@ Add Assignment
 =====================================
 
 main {
-  result += 5 * 3
+  result += 5 * 3;
 }
 ---
 (source

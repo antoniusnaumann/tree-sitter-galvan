@@ -76,6 +76,77 @@ main {
       (brace_close))))
 
 =====================================
+Chained Member function call
+=====================================
+
+main {
+  member.call().other_call()
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (member_expression
+            (expression
+              (member_expression
+                (expression
+                  (ident))
+                (member_call_operator)
+                  (expression
+                    (function_call
+                      (ident)
+                      (paren_open)
+                      (paren_close)))))
+
+                (member_call_operator)
+                (expression
+                  (function_call
+                    (ident)
+                    (paren_open)
+                    (paren_close))))))
+      (brace_close))))
+
+=====================================
+Chained function call with newline
+=====================================
+
+main {
+  member.call().other_call()
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (member_expression
+            (expression
+              (member_expression
+                (expression
+                  (ident))
+                (member_call_operator)
+                  (expression
+                    (function_call
+                      (ident)
+                      (paren_open)
+                      (paren_close)))))
+
+                (member_call_operator)
+                (expression
+                  (function_call
+                    (ident)
+                    (paren_open)
+                    (paren_close))))))
+      (brace_close))))
+
+
+=====================================
 Safe member function call
 =====================================
 

@@ -17,6 +17,7 @@ module.exports = grammar({
   name: 'Galvan',
   extras: $ => [
     $._comment,
+    $._newline,
     /\s+/
   ],
 
@@ -29,7 +30,8 @@ module.exports = grammar({
       $.brace_open,
       repeat(seq(
         $.statement,
-        repeat1(choice($._newline, $._semicolon)))
+        $._semicolon)
+        // repeat1(choice($._newline, $._semicolon)))
       ),
       optional($.statement),
       $.brace_close,
@@ -41,7 +43,7 @@ module.exports = grammar({
       $.test,
       $.function,
       $.type_declaration,
-      $.entry_point
+      $.entry_point,
     ),
 
     main: $ => seq(

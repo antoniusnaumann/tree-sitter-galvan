@@ -46,8 +46,7 @@ const infix = {
   comparison_expression: $ => operation($, precedence.comparison, $._comparison_operator),
 
   custom_infix_expression: $ => operation($, precedence.custom, $.custom_infix_operator),
-  custom_infix_operator: $ => "TODO: Rule for custom infix",
-
+  custom_infix_operator: $ => "$$$",
 };
 
 function operation($, precedence, operator) {

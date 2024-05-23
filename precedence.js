@@ -5,6 +5,7 @@ const expression_precedence = {
   infix: 2,
   postfix: 3,
   member: 4,
+  statement: 10,
 };
 
 const infix_precedence = {
