@@ -23,6 +23,8 @@ module.exports = grammar({
 
   word: $ => $._word,
 
+  externals: $ => $._autosemi,
+
   rules: {
     source: $ => repeat($._toplevel),
 
@@ -30,7 +32,7 @@ module.exports = grammar({
       $.brace_open,
       repeat(seq(
         $.statement,
-        $._semicolon)
+        $._semi)
         // repeat1(choice($._newline, $._semicolon)))
       ),
       optional($.statement),
@@ -141,6 +143,7 @@ module.exports = grammar({
     _word: $ => /[A-Za-z0-9_]*/,
     ident: $ => $._ident,
     type_ident: $ => $._type_ident,
+    _semi: $ => choice($._semicolon, $._autosemi),
 
     // _word: $ => token(choice($.type_ident, $.ident)),
 
