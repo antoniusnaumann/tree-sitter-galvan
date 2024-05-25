@@ -30,7 +30,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_semicolon"
+                  "name": "_semi"
                 }
               ]
             }
@@ -3134,6 +3134,19 @@
       "type": "SYMBOL",
       "name": "_type_ident"
     },
+    "_semi": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_semicolon"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_autosemi"
+        }
+      ]
+    },
     "_newline": {
       "type": "TOKEN",
       "content": {
@@ -3210,7 +3223,12 @@
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "_autosemi"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }
