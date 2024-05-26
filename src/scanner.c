@@ -56,11 +56,11 @@ bool tree_sitter_Galvan_external_scanner_scan(void *payload, TSLexer *lexer,
   if ((lexer->lookahead >= 'a' && lexer->lookahead <= 'z') ||
       (lexer->lookahead >= 'A' && lexer->lookahead <= 'Z') ||
       (lexer->lookahead == '_') || (lexer->lookahead == '[') ||
-      (lexer->lookahead == '{') || (lexer->lookahead == '(')) {
+      (lexer->lookahead == '{') || (lexer->lookahead == '(') || (lexer->lookahead == '\'') || (lexer->lookahead == '"')) {
 
-    lexer->result_symbol = AUTOSEMI;
-    return true;
-  }
+      lexer->result_symbol = AUTOSEMI;
+      return true;
+    }
 
   return false;
 }
