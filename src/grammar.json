@@ -29,8 +29,11 @@
                   "name": "statement"
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "_semi"
+                  "type": "REPEAT1",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_semi"
+                  }
                 }
               ]
             }

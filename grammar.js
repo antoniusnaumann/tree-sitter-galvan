@@ -32,7 +32,7 @@ module.exports = grammar({
       $.brace_open,
       repeat(seq(
         $.statement,
-        $._semi)
+        repeat1($._semi))
         // repeat1(choice($._newline, $._semicolon)))
       ),
       optional($.statement),

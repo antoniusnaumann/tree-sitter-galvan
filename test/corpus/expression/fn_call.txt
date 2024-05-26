@@ -20,6 +20,76 @@ main {
       (brace_close))))
 
 =====================================
+Semicolon Insertion
+=====================================
+
+main {
+  call()
+  call()
+  call()
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (paren_close))))
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (paren_close))))
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (paren_close))))
+      (brace_close))))
+
+=====================================
+Explicit Semicolon
+=====================================
+
+main {
+  call();
+  call();
+  call();
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (paren_close))))
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (paren_close))))
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (paren_close))))
+      (brace_close))))
+
+=====================================
 Single argument
 =====================================
 
