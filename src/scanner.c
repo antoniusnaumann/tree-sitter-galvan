@@ -2,6 +2,7 @@
 #include "tree_sitter/array.h"
 #include "tree_sitter/parser.h"
 #include <ctype.h>
+#include <stdio.h>
 
 enum TokenType {
   AUTOSEMI,
@@ -17,7 +18,7 @@ void tree_sitter_Galvan_external_scanner_destroy(void *payload) {}
 
 unsigned tree_sitter_Galvan_external_scanner_serialize(void *payload,
                                                        char *buffer) {
-    return 0;
+  return 0;
 }
 
 void tree_sitter_Galvan_external_scanner_deserialize(void *payload,
@@ -29,10 +30,11 @@ bool tree_sitter_Galvan_external_scanner_scan(void *payload, TSLexer *lexer,
   if (!valid_symbols[AUTOSEMI]) {
     return false;
   }
-  if (lexer->eof) {
-    lexer->result_symbol = AUTOSEMI;
-    true;
+
+  if (lexer->eof(lexer)) {
+    return false;
   }
+
   if (lexer->lookahead != '\n' && lexer->lookahead != '\r') {
     return false;
   }
@@ -42,6 +44,9 @@ bool tree_sitter_Galvan_external_scanner_scan(void *payload, TSLexer *lexer,
 
   while (isspace(lexer->lookahead)) {
     lexer->advance(lexer, true);
+    if (lexer->eof(lexer)) {
+      return false;
+    }
   }
 
   // TODO  Also consider last symbol before newline, e.g. ',' should not lead to
@@ -49,8 +54,9 @@ bool tree_sitter_Galvan_external_scanner_scan(void *payload, TSLexer *lexer,
   // semicolon in this situation anyways
   // TODO  Accept other symbols that can start an identifier here
   if ((lexer->lookahead >= 'a' && lexer->lookahead <= 'z') ||
-      (lexer->lookahead >= 'A' || lexer->lookahead <= 'Z') ||
-      (lexer->lookahead == '_')) {
+      (lexer->lookahead >= 'A' && lexer->lookahead <= 'Z') ||
+      (lexer->lookahead == '_') || (lexer->lookahead == '[') ||
+      (lexer->lookahead == '{') || (lexer->lookahead == '(')) {
 
     lexer->result_symbol = AUTOSEMI;
     return true;

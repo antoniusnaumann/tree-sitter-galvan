@@ -20,13 +20,13 @@ main {
       (brace_close))))
 
 =====================================
-Semicolon Insertion
+Explicit Semicolon
 =====================================
 
 main {
-  call()
-  call()
-  call()
+  call();
+  call();
+  call();
 }
 ---
 (source
@@ -54,14 +54,15 @@ main {
             (paren_close))))
       (brace_close))))
 
+
 =====================================
-Explicit Semicolon
+Semicolon Insertion
 =====================================
 
 main {
-  call();
-  call();
-  call();
+  call()
+  call()
+  call()
 }
 ---
 (source

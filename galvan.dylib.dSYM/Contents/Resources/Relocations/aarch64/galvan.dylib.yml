@@ -2,8 +2,8 @@
 triple:          'arm64-apple-darwin'
 binary-path:     '/Users/anaumann/Development/galvan/tree-sitter-galvan/galvan.dylib'
 relocations:
-  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan, symObjAddr: 0x0, symBinAddr: 0xD54, symSize: 0xC }
-  - { offsetInCU: 0x33, offset: 0x33, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan, symObjAddr: 0x0, symBinAddr: 0xD54, symSize: 0xC }
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan, symObjAddr: 0x0, symBinAddr: 0xCEC, symSize: 0xC }
+  - { offsetInCU: 0x33, offset: 0x33, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan, symObjAddr: 0x0, symBinAddr: 0xCEC, symSize: 0xC }
   - { offsetInCU: 0x5A, offset: 0x5A, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan.language, symObjAddr: 0x1A8F8, symBinAddr: 0x1C010, symSize: 0x0 }
   - { offsetInCU: 0x605, offset: 0x605, size: 0x8, addend: 0x0, symName: _ts_parse_table, symObjAddr: 0x16E6C, symBinAddr: 0x17C94, symSize: 0x0 }
   - { offsetInCU: 0x634, offset: 0x634, size: 0x8, addend: 0x0, symName: _ts_small_parse_table, symObjAddr: 0x3908, symBinAddr: 0x4730, symSize: 0x0 }
@@ -18,7 +18,7 @@ relocations:
   - { offsetInCU: 0x768, offset: 0x768, size: 0x8, addend: 0x0, symName: _ts_non_terminal_alias_map, symObjAddr: 0x15BAE, symBinAddr: 0x169D6, symSize: 0x0 }
   - { offsetInCU: 0x78A, offset: 0x78A, size: 0x8, addend: 0x0, symName: _ts_alias_sequences, symObjAddr: 0x15BB0, symBinAddr: 0x169D8, symSize: 0x0 }
   - { offsetInCU: 0x7B2, offset: 0x7B2, size: 0x8, addend: 0x0, symName: _ts_lex_modes, symObjAddr: 0x15CB0, symBinAddr: 0x16AD8, symSize: 0x0 }
-  - { offsetInCU: 0x7C8, offset: 0x7C8, size: 0x8, addend: 0x0, symName: _ts_lex, symObjAddr: 0xC, symBinAddr: 0xD60, symSize: 0x2B68 }
+  - { offsetInCU: 0x7C8, offset: 0x7C8, size: 0x8, addend: 0x0, symName: _ts_lex, symObjAddr: 0xC, symBinAddr: 0xCF8, symSize: 0x2B68 }
   - { offsetInCU: 0x7EF, offset: 0x7EF, size: 0x8, addend: 0x0, symName: _ts_lex.map.187, symObjAddr: 0x1A8AE, symBinAddr: 0x1B6D6, symSize: 0x0 }
   - { offsetInCU: 0x805, offset: 0x805, size: 0x8, addend: 0x0, symName: _ts_lex.map.186, symObjAddr: 0x1A846, symBinAddr: 0x1B66E, symSize: 0x0 }
   - { offsetInCU: 0x81B, offset: 0x81B, size: 0x8, addend: 0x0, symName: _ts_lex.map.178, symObjAddr: 0x1A5A2, symBinAddr: 0x1B3CA, symSize: 0x0 }
@@ -34,11 +34,11 @@ relocations:
   - { offsetInCU: 0x148A, offset: 0x148A, size: 0x8, addend: 0x0, symName: _ts_external_scanner_states, symObjAddr: 0x16880, symBinAddr: 0x176A8, symSize: 0x0 }
   - { offsetInCU: 0x14B2, offset: 0x14B2, size: 0x8, addend: 0x0, symName: _ts_external_scanner_symbol_map, symObjAddr: 0x16882, symBinAddr: 0x176AA, symSize: 0x0 }
   - { offsetInCU: 0x14D4, offset: 0x14D4, size: 0x8, addend: 0x0, symName: _ts_primary_state_ids, symObjAddr: 0x16884, symBinAddr: 0x176AC, symSize: 0x0 }
-  - { offsetInCU: 0x14EA, offset: 0x14EA, size: 0x8, addend: 0x0, symName: _ts_lex_keywords, symObjAddr: 0x2B74, symBinAddr: 0x38C8, symSize: 0x194 }
-  - { offsetInCU: 0x26, offset: 0x15E3, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan_external_scanner_create, symObjAddr: 0x0, symBinAddr: 0x3A5C, symSize: 0x8 }
-  - { offsetInCU: 0x3B, offset: 0x15F8, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan_external_scanner_create, symObjAddr: 0x0, symBinAddr: 0x3A5C, symSize: 0x8 }
-  - { offsetInCU: 0x54, offset: 0x1611, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan_external_scanner_destroy, symObjAddr: 0x8, symBinAddr: 0x3A64, symSize: 0x4 }
-  - { offsetInCU: 0x77, offset: 0x1634, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan_external_scanner_serialize, symObjAddr: 0xC, symBinAddr: 0x3A68, symSize: 0x8 }
-  - { offsetInCU: 0xAD, offset: 0x166A, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan_external_scanner_deserialize, symObjAddr: 0x14, symBinAddr: 0x3A70, symSize: 0x4 }
-  - { offsetInCU: 0x140, offset: 0x16FD, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan_external_scanner_scan, symObjAddr: 0x18, symBinAddr: 0x3A74, symSize: 0xB0 }
+  - { offsetInCU: 0x14EA, offset: 0x14EA, size: 0x8, addend: 0x0, symName: _ts_lex_keywords, symObjAddr: 0x2B74, symBinAddr: 0x3860, symSize: 0x194 }
+  - { offsetInCU: 0x26, offset: 0x15E3, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan_external_scanner_create, symObjAddr: 0x0, symBinAddr: 0x39F4, symSize: 0x8 }
+  - { offsetInCU: 0x3B, offset: 0x15F8, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan_external_scanner_create, symObjAddr: 0x0, symBinAddr: 0x39F4, symSize: 0x8 }
+  - { offsetInCU: 0x54, offset: 0x1611, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan_external_scanner_destroy, symObjAddr: 0x8, symBinAddr: 0x39FC, symSize: 0x4 }
+  - { offsetInCU: 0x77, offset: 0x1634, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan_external_scanner_serialize, symObjAddr: 0xC, symBinAddr: 0x3A00, symSize: 0x8 }
+  - { offsetInCU: 0xAD, offset: 0x166A, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan_external_scanner_deserialize, symObjAddr: 0x14, symBinAddr: 0x3A08, symSize: 0x4 }
+  - { offsetInCU: 0x140, offset: 0x16FD, size: 0x8, addend: 0x0, symName: _tree_sitter_Galvan_external_scanner_scan, symObjAddr: 0x18, symBinAddr: 0x3A0C, symSize: 0x118 }
 ...
