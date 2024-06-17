@@ -21,7 +21,7 @@ const type_declaration = {
     separatedTrailing($,
       $.struct_field,
       // repeat1(choice(',', $._newline))),
-      ','),
+      $._comma),
     $.brace_close,
   ),
 
@@ -45,7 +45,7 @@ const type_declaration = {
     separatedTrailing($,
       $.tuple_field,
       // repeat1(choice(',', $._newline))),
-      ','),
+      $._comma),
 
     $.paren_close,
   ),

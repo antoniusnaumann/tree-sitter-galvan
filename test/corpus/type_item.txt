@@ -8,7 +8,7 @@ type Alias = Type
 (source
   (type_declaration
     (alias
-      (type_keyword) 
+      (type_keyword)
       (type_ident)
       (assign)
       (type_item
@@ -25,7 +25,7 @@ type Alias = Result!Error
 (source
   (type_declaration
     (alias
-      (type_keyword) 
+      (type_keyword)
       (type_ident)
       (assign)
       (type_item
@@ -48,7 +48,7 @@ type Alias = Result!Result!Error
 (source
   (type_declaration
     (alias
-      (type_keyword) 
+      (type_keyword)
       (type_ident)
       (assign)
       (type_item
@@ -77,7 +77,7 @@ type Alias = Optional?
 (source
   (type_declaration
     (alias
-      (type_keyword) 
+      (type_keyword)
       (type_ident)
       (assign)
       (type_item
@@ -97,7 +97,7 @@ type Alias = [Item]
 (source
   (type_declaration
     (alias
-      (type_keyword) 
+      (type_keyword)
       (type_ident)
       (assign)
       (type_item
@@ -118,7 +118,7 @@ type Alias = [[[Item]]]
 (source
   (type_declaration
     (alias
-      (type_keyword) 
+      (type_keyword)
       (type_ident)
       (assign)
       (type_item
@@ -147,7 +147,7 @@ type Alias = {Key:Value}
 (source
   (type_declaration
     (alias
-      (type_keyword) 
+      (type_keyword)
       (type_ident)
       (assign)
       (type_item
@@ -172,7 +172,7 @@ type Alias = [Key:Value]
 (source
   (type_declaration
     (alias
-      (type_keyword) 
+      (type_keyword)
       (type_ident)
       (assign)
       (type_item
@@ -197,7 +197,7 @@ type Alias = {Item}
 (source
   (type_declaration
     (alias
-      (type_keyword) 
+      (type_keyword)
       (type_ident)
       (assign)
       (type_item
@@ -218,7 +218,7 @@ type Alias = (Item1, Item2)
 (source
   (type_declaration
     (alias
-      (type_keyword) 
+      (type_keyword)
       (type_ident)
       (assign)
       (type_item
@@ -227,7 +227,6 @@ type Alias = (Item1, Item2)
           (type_item
             (basic_type
               (type_ident)))
-          (comma)
           (type_item
             (basic_type
               (type_ident)))

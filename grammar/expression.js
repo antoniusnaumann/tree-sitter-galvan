@@ -27,14 +27,14 @@ const expression = {
     optional(field('arguments', $._trailing_argument_list)),
     optional(seq(
       $.pipe,
-      separatedTrailing1($, $.closure_argument, $.comma),
+      separatedTrailing1($, $.closure_argument, $._comma),
       $.pipe,
     )),
     $.body,
   )),
 
   _trailing_argument_list: $ => seq(
-    repeat(seq($.function_call_arg, $.comma)),
+    repeat(seq($.function_call_arg, $._comma)),
     $.function_call_arg,
   ),
 
@@ -65,13 +65,13 @@ const expression = {
 
   array_literal: $ => seq(
     $.bracket_open,
-    separatedTrailing($, $.expression, $.comma),
+    separatedTrailing($, $.expression, $._comma),
     $.bracket_close,
   ),
 
   set_literal: $ => seq(
     $.brace_open,
-    separatedTrailing($, $.expression, $.comma),
+    separatedTrailing($, $.expression, $._comma),
     $.brace_close,
   ),
 
@@ -79,7 +79,7 @@ const expression = {
     $.bracket_open,
     choice(
       $.colon,
-      separatedTrailing1($, $.dict_element, $.comma),
+      separatedTrailing1($, $.dict_element, $._comma),
     ),
     $.bracket_close,
   ),
@@ -88,7 +88,7 @@ const expression = {
     $.brace_open,
     choice(
       $.colon,
-      separatedTrailing1($, $.dict_element, $.comma),
+      separatedTrailing1($, $.dict_element, $._comma),
     ),
     $.brace_close,
   ),
@@ -102,7 +102,7 @@ const expression = {
   function_call: $ => seq(
     $.ident,
     $.paren_open,
-    separatedTrailing($, $.function_call_arg, $.comma),
+    separatedTrailing($, $.function_call_arg, $._comma),
     $.paren_close,
   ),
 
@@ -114,7 +114,7 @@ const expression = {
   constructor_call: $ => seq(
     $.type_ident,
     $.paren_open,
-    separatedTrailing($, $.constructor_call_arg, $.comma),
+    separatedTrailing($, $.constructor_call_arg, $._comma),
     $.paren_close,
   ),
 
@@ -126,7 +126,7 @@ const expression = {
 
   closure: $ => prec(expression_precedence.closure, seq(
     $.pipe,
-    separatedTrailing($, $.closure_argument, $.comma),
+    separatedTrailing($, $.closure_argument, $._comma),
     $.pipe,
     field('body', choice($.expression, $.body)),
   )),

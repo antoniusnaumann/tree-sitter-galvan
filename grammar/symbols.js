@@ -2,7 +2,7 @@ const symbols = {
   // Punctuation
   colon: $ => ':',
   _semicolon: $ => ';',
-  comma: $ => ',',
+  _comma: $ => ',',
   dot: $ => '.',
   question_mark: $ => '?',
   exclamation_mark: $ => '!',

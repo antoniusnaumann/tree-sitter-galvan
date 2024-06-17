@@ -54,7 +54,7 @@ const type_item = {
 
   tuple_type: $ => seq(
     $.paren_open,
-    separatedTrailing1($, $.type_item, $.comma),
+    separatedTrailing1($, $.type_item, $._comma),
     $.paren_close
   ),
 

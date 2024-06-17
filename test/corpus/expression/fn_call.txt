@@ -135,7 +135,6 @@ main {
             (function_call_arg
               (expression
                 (ident)))
-            (comma)
             (function_call_arg
               (expression
                 (ident)))

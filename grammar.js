@@ -83,7 +83,7 @@ module.exports = grammar({
 
     _fn_modifiers: $ => $.visibility,
 
-    param_list: $ => seq($.paren_open, separatedTrailing($, $.param, $.comma), $.paren_close),
+    param_list: $ => seq($.paren_open, separatedTrailing($, $.param, $._comma), $.paren_close),
     param: $ => seq(
       optional($.declaration_modifier),
       $.ident,
