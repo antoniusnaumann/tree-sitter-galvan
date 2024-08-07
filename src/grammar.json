@@ -1923,8 +1923,17 @@
                     "type": "SEQ",
                     "members": [
                       {
-                        "type": "SYMBOL",
-                        "name": "_comma"
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "_comma"
+                          },
+                          {
+                            "type": "SYMBOL",
+                            "name": "_autosemi"
+                          }
+                        ]
                       },
                       {
                         "type": "SYMBOL",
@@ -1937,8 +1946,17 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "SYMBOL",
-                      "name": "_comma"
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "_comma"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "_autosemi"
+                        }
+                      ]
                     },
                     {
                       "type": "BLANK"
@@ -2043,8 +2061,17 @@
                     "type": "SEQ",
                     "members": [
                       {
-                        "type": "SYMBOL",
-                        "name": "_comma"
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "_comma"
+                          },
+                          {
+                            "type": "SYMBOL",
+                            "name": "_autosemi"
+                          }
+                        ]
                       },
                       {
                         "type": "SYMBOL",
@@ -2057,8 +2084,17 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "SYMBOL",
-                      "name": "_comma"
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "_comma"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "_autosemi"
+                        }
+                      ]
                     },
                     {
                       "type": "BLANK"

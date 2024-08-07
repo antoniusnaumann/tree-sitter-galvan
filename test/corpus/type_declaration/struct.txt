@@ -128,7 +128,7 @@ Newline-separated
 ====================
 
 type EmptyStruct {
-  a: Int,
+  a: Int
   b: String
 }
 
