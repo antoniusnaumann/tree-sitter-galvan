@@ -1,5 +1,5 @@
 {
-  "name": "tree-sitter-Galvan",
+  "name": "tree-sitter-galvan",
   "version": "0.0.1",
   "description": "Galvan grammar for tree-sitter",
   "main": "bindings/node",
@@ -39,8 +39,8 @@
   },
   "tree-sitter": [
     {
-      "scope": "source.Galvan",
-      "injection-regex": "^Galvan$"
+      "scope": "source.galvan",
+      "injection-regex": "^galvan$"
     }
   ]
 }
