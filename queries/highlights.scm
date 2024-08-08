@@ -1,42 +1,31 @@
 ; keywords
 [
-  "main"
-  "build"
-  "test"
+  (main_keyword)
+  (build_keyword)
+  (test_keyword)
 ] @keyword
 
 [
-  "async"
-  "const"
-  "pub"
+  (async_keyword)
+  (const_keyword)
+  (pub_keyword)
 ] @keyword
 
 [
-  "fn"
-  "type"
+  (fn_keyword)
+  (type_keyword)
 ] @keyword
 
-[
-  "ref"
-  "let"
-  "mut"
-] @keyword
+(declaration_modifier) @keyword
 
-[
-  "if"
-  "else"
-  "try"
-] @keyword
+(else_keyword) @keyword
 
-"return" @keyword.return
-"throw" @keyword.exception
+; "return" @keyword.return
+; "throw" @keyword.exception
 
-;literals
-[
-  "true"
-  "false"
-  "none"
-] @constant.builtin
+; ;literals
+(boolean_literal) @constant.builtin
+(none_keyword) @constant.builtin
 
 (number_literal) @number
 (string_literal) @string
@@ -45,17 +34,23 @@
 (type_ident) @type
 
 ; punctuation
-"(" @punctuation.bracket
-")" @punctuation.bracket
-"[" @punctuation.bracket
-"]" @punctuation.bracket
-"{" @punctuation.bracket
-"}" @punctuation.bracket
+(paren_open) @punctuation.bracket
+(paren_close) @punctuation.bracket
+(bracket_open) @punctuation.bracket
+(bracket_close) @punctuation.bracket
+(brace_open) @punctuation.bracket
+(brace_close) @punctuation.bracket
 
-":" @punctuation.delimiter
-"." @punctuation.delimiter
-"?." @punctuation.delimiter
-"," @punctuation.delimiter
-";" @punctuation.delimiter
+(colon) @punctuation.delimiter
+(member_call_operator) @punctuation.delimiter
+(safe_call_operator) @punctuation.delimiter
+; "," @punctuation.delimiter
+; ";" @punctuation.delimiter
 
-"^//.*" @comment
+; "^//.*" @comment
+
+; pseudo-keywords from builtin functions
+((free_function
+  (ident) @keyword)
+  (#match? @keyword "^(if|assert|print|println|try)$")
+)
