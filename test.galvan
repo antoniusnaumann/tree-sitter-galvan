@@ -1,4 +1,4 @@
-main {
+main { 
     // see hello.galvan
     greet("Galvan") // Hello, Galvan!
 
@@ -52,5 +52,4 @@ main {
 
     let truth = true
     println(truth) // true
-
 }

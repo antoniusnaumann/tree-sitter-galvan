@@ -6,6 +6,7 @@
 
 enum TokenType {
   AUTOSEMI,
+  ERROR,
 };
 
 void *tree_sitter_galvan_external_scanner_create(void) {
@@ -27,6 +28,16 @@ void tree_sitter_galvan_external_scanner_deserialize(void *payload,
 
 bool tree_sitter_galvan_external_scanner_scan(void *payload, TSLexer *lexer,
                                               const bool *valid_symbols) {
+  // HACK: If treesitter is in error correction mode, consume everything to
+  // avoid hanging
+  if (valid_symbols[ERROR]) {
+    while (!lexer->eof(lexer)) {
+        lexer->advance(lexer, false);
+    }
+
+    return true;
+  }
+
   if (!valid_symbols[AUTOSEMI]) {
     return false;
   }
@@ -56,11 +67,12 @@ bool tree_sitter_galvan_external_scanner_scan(void *payload, TSLexer *lexer,
   if ((lexer->lookahead >= 'a' && lexer->lookahead <= 'z') ||
       (lexer->lookahead >= 'A' && lexer->lookahead <= 'Z') ||
       (lexer->lookahead == '_') || (lexer->lookahead == '[') ||
-      (lexer->lookahead == '{') || (lexer->lookahead == '(') || (lexer->lookahead == '\'') || (lexer->lookahead == '"')) {
+      (lexer->lookahead == '{') || (lexer->lookahead == '(') ||
+      (lexer->lookahead == '\'') || (lexer->lookahead == '"')) {
 
-      lexer->result_symbol = AUTOSEMI;
-      return true;
-    }
+    lexer->result_symbol = AUTOSEMI;
+    return true;
+  }
 
   return false;
 }

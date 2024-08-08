@@ -23,7 +23,10 @@ module.exports = grammar({
 
   word: $ => $._word,
 
-  externals: $ => [$._autosemi],
+  externals: $ => [
+    $._autosemi,
+    $._error,
+  ],
 
   rules: {
     source: $ => repeat($._toplevel),
