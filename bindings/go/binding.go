@@ -1,4 +1,4 @@
-package tree_sitter_Galvan
+package tree_sitter_galvan
 
 // #cgo CFLAGS: -std=c11 -fPIC
 // #include "../../src/parser.c"

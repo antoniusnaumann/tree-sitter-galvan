@@ -14,7 +14,7 @@ const _ident = $ => /[a-z][a-z0-9_]*/;
 const _type_ident = $ => /[A-Z][A-Za-z0-9_]*/;
 
 module.exports = grammar({
-  name: 'Galvan',
+  name: 'galvan',
   extras: $ => [
     $._comment,
     $._newline,

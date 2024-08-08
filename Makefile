@@ -1,6 +1,6 @@
 VERSION := 0.0.1
 
-LANGUAGE_NAME := tree-sitter-Galvan
+LANGUAGE_NAME := tree-sitter-galvan
 
 # repository
 SRC_DIR := src

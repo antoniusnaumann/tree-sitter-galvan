@@ -1,4 +1,4 @@
-module github.com/tree-sitter/tree-sitter-Galvan
+module github.com/tree-sitter/tree-sitter-galvan
 
 go 1.22
 
