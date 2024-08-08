@@ -1,3 +1,5 @@
+; highlighting rules follow the neovim standard highlight groups: https://neovim.io/doc/user/treesitter.html#treesitter-highlight
+
 ; keywords
 [
   (main_keyword)
@@ -6,27 +8,27 @@
 ] @keyword
 
 [
-  (async_keyword)
   (const_keyword)
   (pub_keyword)
-] @keyword
+] @keyword.modifier
 
-[
-  (fn_keyword)
-  (type_keyword)
-] @keyword
+(async_keyword) @keyword.coroutine
 
+
+(fn_keyword) @keyword.function
+(type_keyword) @keyword.type
+
+; do not highlight those as "modifiers"
 (declaration_modifier) @keyword
 
-(else_keyword) @keyword
+(else_keyword) @keyword.conditional
 
 ; "return" @keyword.return
 ; "throw" @keyword.exception
 
 ; ;literals
-(boolean_literal) @constant.builtin
 (none_keyword) @constant.builtin
-
+(boolean_literal) @boolean
 (number_literal) @number
 (string_literal) @string
 
@@ -52,5 +54,48 @@
 ; pseudo-keywords from builtin functions
 ((free_function
   (ident) @keyword)
-  (#match? @keyword "^(if|assert|print|println|try)$")
+  (#match? @keyword "^(assert|print|println)$")
 )
+
+((free_function
+  (ident) @keyword.conditional)
+  (#match? @keyword.conditional "^(if|try)$")
+)
+
+; highlight 'self'
+(
+   (ident) @variable.builtin
+   (#match? @variable.builtin "self")
+)
+
+; operators
+[
+ ; logical
+ (and)
+ (or)
+ (xor)
+ (not)
+
+ ; arithmetic
+ (plus)
+ (minus)
+ (multiply)
+ (divide)
+ (remainder)
+ (power)
+
+ ; collection
+ (concat)
+ (remove)
+ (contains)
+
+ ; comparison
+ (equal)
+ (not_equal)
+ (greater)
+ (greater_equal)
+ (less)
+ (less_equal)
+ (identical)
+ (not_identical)
+] @operator
