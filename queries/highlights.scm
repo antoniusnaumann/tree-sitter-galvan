@@ -5,7 +5,7 @@
   (main_keyword)
   (build_keyword)
   (test_keyword)
-] @keyword
+] @keyword.function
 
 [
   (const_keyword)
@@ -34,6 +34,7 @@
 
 ; identifier
 (type_ident) @type
+(ident) @variable
 
 ; punctuation
 (paren_open) @punctuation.bracket
@@ -51,10 +52,62 @@
 
 ; "^//.*" @comment
 
+; function definitions
+((fn_signature
+  (ident) @function
+))
+
+; function calls
+((free_function
+  (ident) @function.call)
+)
+
+((function_call
+  (ident) @function.call)
+)
+
+((trailing_closure_expression
+   (ident) @function.call)
+)
+
+((constructor_call
+  (type_ident) @constructor)
+)
+
+((member_expression
+  rhs: (expression
+  (function_call
+    (ident) @method.call)))
+)
+
+((member_expression
+  rhs: (expression
+  (trailing_closure_expression
+    (ident) @method.call)))
+)
+
+((member_expression
+  rhs: (expression
+    (ident) @variable.member))
+)
+
+((closure_argument
+   (ident) @variable.parameter.closure)
+)
+
+((param
+  (ident) @variable.parameter)
+)
+
 ; pseudo-keywords from builtin functions
 ((free_function
-  (ident) @keyword)
-  (#match? @keyword "^(assert|print|println)$")
+  (ident) @function.builtin)
+  (#match? @function.builtin "^(assert|print|println)$")
+)
+
+((free_function
+  (ident) @keyword.exception)
+  (#match? @keyword.exception "^(panic)$")
 )
 
 ((trailing_closure_expression
@@ -62,13 +115,20 @@
  (#match? @keyword.conditional "^(if|try)$")
 )
 
-; highlight 'self'
+; highlight 'self' and 'it'.
 (
-   (ident) @variable.builtin
-   (#match? @variable.builtin "self")
+   (ident) @variable.parameter.builtin
+   (#match? @variable.parameter.builtin "self")
 )
+; TODO: once implicit closure parameters are implemented, replace the rule above with this one:
+;(
+;   (ident) @variable.parameter.builtin
+;   (#match? @variable.parameter.builtin "^(self|it)$")
+;)
 
 ; operators
+(yeet_operator) @keyword.exception
+
 [
  ; logical
  (and)
