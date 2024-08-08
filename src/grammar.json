@@ -3186,6 +3186,22 @@
         }
       ]
     },
+    "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "//"
+          },
+          {
+            "type": "PATTERN",
+            "value": ".*"
+          }
+        ]
+      }
+    },
     "_newline": {
       "type": "TOKEN",
       "content": {
@@ -3228,28 +3244,12 @@
           }
         ]
       }
-    },
-    "_comment": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "//"
-          },
-          {
-            "type": "PATTERN",
-            "value": "[^\\n]*[ \\t]*"
-          }
-        ]
-      }
     }
   },
   "extras": [
     {
       "type": "SYMBOL",
-      "name": "_comment"
+      "name": "comment"
     },
     {
       "type": "SYMBOL",

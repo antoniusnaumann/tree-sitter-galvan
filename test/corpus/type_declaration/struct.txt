@@ -260,6 +260,7 @@ type Cat {
         (type_item
           (basic_type
             (type_ident))))
+      (comment)
       (struct_field
         (declaration_modifier
           (mut_keyword))

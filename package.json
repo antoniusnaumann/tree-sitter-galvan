@@ -40,7 +40,6 @@
   "tree-sitter": [
     {
       "scope": "source.galvan",
-      "injection-regex": "^galvan$",
       "file-types": [
         "galvan"
       ],

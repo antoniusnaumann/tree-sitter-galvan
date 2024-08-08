@@ -16,7 +16,7 @@ const _type_ident = $ => /[A-Z][A-Za-z0-9_]*/;
 module.exports = grammar({
   name: 'galvan',
   extras: $ => [
-    $._comment,
+    $.comment,
     $._newline,
     /\s+/
   ],
@@ -145,10 +145,11 @@ module.exports = grammar({
     type_ident: $ => $._type_ident,
     _semi: $ => choice($._semicolon, $._autosemi),
 
+    comment: $ => token(seq('//', /.*/)),
+
     // _word: $ => token(choice($.type_ident, $.ident)),
 
     _newline,
     _space,
-    _comment,
   }
 });

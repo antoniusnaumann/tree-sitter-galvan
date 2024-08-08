@@ -1932,6 +1932,10 @@
     "named": true
   },
   {
+    "type": "comment",
+    "named": true
+  },
+  {
     "type": "concat",
     "named": true
   },

@@ -25,5 +25,6 @@ test {
     (test_keyword)
     (body
       (brace_open)
+      (comment)
       (brace_close))))
 

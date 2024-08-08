@@ -100,3 +100,4 @@
  (not_identical)
 ] @operator
 
+(comment) @comment
