@@ -57,9 +57,9 @@
   (#match? @keyword "^(assert|print|println)$")
 )
 
-((free_function
-  (ident) @keyword.conditional)
-  (#match? @keyword.conditional "^(if|try)$")
+((trailing_closure_expression
+ (ident) @keyword.conditional)
+ (#match? @keyword.conditional "^(if|try)$")
 )
 
 ; highlight 'self'
@@ -99,3 +99,4 @@
  (identical)
  (not_identical)
 ] @operator
+
