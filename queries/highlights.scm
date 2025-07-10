@@ -8,11 +8,14 @@
 ] @keyword.function
 
 [
-  (const_keyword)
+  ; TODO: add this in once const keyword is used somewhere
+  ; (const_keyword)
   (pub_keyword)
 ] @keyword.modifier
 
-(async_keyword) @keyword.coroutine
+; TODO: add this in once async keyword is used somewhere
+; (const_keyword)
+; (async_keyword) @keyword.coroutine
 
 
 (fn_keyword) @keyword.function
@@ -134,7 +137,8 @@
  (and)
  (or)
  (xor)
- (not)
+ ; TODO: add this in once const keyword is used somewhere
+ ; (not)
 
  ; arithmetic
  (plus)
