@@ -1,5 +1,10 @@
 ; highlighting rules follow the neovim standard highlight groups: https://neovim.io/doc/user/treesitter.html#treesitter-highlight
 
+; function definitions
+(fn_signature
+  (ident) @function
+)
+
 [
  ; logical
  (and)
@@ -77,23 +82,35 @@
 (number_literal) @constant.numeric
 (string_literal) @string
 
-; function calls
 ((free_function
-  (ident) @function.call)
-  (#not-eq? @function.call "assert")
-  (#not-eq? @function.call "print")
-  (#not-eq? @function.call "println")
-  (#not-eq? @function.call "panic")
+  (ident) @keyword.exception)
+  (#match? @keyword.exception "^(panic)$")
 )
 
-((function_call
-  (ident) @function.call)
+((trailing_closure_expression
+ (ident) @keyword.conditional)
+ (#match? @keyword.conditional "^(if|try)$")
+)
+
+; highlight 'self' and 'it'.
+(
+   (ident) @variable.parameter.builtin
+   (#match? @variable.parameter.builtin "self")
 )
 
 ; pseudo-keywords from builtin functions
 ((free_function
   (ident) @function.builtin)
   (#match? @function.builtin "^(assert|print|println)$")
+)
+
+; function calls
+((free_function
+  (ident) @function.call)
+)
+
+((function_call
+  (ident) @function.call)
 )
 
 ; identifier
@@ -113,21 +130,16 @@
 (safe_call_operator) @punctuation.delimiter
 ; "," @punctuation.delimiter
 ; ";" @punctuation.delimiter
-
+(pipe) @punctuation.delimiter
 ; "^//.*" @comment
 
-; function definitions
-((fn_signature
-  (ident) @function
-))
-
-((trailing_closure_expression
+(trailing_closure_expression
    (ident) @function.call)
-)
 
-((constructor_call
+
+(constructor_call
   (type_ident) @constructor)
-)
+
 
 ((member_expression
   rhs: (expression
@@ -155,21 +167,6 @@
 )
 
 
-((free_function
-  (ident) @keyword.exception)
-  (#match? @keyword.exception "^(panic)$")
-)
-
-((trailing_closure_expression
- (ident) @keyword.conditional)
- (#match? @keyword.conditional "^(if|try)$")
-)
-
-; highlight 'self' and 'it'.
-(
-   (ident) @variable.parameter.builtin
-   (#match? @variable.parameter.builtin "self")
-)
 ; TODO: once implicit closure parameters are implemented, replace the rule above with this one:
 ;(
 ;   (ident) @variable.parameter.builtin
