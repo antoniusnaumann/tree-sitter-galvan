@@ -942,6 +942,10 @@
         "required": true,
         "types": [
           {
+            "type": ",",
+            "named": false
+          },
+          {
             "type": "function_call_arg",
             "named": true
           }
@@ -1160,11 +1164,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "member_call_operator",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "member_expression",
@@ -1502,6 +1501,7 @@
   {
     "type": "source",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -1673,6 +1673,10 @@
         "multiple": true,
         "required": false,
         "types": [
+          {
+            "type": ",",
+            "named": false
+          },
           {
             "type": "function_call_arg",
             "named": true
@@ -1888,7 +1892,11 @@
     "named": false
   },
   {
-    "type": ".",
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ";",
     "named": false
   },
   {
@@ -1933,7 +1941,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "concat",
@@ -1997,6 +2006,10 @@
   },
   {
     "type": "main_keyword",
+    "named": true
+  },
+  {
+    "type": "member_call_operator",
     "named": true
   },
   {
