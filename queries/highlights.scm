@@ -1,5 +1,47 @@
 ; highlighting rules follow the neovim standard highlight groups: https://neovim.io/doc/user/treesitter.html#treesitter-highlight
 
+[
+ ; logical
+ (and)
+ (or)
+ (xor)
+ ; TODO: add this in once const keyword is used somewhere
+ ; (not)
+
+ ; arithmetic
+ (plus)
+ (minus)
+ (multiply)
+ (divide)
+ (remainder)
+ (power)
+
+ ; collection
+ (concat)
+ (remove)
+ (contains)
+
+ ; comparison
+ (equal)
+ (not_equal)
+ (greater)
+ (greater_equal)
+ (less)
+ (less_equal)
+ (identical)
+ (not_identical)
+
+ ; assignments
+ (assign)
+ (add_assign)
+ (sub_assign)
+ (mul_assign)
+ (pow_assign)
+ (div_assign)
+ (rem_assign)
+ 
+] @operator
+
 ; keywords
 [
   (main_keyword)
@@ -31,9 +73,28 @@
 
 ; ;literals
 (none_keyword) @constant.builtin
-(boolean_literal) @boolean
-(number_literal) @number
+(boolean_literal) @constant.builtin.boolean
+(number_literal) @constant.numeric
 (string_literal) @string
+
+; function calls
+((free_function
+  (ident) @function.call)
+  (#not-eq? @function.call "assert")
+  (#not-eq? @function.call "print")
+  (#not-eq? @function.call "println")
+  (#not-eq? @function.call "panic")
+)
+
+((function_call
+  (ident) @function.call)
+)
+
+; pseudo-keywords from builtin functions
+((free_function
+  (ident) @function.builtin)
+  (#match? @function.builtin "^(assert|print|println)$")
+)
 
 ; identifier
 (type_ident) @type
@@ -59,15 +120,6 @@
 ((fn_signature
   (ident) @function
 ))
-
-; function calls
-((free_function
-  (ident) @function.call)
-)
-
-((function_call
-  (ident) @function.call)
-)
 
 ((trailing_closure_expression
    (ident) @function.call)
@@ -102,11 +154,6 @@
   (ident) @variable.parameter)
 )
 
-; pseudo-keywords from builtin functions
-((free_function
-  (ident) @function.builtin)
-  (#match? @function.builtin "^(assert|print|println)$")
-)
 
 ((free_function
   (ident) @keyword.exception)
@@ -131,37 +178,5 @@
 
 ; operators
 (yeet_operator) @keyword.exception
-
-[
- ; logical
- (and)
- (or)
- (xor)
- ; TODO: add this in once const keyword is used somewhere
- ; (not)
-
- ; arithmetic
- (plus)
- (minus)
- (multiply)
- (divide)
- (remainder)
- (power)
-
- ; collection
- (concat)
- (remove)
- (contains)
-
- ; comparison
- (equal)
- (not_equal)
- (greater)
- (greater_equal)
- (less)
- (less_equal)
- (identical)
- (not_identical)
-] @operator
 
 (comment) @comment
