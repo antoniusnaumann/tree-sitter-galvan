@@ -106,6 +106,8 @@ module.exports = grammar({
       $.declaration,
       $.expression,
       $.free_function,
+      $.return_expression,
+      $.throw_expression,
       // $.block,
     )),
 

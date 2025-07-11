@@ -73,8 +73,8 @@
 
 (else_keyword) @keyword.conditional
 
-; "return" @keyword.return
-; "throw" @keyword.exception
+(return_keyword) @keyword.return
+(throw_keyword) @keyword.exception
 
 ; ;literals
 (none_keyword) @constant.builtin

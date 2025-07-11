@@ -21,6 +21,9 @@ const keywords = {
   pub_keyword: $ => 'pub',
   
   else_keyword: $ => 'else',
+
+  return_keyword: $ => 'return',
+  throw_keyword: $ => 'throw',
 };
 
 module.exports = { keywords };
