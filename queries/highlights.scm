@@ -97,7 +97,7 @@
 ; highlight 'self' and 'it'.
 (
    (ident) @variable.parameter.builtin
-   (#match? @variable.parameter.builtin "self")
+   (#match? @variable.parameter.builtin "^(self|it)$")
 )
 
 ; pseudo-keywords from builtin functions
