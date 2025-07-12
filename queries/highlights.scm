@@ -73,9 +73,6 @@
 
 (else_keyword) @keyword.conditional
 
-(return_keyword) @keyword.return
-(throw_keyword) @keyword.exception
-
 ; ;literals
 (none_keyword) @constant.builtin
 (boolean_literal) @constant.builtin.boolean
@@ -84,7 +81,12 @@
 
 ((free_function
   (ident) @keyword.exception)
-  (#match? @keyword.exception "^(panic)$")
+  (#match? @keyword.exception "^(panic|throw)$")
+)
+
+((free_function
+  (ident) @keyword.control)
+  (#match? @keyword.control "^(return)$")
 )
 
 ((trailing_closure_expression

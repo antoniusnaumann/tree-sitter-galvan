@@ -14,9 +14,6 @@ const expression = {
     $.ident,
     $.closure,
     $.group,
-    // for now, we only allow return and throw expression on statement level
-    // $.return_expression,
-    // $.throw_expression,
   ),
 
   else_expression: $ => seq(
@@ -144,16 +141,6 @@ const expression = {
     $.expression,
     $.paren_close,
   )),
-
-  return_expression: $ => seq(
-    $.return_keyword,
-    $.expression,
-  ),
-
-  throw_expression: $ => seq(
-    $.throw_keyword,
-    $.expression,
-  )
 };
 
 module.exports = { expression };
