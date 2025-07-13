@@ -85,13 +85,18 @@
 )
 
 ((free_function
-  (ident) @keyword.control)
-  (#match? @keyword.control "^(return)$")
+  (ident) @keyword.control.return)
+  (#match? @keyword.control.return "^(return)$")
 )
 
 ((trailing_closure_expression
- (ident) @keyword.conditional)
- (#match? @keyword.conditional "^(if|try)$")
+ (ident) @keyword.control.conditional)
+ (#match? @keyword.control.conditional "^(if|try)$")
+)
+
+((trailing_closure_expression
+ (ident) @keyword.control.repeat)
+ (#match? @keyword.control.repeat "^(for|loop|while)$")
 )
 
 ; highlight 'self' and 'it'.
