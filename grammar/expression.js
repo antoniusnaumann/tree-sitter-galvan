@@ -19,6 +19,11 @@ const expression = {
   else_expression: $ => seq(
     field('receiver', $.expression),
     $.else_keyword,
+    optional(seq(
+      $.pipe,
+      separatedTrailing1($, $.closure_argument, $._comma),
+      $.pipe,
+    )),
     field('body', $.body),
   ),
 

@@ -770,11 +770,19 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
+          "type": "closure_argument",
+          "named": true
+        },
+        {
           "type": "else_keyword",
+          "named": true
+        },
+        {
+          "type": "pipe",
           "named": true
         }
       ]
