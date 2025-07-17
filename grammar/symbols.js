@@ -1,6 +1,7 @@
 const symbols = {
   // Punctuation
   colon: $ => ':',
+  double_colon: $ => '::',
   _semicolon: $ => ';',
   _comma: $ => ',',
   dot: $ => '.',

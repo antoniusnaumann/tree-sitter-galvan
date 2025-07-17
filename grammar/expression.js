@@ -10,6 +10,7 @@ const expression = {
     $.collection_literal,
     $.function_call,
     $.constructor_call,
+    $.enum_access,
     $.literal,
     $.ident,
     $.closure,
@@ -127,6 +128,12 @@ const expression = {
     field('field', $.ident),
     $.colon,
     field('value', $.expression),
+  ),
+
+  enum_access: $ => seq(
+    $.type_ident,
+    $.double_colon,
+    $.type_ident,
   ),
 
   closure: $ => prec(expression_precedence.closure, seq(

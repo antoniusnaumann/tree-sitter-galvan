@@ -120,6 +120,12 @@
   (ident) @function.call)
 )
 
+(enum_access (
+  (type_ident) @type.enum
+  (double_colon) @punctuation.delimiter
+  (type_ident) @type.enum.variant
+))
+
 ; identifier
 (type_ident) @type
 (ident) @variable

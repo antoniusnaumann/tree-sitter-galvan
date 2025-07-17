@@ -467,6 +467,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "enum_access"
+        },
+        {
+          "type": "SYMBOL",
           "name": "literal"
         },
         {
@@ -1184,6 +1188,23 @@
             "type": "SYMBOL",
             "name": "expression"
           }
+        }
+      ]
+    },
+    "enum_access": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "type_ident"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "double_colon"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type_ident"
         }
       ]
     },
@@ -1922,7 +1943,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "enum_type"
+          "name": "enum"
         },
         {
           "type": "SYMBOL",
@@ -2097,7 +2118,7 @@
         }
       ]
     },
-    "enum_type": {
+    "enum": {
       "type": "SEQ",
       "members": [
         {
@@ -2553,6 +2574,10 @@
     "colon": {
       "type": "STRING",
       "value": ":"
+    },
+    "double_colon": {
+      "type": "STRING",
+      "value": "::"
     },
     "_semicolon": {
       "type": "STRING",

@@ -831,7 +831,7 @@
     }
   },
   {
-    "type": "enum_type",
+    "type": "enum",
     "named": true,
     "fields": {},
     "children": {
@@ -856,6 +856,25 @@
         },
         {
           "type": "visibility",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_access",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "double_colon",
+          "named": true
+        },
+        {
+          "type": "type_ident",
           "named": true
         }
       ]
@@ -904,6 +923,10 @@
         },
         {
           "type": "else_expression",
+          "named": true
+        },
+        {
+          "type": "enum_access",
           "named": true
         },
         {
@@ -1840,7 +1863,7 @@
           "named": true
         },
         {
-          "type": "enum_type",
+          "type": "enum",
           "named": true
         },
         {
@@ -2005,6 +2028,10 @@
   },
   {
     "type": "divide",
+    "named": true
+  },
+  {
+    "type": "double_colon",
     "named": true
   },
   {
