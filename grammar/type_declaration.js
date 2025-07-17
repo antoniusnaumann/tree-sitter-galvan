@@ -1,10 +1,10 @@
-const { separatedTrailing } = require("../helpers");
+const { separatedTrailing, separatedTrailing1 } = require("../helpers");
 
 const type_declaration = {
   type_declaration: $ => choice(
     $.struct,
     $.alias,
-    // $.enum_type,
+    $.enum_type,
     $.tuple_struct,
     $.empty_struct,
   ),
@@ -37,6 +37,13 @@ const type_declaration = {
     $._type_prelude,
     $.assign,
     $.type_item
+  ),
+
+  enum_type: $ => seq(
+    $._type_prelude,
+    $.brace_open,
+    separatedTrailing1($, $.type_ident, choice($._comma, $._autosemi)),
+    $.brace_close,
   ),
 
   tuple_struct: $ => seq(

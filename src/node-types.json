@@ -831,6 +831,37 @@
     }
   },
   {
+    "type": "enum_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "brace_close",
+          "named": true
+        },
+        {
+          "type": "brace_open",
+          "named": true
+        },
+        {
+          "type": "type_ident",
+          "named": true
+        },
+        {
+          "type": "type_keyword",
+          "named": true
+        },
+        {
+          "type": "visibility",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "exclamation_mark",
     "named": true,
     "fields": {}
@@ -1806,6 +1837,10 @@
         },
         {
           "type": "empty_struct",
+          "named": true
+        },
+        {
+          "type": "enum_type",
           "named": true
         },
         {

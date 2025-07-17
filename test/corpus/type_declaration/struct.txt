@@ -271,3 +271,21 @@ type Cat {
             (type_ident))))
       (brace_close))))
 
+====================
+Enum
+====================
+
+type AnEnum {
+  SomeCase
+}
+
+---
+
+(source
+  (type_declaration
+    (enum
+      (type_keyword)
+      (type_ident)
+      (brace_open)
+      (type_ident)
+      (brace_close))))
