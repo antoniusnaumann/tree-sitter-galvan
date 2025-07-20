@@ -18,13 +18,13 @@ const infix_precedence = {
   bitand: 16,
   bitxor: 15,
   bitor: 14,
-  concat: 13,
-  contains: 12,
-  comparison: 11,
-  and: 10,
-  xor: 9,
-  or: 8,
-  unwrap: 7,
+  unwrap: 13,
+  concat: 12,
+  contains: 11,
+  comparison: 10,
+  and: 9,
+  xor: 8,
+  or: 7,
 };
 
 module.exports = { expression_precedence, infix_precedence };
