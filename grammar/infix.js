@@ -8,6 +8,7 @@ const infix = {
     $.arithmetic_expression,
     $.collection_expression,
     $.comparison_expression,
+    $.unwrap_expression,
     $.custom_infix_expression,
   ),
 
@@ -44,6 +45,8 @@ const infix = {
   // Chaining comparison expression requires parentheses
   // This will be handled in AST conversion
   comparison_expression: $ => operation($, precedence.comparison, $._comparison_operator),
+
+  unwrap_expression: $ => operation($, precedence.unwrap, $.unwrap),
 
   custom_infix_expression: $ => operation($, precedence.custom, $.custom_infix_operator),
   custom_infix_operator: $ => "$$$",

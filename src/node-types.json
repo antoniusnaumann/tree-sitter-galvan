@@ -960,6 +960,10 @@
         {
           "type": "trailing_closure_expression",
           "named": true
+        },
+        {
+          "type": "unwrap_expression",
+          "named": true
         }
       ]
     }
@@ -1453,6 +1457,11 @@
     }
   },
   {
+    "type": "question_mark",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "result_type",
     "named": true,
     "fields": {
@@ -1930,6 +1939,47 @@
     }
   },
   {
+    "type": "unwrap",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "unwrap_expression",
+    "named": true,
+    "fields": {
+      "lhs": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "unwrap",
+            "named": true
+          }
+        ]
+      },
+      "rhs": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "visibility",
     "named": true,
     "fields": {},
@@ -1963,6 +2013,10 @@
   },
   {
     "type": ";",
+    "named": false
+  },
+  {
+    "type": "?",
     "named": false
   },
   {
@@ -2144,10 +2198,6 @@
   },
   {
     "type": "pub_keyword",
-    "named": true
-  },
-  {
-    "type": "question_mark",
     "named": true
   },
   {

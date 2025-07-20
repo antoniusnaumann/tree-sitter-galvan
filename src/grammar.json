@@ -1363,6 +1363,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "unwrap_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "custom_infix_expression"
         }
       ]
@@ -1880,6 +1884,39 @@
             "content": {
               "type": "SYMBOL",
               "name": "_comparison_operator"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "rhs",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          }
+        ]
+      }
+    },
+    "unwrap_expression": {
+      "type": "PREC_LEFT",
+      "value": 7,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "lhs",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "operator",
+            "content": {
+              "type": "SYMBOL",
+              "name": "unwrap"
             }
           },
           {
@@ -2682,6 +2719,10 @@
     "power": {
       "type": "STRING",
       "value": "^"
+    },
+    "unwrap": {
+      "type": "STRING",
+      "value": "?"
     },
     "_assignment_operator": {
       "type": "CHOICE",

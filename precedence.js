@@ -24,6 +24,7 @@ const infix_precedence = {
   and: 10,
   xor: 9,
   or: 8,
+  unwrap: 7,
 };
 
 module.exports = { expression_precedence, infix_precedence };
