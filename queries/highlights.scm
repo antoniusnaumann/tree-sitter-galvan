@@ -49,6 +49,9 @@
  (unwrap)
 ] @operator
 
+; operators
+(yeet_operator) @keyword.exception
+
 ; keywords
 [
   (main_keyword)
@@ -143,6 +146,8 @@
 (colon) @punctuation.delimiter
 (member_call_operator) @punctuation.delimiter
 (safe_call_operator) @punctuation.delimiter
+(question_mark) @punctuation.delimiter
+(exclamation_mark) @punctuation.delimiter
 ; "," @punctuation.delimiter
 ; ";" @punctuation.delimiter
 (pipe) @punctuation.delimiter
@@ -188,7 +193,5 @@
 ;   (#match? @variable.parameter.builtin "^(self|it)$")
 ;)
 
-; operators
-(yeet_operator) @keyword.exception
 
 (comment) @comment
