@@ -186,6 +186,10 @@
           "named": true
         },
         {
+          "type": "concat_assign",
+          "named": true
+        },
+        {
           "type": "div_assign",
           "named": true
         },
@@ -2066,6 +2070,10 @@
   },
   {
     "type": "concat",
+    "named": true
+  },
+  {
+    "type": "concat_assign",
     "named": true
   },
   {

@@ -136,3 +136,37 @@ main {
                   (number_literal)))))))
       (brace_close))))
 
+=====================================
+Concat Assignment
+=====================================
+
+main {
+  result ++= [1, 2, 3]
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (assignment
+          (expression
+            (ident))
+          (concat_assign)
+          (expression
+            (collection_literal
+              (array_literal
+                (bracket_open)
+                (expression
+                  (literal
+                    (number_literal)))
+                (expression
+                  (literal
+                    (number_literal)))
+                (expression
+                  (literal
+                    (number_literal)))
+                (bracket_close))))))
+      (brace_close))))
+

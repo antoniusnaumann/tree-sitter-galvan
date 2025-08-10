@@ -43,7 +43,8 @@ const symbols = {
     $.mul_assign,
     $.pow_assign,
     $.div_assign,
-    $.rem_assign
+    $.rem_assign,
+    $.concat_assign
   ),
 
   assign: $ => '=',
@@ -53,6 +54,7 @@ const symbols = {
   pow_assign: $ => '^=',
   div_assign: $ => '/=',
   rem_assign: $ => '%=',
+  concat_assign: $ => token('++='),
 
   // Comparison
   _comparison_operator: $ => choice(
