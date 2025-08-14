@@ -1,5 +1,0 @@
-main { 
-    let char_a = 'a'
-    let char_newline = '\n'
-    let char_unicode = '\u{1F600}'
-}
