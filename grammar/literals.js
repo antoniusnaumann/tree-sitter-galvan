@@ -3,6 +3,7 @@ const literals = {
     $.none_keyword,
     $.boolean_literal,
     $.string_literal,
+    $.char_literal,
     $.number_literal
   ),
 
@@ -12,6 +13,16 @@ const literals = {
   ),
 
   raw_string_literal: $ => /#"([^"#]|("#+[^"#]))*"#/,
+
+  char_literal: $ => seq(
+    "'",
+    choice(
+      /[^'\\]/,           // Regular character
+      seq("\\", /[nrt\\'"]/), // Escape sequences: \n, \r, \t, \\, \', \"
+      seq("\\", "u", "{", /[0-9a-fA-F]+/, "}") // Unicode escapes: \u{1F600}
+    ),
+    "'"
+  ),
 
   number_literal: $ => token(seq(
     optional(choice('-', '+')),

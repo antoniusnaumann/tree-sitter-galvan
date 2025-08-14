@@ -274,6 +274,16 @@
     }
   },
   {
+    "type": "brace_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "brace_open",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "break_statement",
     "named": true,
     "fields": {},
@@ -306,6 +316,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "char_literal",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "closure",
@@ -1042,10 +1057,6 @@
         "required": true,
         "types": [
           {
-            "type": ",",
-            "named": false
-          },
-          {
             "type": "function_call_arg",
             "named": true
           }
@@ -1188,6 +1199,10 @@
           "named": true
         },
         {
+          "type": "char_literal",
+          "named": true
+        },
+        {
           "type": "none_keyword",
           "named": true
         },
@@ -1264,6 +1279,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "member_call_operator",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "member_expression",
@@ -1606,7 +1626,6 @@
   {
     "type": "source",
     "named": true,
-    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -1786,10 +1805,6 @@
         "multiple": true,
         "required": false,
         "types": [
-          {
-            "type": ",",
-            "named": false
-          },
           {
             "type": "function_call_arg",
             "named": true
@@ -2050,15 +2065,19 @@
     "named": false
   },
   {
-    "type": ",",
+    "type": "'",
     "named": false
   },
   {
-    "type": ";",
+    "type": ".",
     "named": false
   },
   {
     "type": "?",
+    "named": false
+  },
+  {
+    "type": "\\",
     "named": false
   },
   {
@@ -2075,14 +2094,6 @@
   },
   {
     "type": "assign",
-    "named": true
-  },
-  {
-    "type": "brace_close",
-    "named": true
-  },
-  {
-    "type": "brace_open",
     "named": true
   },
   {
@@ -2107,8 +2118,7 @@
   },
   {
     "type": "comment",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "concat",
@@ -2184,10 +2194,6 @@
   },
   {
     "type": "main_keyword",
-    "named": true
-  },
-  {
-    "type": "member_call_operator",
     "named": true
   },
   {
@@ -2299,7 +2305,19 @@
     "named": true
   },
   {
+    "type": "u",
+    "named": false
+  },
+  {
     "type": "xor",
     "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
   }
 ]
