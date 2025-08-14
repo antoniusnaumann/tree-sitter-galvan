@@ -341,6 +341,14 @@
           {
             "type": "SYMBOL",
             "name": "free_function"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "break_statement"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "continue_statement"
           }
         ]
       }
@@ -433,6 +441,14 @@
           }
         }
       ]
+    },
+    "break_statement": {
+      "type": "SYMBOL",
+      "name": "break_keyword"
+    },
+    "continue_statement": {
+      "type": "SYMBOL",
+      "name": "continue_keyword"
     },
     "expression": {
       "type": "CHOICE",
@@ -3097,6 +3113,14 @@
     "else_keyword": {
       "type": "STRING",
       "value": "else"
+    },
+    "break_keyword": {
+      "type": "STRING",
+      "value": "break"
+    },
+    "continue_keyword": {
+      "type": "STRING",
+      "value": "continue"
     },
     "literal": {
       "type": "CHOICE",

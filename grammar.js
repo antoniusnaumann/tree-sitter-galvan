@@ -106,6 +106,8 @@ module.exports = grammar({
       $.declaration,
       $.expression,
       $.free_function,
+      $.break_statement,
+      $.continue_statement,
       // $.block,
     )),
 
@@ -126,6 +128,10 @@ module.exports = grammar({
       $.ident,
       field("arguments", $._trailing_argument_list),
     ),
+
+    break_statement: $ => $.break_keyword,
+
+    continue_statement: $ => $.continue_keyword,
 
     ...expression,
 
