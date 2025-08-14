@@ -44,6 +44,7 @@
  (pow_assign)
  (div_assign)
  (rem_assign)
+ (concat_assign)
  
  ; null-coalescing
  (unwrap)
