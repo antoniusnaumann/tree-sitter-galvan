@@ -78,8 +78,8 @@
 
 (else_keyword) @keyword.conditional
 
-(break_keyword) @keyword.control.flow
-(continue_keyword) @keyword.control.flow
+(break_keyword) @keyword.control.return
+(continue_keyword) @keyword.control.return
 
 ; ;literals
 (none_keyword) @constant.builtin
@@ -98,8 +98,8 @@
 )
 
 ((free_function
-  (ident) @keyword.control.flow)
-  (#match? @keyword.control.flow "^(break|continue)$")
+  (ident) @keyword.control.return)
+  (#match? @keyword.control.return "^(break|continue)$")
 )
 
 ((trailing_closure_expression
