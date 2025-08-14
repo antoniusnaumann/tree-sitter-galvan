@@ -86,7 +86,7 @@
 (boolean_literal) @constant.builtin.boolean
 (number_literal) @constant.numeric
 (string_literal) @string
-(char_literal) @string.special
+(char_literal) @constant.character
 
 ((free_function
   (ident) @keyword.exception)
