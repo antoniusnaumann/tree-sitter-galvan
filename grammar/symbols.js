@@ -87,6 +87,12 @@ const symbols = {
   concat: $ => '++',
   remove: $ => '--',
   contains: $ => token(choice('in', '∈', '∊')),
+
+  // Range operators
+  inclusive_range: $ => token('..='),
+  exclusive_range: $ => token('..<'),
+  tolerance_range: $ => token(choice('±', '+-')),
+  interval_range: $ => token('..+'),
 };
 
 module.exports = { symbols };

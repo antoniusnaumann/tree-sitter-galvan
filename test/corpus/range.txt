@@ -1,0 +1,45 @@
+===
+Inclusive range
+===
+main { let range = 0..=5 }
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (declaration
+          (declaration_modifier
+            (let_keyword))
+          (ident)
+          (assign)
+          (expression
+            (range_expression
+              (expression (literal (number_literal)))
+              (inclusive_range)
+              (expression (literal (number_literal)))))))
+      (brace_close))))
+
+===
+Exclusive range
+===
+main { let range = 0..<5 }
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (declaration
+          (declaration_modifier
+            (let_keyword))
+          (ident)
+          (assign)
+          (expression
+            (range_expression
+              (expression (literal (number_literal)))
+              (exclusive_range)
+              (expression (literal (number_literal)))))))
+      (brace_close))))

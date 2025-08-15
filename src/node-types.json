@@ -1011,6 +1011,10 @@
           "named": true
         },
         {
+          "type": "range_expression",
+          "named": true
+        },
+        {
           "type": "trailing_closure_expression",
           "named": true
         },
@@ -1060,6 +1064,10 @@
         "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": ",",
+            "named": false
+          },
           {
             "type": "function_call_arg",
             "named": true
@@ -1283,11 +1291,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "member_call_operator",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "member_expression",
@@ -1520,6 +1523,54 @@
     "fields": {}
   },
   {
+    "type": "range_expression",
+    "named": true,
+    "fields": {
+      "lhs": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "exclusive_range",
+            "named": true
+          },
+          {
+            "type": "inclusive_range",
+            "named": true
+          },
+          {
+            "type": "interval_range",
+            "named": true
+          },
+          {
+            "type": "tolerance_range",
+            "named": true
+          }
+        ]
+      },
+      "rhs": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "result_type",
     "named": true,
     "fields": {
@@ -1630,6 +1681,7 @@
   {
     "type": "source",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -1809,6 +1861,10 @@
         "multiple": true,
         "required": false,
         "types": [
+          {
+            "type": ",",
+            "named": false
+          },
           {
             "type": "function_call_arg",
             "named": true
@@ -2073,7 +2129,11 @@
     "named": false
   },
   {
-    "type": ".",
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ";",
     "named": false
   },
   {
@@ -2122,7 +2182,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "concat",
@@ -2165,6 +2226,10 @@
     "named": true
   },
   {
+    "type": "exclusive_range",
+    "named": true
+  },
+  {
     "type": "false_keyword",
     "named": true
   },
@@ -2185,6 +2250,14 @@
     "named": true
   },
   {
+    "type": "inclusive_range",
+    "named": true
+  },
+  {
+    "type": "interval_range",
+    "named": true
+  },
+  {
     "type": "less",
     "named": true
   },
@@ -2198,6 +2271,10 @@
   },
   {
     "type": "main_keyword",
+    "named": true
+  },
+  {
+    "type": "member_call_operator",
     "named": true
   },
   {
@@ -2302,6 +2379,10 @@
   },
   {
     "type": "test_keyword",
+    "named": true
+  },
+  {
+    "type": "tolerance_range",
     "named": true
   },
   {

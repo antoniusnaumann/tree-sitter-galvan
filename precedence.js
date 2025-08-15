@@ -20,11 +20,12 @@ const infix_precedence = {
   bitor: 14,
   unwrap: 13,
   concat: 12,
-  contains: 11,
-  comparison: 10,
-  and: 9,
-  xor: 8,
-  or: 7,
+  range: 11,
+  contains: 10,
+  comparison: 9,
+  and: 8,
+  xor: 7,
+  or: 6,
 };
 
 module.exports = { expression_precedence, infix_precedence };

@@ -7,6 +7,7 @@ const infix = {
     $.logical_expression,
     $.arithmetic_expression,
     $.collection_expression,
+    $.range_expression,
     $.comparison_expression,
     $.unwrap_expression,
     $.custom_infix_expression,
@@ -31,6 +32,13 @@ const infix = {
     operation($, precedence.concat, $.concat),
     operation($, precedence.concat, $.remove),
     operation($, precedence.contains, $.contains),
+  ),
+
+  range_expression: $ => choice(
+    operation($, precedence.range, $.inclusive_range),
+    operation($, precedence.range, $.exclusive_range),
+    operation($, precedence.range, $.tolerance_range),
+    operation($, precedence.range, $.interval_range),
   ),
 
   member_expression: $ => choice(
