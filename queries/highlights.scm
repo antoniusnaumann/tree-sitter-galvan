@@ -48,6 +48,12 @@
  
  ; null-coalescing
  (unwrap)
+
+ ; range
+ (inclusive_range)
+ (exclusive_range)
+ (tolerance_range)
+ (interval_range)
 ] @operator
 
 ; operators
