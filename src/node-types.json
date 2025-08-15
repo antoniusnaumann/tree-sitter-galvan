@@ -210,6 +210,10 @@
           "named": true
         },
         {
+          "type": "remove_assign",
+          "named": true
+        },
+        {
           "type": "sub_assign",
           "named": true
         }
@@ -2278,6 +2282,10 @@
   },
   {
     "type": "remove",
+    "named": true
+  },
+  {
+    "type": "remove_assign",
     "named": true
   },
   {

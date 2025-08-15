@@ -2773,6 +2773,10 @@
         {
           "type": "SYMBOL",
           "name": "concat_assign"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "remove_assign"
         }
       ]
     },
@@ -2809,6 +2813,13 @@
       "content": {
         "type": "STRING",
         "value": "++="
+      }
+    },
+    "remove_assign": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "--="
       }
     },
     "_comparison_operator": {
