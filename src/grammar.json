@@ -3353,7 +3353,11 @@
                 "members": [
                   {
                     "type": "PATTERN",
-                    "value": "[^\"]"
+                    "value": "[^\"\\\\]"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "escape_sequence"
                   },
                   {
                     "type": "SYMBOL",
@@ -3393,48 +3397,57 @@
               "value": "[^'\\\\]"
             },
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "\\"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "[nrt\\\\'\"]"
-                }
-              ]
-            },
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "\\"
-                },
-                {
-                  "type": "STRING",
-                  "value": "u"
-                },
-                {
-                  "type": "STRING",
-                  "value": "{"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "[0-9a-fA-F]+"
-                },
-                {
-                  "type": "STRING",
-                  "value": "}"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "escape_sequence"
             }
           ]
         },
         {
           "type": "STRING",
           "value": "'"
+        }
+      ]
+    },
+    "escape_sequence": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "\\"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[nrt\\\\'\"]"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "\\"
+            },
+            {
+              "type": "STRING",
+              "value": "u"
+            },
+            {
+              "type": "STRING",
+              "value": "{"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[0-9a-fA-F]+"
+            },
+            {
+              "type": "STRING",
+              "value": "}"
+            }
+          ]
         }
       ]
     },

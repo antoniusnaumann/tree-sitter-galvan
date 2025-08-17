@@ -8,7 +8,11 @@ const literals = {
   ),
 
   string_literal: $ => choice(
-    seq('"', repeat(choice(/[^"]/, $.raw_string_literal)), '"'),
+    seq('"', repeat(choice(
+      /[^"\\]/,           // Regular characters (not quote or backslash)
+      $.escape_sequence,
+      $.raw_string_literal
+    )), '"'),
     $.raw_string_literal
   ),
 
@@ -18,10 +22,14 @@ const literals = {
     "'",
     choice(
       /[^'\\]/,           // Regular character
-      seq("\\", /[nrt\\'"]/), // Escape sequences: \n, \r, \t, \\, \', \"
-      seq("\\", "u", "{", /[0-9a-fA-F]+/, "}") // Unicode escapes: \u{1F600}
+      $.escape_sequence
     ),
     "'"
+  ),
+
+  escape_sequence: $ => choice(
+    seq("\\", /[nrt\\'"]/),      // Basic escape sequences: \n, \r, \t, \\, \', \"
+    seq("\\", "u", "{", /[0-9a-fA-F]+/, "}") // Unicode escapes: \u{1F600}
   ),
 
   number_literal: $ => token(seq(

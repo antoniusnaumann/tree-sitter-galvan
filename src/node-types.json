@@ -324,7 +324,17 @@
   {
     "type": "char_literal",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "closure",
@@ -932,6 +942,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "escape_sequence",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "exclamation_mark",
@@ -1757,6 +1772,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        },
         {
           "type": "raw_string_literal",
           "named": true

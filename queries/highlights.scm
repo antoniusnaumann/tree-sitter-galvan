@@ -94,6 +94,7 @@
 (number_literal) @constant.numeric
 (string_literal) @string
 (char_literal) @constant.character
+(escape_sequence) @constant.character.escape
 
 ((free_function
   (ident) @keyword.exception)
