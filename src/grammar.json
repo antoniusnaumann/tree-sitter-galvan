@@ -3353,7 +3353,7 @@
                 "members": [
                   {
                     "type": "PATTERN",
-                    "value": "[^\"\\\\]"
+                    "value": "[^\"\\\\{]"
                   },
                   {
                     "type": "SYMBOL",
@@ -3361,7 +3361,7 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "raw_string_literal"
+                    "name": "string_interpolation"
                   }
                 ]
               }
@@ -3448,6 +3448,23 @@
               "value": "}"
             }
           ]
+        }
+      ]
+    },
+    "string_interpolation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": "}"
         }
       ]
     },

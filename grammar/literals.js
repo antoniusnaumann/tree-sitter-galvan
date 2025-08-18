@@ -9,9 +9,9 @@ const literals = {
 
   string_literal: $ => choice(
     seq('"', repeat(choice(
-      /[^"\\]/,           // Regular characters (not quote or backslash)
+      /[^"\\{]/,          // Regular characters (not quote, backslash, or opening brace)
       $.escape_sequence,
-      $.raw_string_literal
+      $.string_interpolation
     )), '"'),
     $.raw_string_literal
   ),
@@ -30,6 +30,12 @@ const literals = {
   escape_sequence: $ => choice(
     seq("\\", /[nrt\\'"]/),      // Basic escape sequences: \n, \r, \t, \\, \', \"
     seq("\\", "u", "{", /[0-9a-fA-F]+/, "}") // Unicode escapes: \u{1F600}
+  ),
+
+  string_interpolation: $ => seq(
+    "{",
+    $.expression,
+    "}"
   ),
 
   number_literal: $ => token(seq(
