@@ -1971,11 +1971,19 @@
       "required": true,
       "types": [
         {
+          "type": "assign",
+          "named": true
+        },
+        {
           "type": "colon",
           "named": true
         },
         {
           "type": "declaration_modifier",
+          "named": true
+        },
+        {
+          "type": "expression",
           "named": true
         },
         {

@@ -31,6 +31,7 @@ const type_declaration = {
     $.ident,
     $.colon,
     $.type_item,
+    optional(seq($.assign, $.expression)),
   ),
 
   alias: $ => seq(
