@@ -33,7 +33,7 @@ const expression = {
     optional(field('arguments', $._trailing_argument_list)),
     optional(seq(
       $.pipe,
-      separatedTrailing1($, $.closure_argument, $._comma),
+      separatedTrailing($, $.closure_argument, $._comma),
       $.pipe,
     )),
     $.body,
