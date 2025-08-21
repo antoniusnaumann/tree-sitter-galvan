@@ -23,6 +23,8 @@ const keywords = {
   else_keyword: $ => 'else',
   break_keyword: $ => 'break',
   continue_keyword: $ => 'continue',
+
+  where_keyword: $ => 'where',
 };
 
 module.exports = { keywords };

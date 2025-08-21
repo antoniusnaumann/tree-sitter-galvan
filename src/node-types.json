@@ -1192,6 +1192,10 @@
         {
           "type": "visibility",
           "named": true
+        },
+        {
+          "type": "where_clause",
+          "named": true
         }
       ]
     }
@@ -2283,6 +2287,44 @@
     }
   },
   {
+    "type": "where_args",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "colon",
+          "named": true
+        },
+        {
+          "type": "generic_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "where_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "where_args",
+          "named": true
+        },
+        {
+          "type": "where_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "yeet_operator",
     "named": true,
     "fields": {}
@@ -2567,6 +2609,10 @@
   {
     "type": "u",
     "named": false
+  },
+  {
+    "type": "where_keyword",
+    "named": true
   },
   {
     "type": "xor",

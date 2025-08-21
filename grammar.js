@@ -81,7 +81,8 @@ module.exports = grammar({
       $.fn_keyword,
       $.ident,
       $.param_list,
-      optional($.return_type)
+      optional($.return_type),
+      optional($.where_clause),
     ),
 
     _fn_modifiers: $ => $.visibility,
@@ -97,6 +98,18 @@ module.exports = grammar({
     return_type: $ => seq(
       $.single_arrow,
       $.type_item
+    ),
+
+    where_clause: $ => seq(
+      $.where_keyword,
+      $.where_args,
+    ),
+
+    where_args: $ => separatedTrailing1($,
+      separatedTrailing1($, $.generic_type, ","),
+      $.colon,
+      $.type_ident,
+      $._comma,
     ),
 
     annotation: $ => "TODO: Annotation",
