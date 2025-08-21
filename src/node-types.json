@@ -910,6 +910,10 @@
           "named": true
         },
         {
+          "type": "enum_variant",
+          "named": true
+        },
+        {
           "type": "type_ident",
           "named": true
         },
@@ -938,6 +942,123 @@
         },
         {
           "type": "type_ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_constructor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "enum_access",
+          "named": true
+        },
+        {
+          "type": "enum_constructor_arg",
+          "named": true
+        },
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_constructor_arg",
+    "named": true,
+    "fields": {
+      "field": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "colon",
+          "named": true
+        },
+        {
+          "type": "declaration_modifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_variant",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "enum_variant_field",
+          "named": true
+        },
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
+          "named": true
+        },
+        {
+          "type": "type_ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_variant_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "colon",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "type_item",
           "named": true
         }
       ]
@@ -995,6 +1116,10 @@
         },
         {
           "type": "enum_access",
+          "named": true
+        },
+        {
+          "type": "enum_constructor",
           "named": true
         },
         {

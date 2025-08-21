@@ -42,8 +42,22 @@ const type_declaration = {
   enum: $ => seq(
     $._type_prelude,
     $.brace_open,
-    separatedTrailing1($, $.type_ident, choice($._comma, $._autosemi)),
+    separatedTrailing1($, $.enum_variant, choice($._comma, $._autosemi)),
     $.brace_close,
+  ),
+
+  enum_variant: $ => seq(
+    $.type_ident,
+    optional(seq(
+      $.paren_open,
+      separatedTrailing($, $.enum_variant_field, $._comma),
+      $.paren_close,
+    ))
+  ),
+
+  enum_variant_field: $ => choice(
+    seq($.ident, $.colon, $.type_item),
+    $.type_item
   ),
 
   tuple_struct: $ => seq(

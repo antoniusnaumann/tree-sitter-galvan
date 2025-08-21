@@ -10,6 +10,7 @@ const expression = {
     $.collection_literal,
     $.function_call,
     $.constructor_call,
+    $.enum_constructor,
     $.enum_access,
     $.literal,
     $.ident,
@@ -128,6 +129,27 @@ const expression = {
     field('field', $.ident),
     $.colon,
     field('value', $.expression),
+  ),
+
+  enum_constructor: $ => seq(
+    $.enum_access,
+    $.paren_open,
+    separatedTrailing($, $.enum_constructor_arg, $._comma),
+    $.paren_close,
+  ),
+
+  enum_constructor_arg: $ => choice(
+    // Named argument: r: 100
+    seq(
+      field('field', $.ident),
+      $.colon,
+      field('value', $.expression),
+    ),
+    // Anonymous argument: 128
+    seq(
+      optional($.declaration_modifier),
+      field('value', $.expression),
+    ),
   ),
 
   enum_access: $ => seq(
