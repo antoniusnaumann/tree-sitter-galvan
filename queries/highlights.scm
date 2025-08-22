@@ -54,6 +54,9 @@
  (exclusive_range)
  (tolerance_range)
  (interval_range)
+
+ ; return arrow
+ (single_arrow)
 ] @operator
 
 ; operators
@@ -148,6 +151,8 @@
   (double_colon) @punctuation.delimiter
   (type_ident) @type.enum.variant
 ))
+
+(generic_type) @type.parameter
 
 ; identifier
 (type_ident) @type
