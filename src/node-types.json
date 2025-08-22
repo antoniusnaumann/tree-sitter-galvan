@@ -61,6 +61,16 @@
     }
   },
   {
+    "type": "angle_bracket_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "angle_bracket_open",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "arithmetic_expression",
     "named": true,
     "fields": {
@@ -1315,6 +1325,11 @@
     }
   },
   {
+    "type": "greater",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "group",
     "named": true,
     "fields": {},
@@ -1339,6 +1354,11 @@
   },
   {
     "type": "ident",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "less",
     "named": true,
     "fields": {}
   },
@@ -1622,6 +1642,55 @@
         }
       ]
     }
+  },
+  {
+    "type": "parametric_type",
+    "named": true,
+    "fields": {
+      "base_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_ident",
+            "named": true
+          }
+        ]
+      },
+      "type_args": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "type_item",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "angle_bracket_close",
+          "named": true
+        },
+        {
+          "type": "angle_bracket_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "plus",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "postfix_expression",
@@ -2216,6 +2285,10 @@
           "named": true
         },
         {
+          "type": "parametric_type",
+          "named": true
+        },
+        {
           "type": "result_type",
           "named": true
         },
@@ -2287,19 +2360,44 @@
     }
   },
   {
-    "type": "where_args",
+    "type": "where_bound",
     "named": true,
-    "fields": {},
+    "fields": {
+      "bounds": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": "type_ident",
+            "named": true
+          }
+        ]
+      },
+      "type_params": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "generic_type",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "colon",
-          "named": true
-        },
-        {
-          "type": "generic_type",
           "named": true
         }
       ]
@@ -2314,7 +2412,7 @@
       "required": true,
       "types": [
         {
-          "type": "where_args",
+          "type": "where_bound",
           "named": true
         },
         {
@@ -2342,11 +2440,23 @@
     "named": false
   },
   {
+    "type": "+",
+    "named": false
+  },
+  {
     "type": ",",
     "named": false
   },
   {
     "type": ";",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": ">",
     "named": false
   },
   {
@@ -2451,10 +2561,6 @@
     "named": true
   },
   {
-    "type": "greater",
-    "named": true
-  },
-  {
     "type": "greater_equal",
     "named": true
   },
@@ -2468,10 +2574,6 @@
   },
   {
     "type": "interval_range",
-    "named": true
-  },
-  {
-    "type": "less",
     "named": true
   },
   {
@@ -2536,10 +2638,6 @@
   },
   {
     "type": "pipe",
-    "named": true
-  },
-  {
-    "type": "plus",
     "named": true
   },
   {

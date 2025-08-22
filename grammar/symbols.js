@@ -18,6 +18,9 @@ const symbols = {
   brace_open: $ => '{',
   brace_close: $ => '}',
 
+  angle_bracket_open: $ => '<',
+  angle_bracket_close: $ => '>',
+
   pipe: $ => '|',
 
   // Arrows
@@ -27,6 +30,7 @@ const symbols = {
   // Operators
   // Individual arithmetic operator rules as named rules
   plus: $ => '+',
+  trait_bound_plus: $ => '+',
   minus: $ => '-',
   multiply: $ => '*',
   divide: $ => '/',

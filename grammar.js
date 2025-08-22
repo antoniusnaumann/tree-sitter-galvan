@@ -102,14 +102,13 @@ module.exports = grammar({
 
     where_clause: $ => seq(
       $.where_keyword,
-      $.where_args,
+      separatedTrailing1($, $.where_bound, $._comma)
     ),
 
-    where_args: $ => separatedTrailing1($,
-      separatedTrailing1($, $.generic_type, ","),
+    where_bound: $ => seq(
+      field('type_params', separatedTrailing1($, $.generic_type, $._comma)),
       $.colon,
-      $.type_ident,
-      $._comma,
+      field('bounds', separatedTrailing1($, $.type_ident, "+"))
     ),
 
     annotation: $ => "TODO: Annotation",

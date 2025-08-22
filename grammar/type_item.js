@@ -9,6 +9,7 @@ const type_item = {
     $.ordered_dict_type,
     $.set_type,
     $.tuple_type,
+    $.parametric_type,
     $.generic_type,
     $.basic_type,
   ),
@@ -56,6 +57,14 @@ const type_item = {
     $.paren_open,
     separatedTrailing1($, $.type_item, $._comma),
     $.paren_close
+  ),
+
+  // Parametric types like Container<Int>, Vec<String>
+  parametric_type: $ => seq(
+    field('base_type', $.type_ident),
+    $.angle_bracket_open,
+    field('type_args', separatedTrailing1($, $.type_item, $._comma)),
+    $.angle_bracket_close
   ),
 
   // Type parameters for generics are lower case in Galvan
