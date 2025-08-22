@@ -79,6 +79,7 @@
 
 (fn_keyword) @keyword.function
 (type_keyword) @keyword.type
+(where_keyword) @keyword
 
 ; do not highlight those as "modifiers"
 (declaration_modifier) @keyword
