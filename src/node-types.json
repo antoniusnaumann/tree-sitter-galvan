@@ -2362,42 +2362,21 @@
   {
     "type": "where_bound",
     "named": true,
-    "fields": {
-      "bounds": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "+",
-            "named": false
-          },
-          {
-            "type": "type_ident",
-            "named": true
-          }
-        ]
-      },
-      "type_params": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "generic_type",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "colon",
+          "named": true
+        },
+        {
+          "type": "generic_type",
+          "named": true
+        },
+        {
+          "type": "type_ident",
           "named": true
         }
       ]

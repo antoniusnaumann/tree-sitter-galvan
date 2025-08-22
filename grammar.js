@@ -106,9 +106,9 @@ module.exports = grammar({
     ),
 
     where_bound: $ => seq(
-      field('type_params', separatedTrailing1($, $.generic_type, $._comma)),
+      separatedTrailing1($, $.generic_type, $._comma),
       $.colon,
-      field('bounds', separatedTrailing1($, $.type_ident, "+"))
+      separatedTrailing1($, $.type_ident, "+"),
     ),
 
     annotation: $ => "TODO: Annotation",
