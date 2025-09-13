@@ -18,7 +18,6 @@ const infix_precedence = {
   bitand: 16,
   bitxor: 15,
   bitor: 14,
-  unwrap: 13,
   concat: 12,
   range: 11,
   contains: 10,

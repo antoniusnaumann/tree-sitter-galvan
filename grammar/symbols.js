@@ -37,8 +37,6 @@ const symbols = {
   remainder: $ => '%',
   power: $ => '^',
 
-  unwrap: $ => '?',
-
   // Assignment
   _assignment_operator: $ => choice(
     $.assign,
