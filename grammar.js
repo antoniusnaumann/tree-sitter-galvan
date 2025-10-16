@@ -93,7 +93,6 @@ module.exports = grammar({
       optional($._fn_modifiers),
       $.fn_keyword,
       $.ident,
-      optional($.ident),
       $.param_list,
       optional($.return_type),
       optional($.where_clause),
@@ -105,6 +104,7 @@ module.exports = grammar({
     param: $ => seq(
       optional($.declaration_modifier),
       $.ident,
+      optional($.ident),
       $.colon,
       $.type_item,
     ),
