@@ -3,6 +3,7 @@ const keywords = {
   build_keyword: $ => 'build',
   test_keyword: $ => 'test',
   fn_keyword: $ => 'fn',
+  cmd_keyword: $ => 'cmd',
   type_keyword: $ => 'type',
 
   declaration_modifier: $ => choice($.ref_keyword, $.let_keyword, $.mut_keyword),

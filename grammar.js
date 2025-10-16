@@ -47,6 +47,7 @@ module.exports = grammar({
       $.build,
       $.test,
       $.function,
+      $.cmd,
       $.type_declaration,
       $.entry_point,
     ),
@@ -70,6 +71,18 @@ module.exports = grammar({
 
     entry_point: $ => seq($.ident, $.body),
 
+    cmd: $ => seq(
+      repeat($.annotation),
+      $.cmd_signature,
+      $.body,
+    ),
+    
+    cmd_signature: $ => seq(
+      $.cmd_keyword,
+      $.ident,
+      $.param_list,
+    ),
+
     function: $ => seq(
       repeat($.annotation),
       $.fn_signature,
@@ -80,6 +93,7 @@ module.exports = grammar({
       optional($._fn_modifiers),
       $.fn_keyword,
       $.ident,
+      optional($.ident),
       $.param_list,
       optional($.return_type),
       optional($.where_clause),

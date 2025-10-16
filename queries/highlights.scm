@@ -5,6 +5,10 @@
   (ident) @function
 )
 
+(cmd_signature
+  (ident) @function
+)
+
 [
  ; logical
  (and)
@@ -78,6 +82,7 @@
 
 
 (fn_keyword) @keyword.function
+(cmd_keyword) @keyword.function
 (type_keyword) @keyword.type
 (where_keyword) @keyword
 

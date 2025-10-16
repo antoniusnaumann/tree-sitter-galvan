@@ -404,6 +404,52 @@
     }
   },
   {
+    "type": "cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation",
+          "named": true
+        },
+        {
+          "type": "body",
+          "named": true
+        },
+        {
+          "type": "cmd_signature",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cmd_signature",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cmd_keyword",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "param_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "collection_expression",
     "named": true,
     "fields": {
@@ -1896,6 +1942,10 @@
           "named": true
         },
         {
+          "type": "cmd",
+          "named": true
+        },
+        {
           "type": "entry_point",
           "named": true
         },
@@ -2422,6 +2472,10 @@
   },
   {
     "type": "build_keyword",
+    "named": true
+  },
+  {
+    "type": "cmd_keyword",
     "named": true
   },
   {

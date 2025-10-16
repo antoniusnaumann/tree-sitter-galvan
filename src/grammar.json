@@ -79,6 +79,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "cmd"
+        },
+        {
+          "type": "SYMBOL",
           "name": "type_declaration"
         },
         {
@@ -151,6 +155,43 @@
         }
       ]
     },
+    "cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "annotation"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "cmd_signature"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "body"
+        }
+      ]
+    },
+    "cmd_signature": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "cmd_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ident"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "param_list"
+        }
+      ]
+    },
     "function": {
       "type": "SEQ",
       "members": [
@@ -193,6 +234,18 @@
         {
           "type": "SYMBOL",
           "name": "ident"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "ident"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -3666,6 +3719,10 @@
     "fn_keyword": {
       "type": "STRING",
       "value": "fn"
+    },
+    "cmd_keyword": {
+      "type": "STRING",
+      "value": "cmd"
     },
     "type_keyword": {
       "type": "STRING",
