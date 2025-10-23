@@ -404,6 +404,25 @@
     }
   },
   {
+    "type": "closure_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "pipe",
+          "named": true
+        },
+        {
+          "type": "type_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "cmd",
     "named": true,
     "fields": {},
@@ -2307,6 +2326,10 @@
         },
         {
           "type": "basic_type",
+          "named": true
+        },
+        {
+          "type": "closure_type",
           "named": true
         },
         {

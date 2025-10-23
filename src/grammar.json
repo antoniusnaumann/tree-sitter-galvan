@@ -2943,6 +2943,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "closure_type"
+        },
+        {
+          "type": "SYMBOL",
           "name": "basic_type"
         }
       ]
@@ -3229,6 +3233,72 @@
           "name": "ident"
         }
       ]
+    },
+    "closure_type": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "pipe"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "type_item"
+                  },
+                  {
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "_comma"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "type_item"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_comma"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "pipe"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "type_item"
+          }
+        ]
+      }
     },
     "basic_type": {
       "type": "SEQ",

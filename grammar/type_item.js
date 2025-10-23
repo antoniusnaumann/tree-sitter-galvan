@@ -1,4 +1,4 @@
-const { separatedTrailing1 } = require("../helpers");
+const { separatedTrailing1, separatedTrailing } = require("../helpers");
 
 const type_item = {
   type_item: $ => choice(
@@ -11,6 +11,7 @@ const type_item = {
     $.tuple_type,
     $.parametric_type,
     $.generic_type,
+    $.closure_type,
     $.basic_type,
   ),
 
@@ -72,6 +73,13 @@ const type_item = {
   generic_type: $ => seq(
       $.ident
   ),
+
+  closure_type: $ => prec.left(seq(
+    $.pipe,
+    separatedTrailing($, $.type_item, $._comma),
+    $.pipe,
+    $.type_item,
+  )),
 
   basic_type: $ => seq(
     $.type_ident,
