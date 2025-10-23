@@ -1,5 +1,11 @@
 ; highlighting rules follow the neovim standard highlight groups: https://neovim.io/doc/user/treesitter.html#treesitter-highlight
 
+; identifier
+(type_ident) @type
+(ident) @variable
+
+(generic_type) @type.parameter
+
 [
  ; logical
  (and)
@@ -134,12 +140,6 @@
   (double_colon) @punctuation.delimiter
   (type_ident) @type.enum.variant
 ))
-
-(generic_type) @type.parameter
-
-; identifier
-(type_ident) @type
-(ident) @variable
 
 ; punctuation
 (paren_open) @punctuation.bracket
