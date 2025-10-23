@@ -1,14 +1,5 @@
 ; highlighting rules follow the neovim standard highlight groups: https://neovim.io/doc/user/treesitter.html#treesitter-highlight
 
-; function definitions
-(fn_signature
-  (ident) @function
-)
-
-(cmd_signature
-  (ident) @function
-)
-
 [
  ; logical
  (and)
@@ -49,7 +40,7 @@
  (div_assign)
  (rem_assign)
  (concat_assign)
- 
+
  ; range
  (inclusive_range)
  (exclusive_range)
@@ -102,6 +93,21 @@
 (char_literal) @constant.character
 (escape_sequence) @constant.character.escape
 
+; function calls
+((free_function
+  (ident) @function.call)
+)
+
+((function_call
+  (ident) @function.call)
+)
+
+; pseudo-keywords from builtin functions
+((free_function
+  (ident) @function.builtin)
+  (#match? @function.builtin "^(assert|print|println)$")
+)
+
 ((free_function
   (ident) @keyword.exception)
   (#match? @keyword.exception "^(panic|throw)$")
@@ -117,35 +123,10 @@
   (#match? @keyword.control.return "^(break|continue)$")
 )
 
-((trailing_closure_expression
- (ident) @keyword.control.conditional)
- (#match? @keyword.control.conditional "^(if|try)$")
-)
-
-((trailing_closure_expression
- (ident) @keyword.control.repeat)
- (#match? @keyword.control.repeat "^(for|loop|while)$")
-)
-
 ; highlight 'self' and 'it'.
 (
    (ident) @variable.parameter.builtin
    (#match? @variable.parameter.builtin "^(self|it)$")
-)
-
-; pseudo-keywords from builtin functions
-((free_function
-  (ident) @function.builtin)
-  (#match? @function.builtin "^(assert|print|println)$")
-)
-
-; function calls
-((free_function
-  (ident) @function.call)
-)
-
-((function_call
-  (ident) @function.call)
 )
 
 (enum_access (
@@ -181,6 +162,24 @@
 (trailing_closure_expression
    (ident) @function.call)
 
+((trailing_closure_expression
+ (ident) @keyword.control.conditional)
+ (#match? @keyword.control.conditional "^(if|try)$")
+)
+
+((trailing_closure_expression
+ (ident) @keyword.control.repeat)
+ (#match? @keyword.control.repeat "^(for|loop|while)$")
+)
+
+; function definitions
+(fn_signature
+  (ident) @function
+)
+
+(cmd_signature
+  (ident) @function
+)
 
 (constructor_call
   (type_ident) @constructor)
