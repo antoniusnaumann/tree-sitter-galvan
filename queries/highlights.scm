@@ -1,10 +1,11 @@
 ; highlighting rules follow the neovim standard highlight groups: https://neovim.io/doc/user/treesitter.html#treesitter-highlight
 
+
 ; identifier
 (type_ident) @type
 (ident) @variable
 
-(generic_type) @type.parameter
+(generic_type (ident) @type.parameter)
 
 [
  ; logical
@@ -129,12 +130,6 @@
   (#match? @keyword.control.return "^(break|continue)$")
 )
 
-; highlight 'self' and 'it'.
-(
-   (ident) @variable.parameter.builtin
-   (#match? @variable.parameter.builtin "^(self|it)$")
-)
-
 (enum_access (
   (type_ident) @type.enum
   (double_colon) @punctuation.delimiter
@@ -185,37 +180,37 @@
   (type_ident) @constructor)
 
 
-((member_expression
+(member_expression
   rhs: (expression
   (function_call
-    (ident) @method.call)))
-)
+    (ident) @function.method.call)))
 
-((member_expression
+
+(member_expression
   rhs: (expression
   (trailing_closure_expression
-    (ident) @method.call)))
-)
+    (ident) @function.method.call)))
 
-((member_expression
+
+(member_expression
   rhs: (expression
-    (ident) @variable.member))
-)
+    (ident) @variable.other.member))
 
-((closure_argument
+
+(closure_argument
    (ident) @variable.parameter.closure)
-)
 
-((param
+
+(param
   (ident) @variable.parameter)
+
+; highlight 'self' and 'it'.
+(
+   (ident) @variable.builtin
+   (#match? @variable.builtin "^(self|it)$")
 )
 
-
-; TODO: once implicit closure parameters are implemented, replace the rule above with this one:
-;(
-;   (ident) @variable.parameter.builtin
-;   (#match? @variable.parameter.builtin "^(self|it)$")
-;)
 
 
 (comment) @comment
+
