@@ -216,6 +216,10 @@
           "named": true
         },
         {
+          "type": "ref_expression",
+          "named": true
+        },
+        {
           "type": "rem_assign",
           "named": true
         },
@@ -743,6 +747,10 @@
         },
         {
           "type": "ident",
+          "named": true
+        },
+        {
+          "type": "ref_expression",
           "named": true
         },
         {
@@ -1837,6 +1845,32 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "ref_expression",
+    "named": true,
+    "fields": {
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "ref_keyword",
+          "named": true
+        }
+      ]
     }
   },
   {

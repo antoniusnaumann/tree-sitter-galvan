@@ -560,7 +560,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "expression"
+          "name": "_value_expression"
         }
       ]
     },
@@ -608,7 +608,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "expression"
+                  "name": "_value_expression"
                 }
               ]
             },
@@ -616,6 +616,19 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "_value_expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "ref_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
         }
       ]
     },
@@ -700,6 +713,27 @@
           "name": "group"
         }
       ]
+    },
+    "ref_expression": {
+      "type": "PREC",
+      "value": 3,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "ref_keyword"
+          },
+          {
+            "type": "FIELD",
+            "name": "value",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          }
+        ]
+      }
     },
     "else_expression": {
       "type": "SEQ",

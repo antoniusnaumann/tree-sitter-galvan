@@ -18,6 +18,11 @@ const expression = {
     $.group,
   ),
 
+  ref_expression: $ => prec(expression_precedence.postfix, seq(
+    $.ref_keyword,
+    field('value', $.expression),
+  )),
+
   else_expression: $ => seq(
     field('receiver', $.expression),
     $.else_keyword,

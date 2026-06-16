@@ -140,14 +140,19 @@ module.exports = grammar({
     assignment: $ => seq(
       $.expression,
       $._assignment_operator,
-      $.expression,
+      $._value_expression,
     ),
 
     declaration: $ => seq(
       $.declaration_modifier,
       $.ident,
       optional(seq($.colon, $.type_item)),
-      optional(seq($.assign, $.expression)),
+      optional(seq($.assign, $._value_expression)),
+    ),
+
+    _value_expression: $ => choice(
+      $.ref_expression,
+      $.expression,
     ),
 
     free_function: $ => seq(
