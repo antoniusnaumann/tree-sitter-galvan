@@ -200,6 +200,10 @@
           "named": true
         },
         {
+          "type": "declaration_modifier",
+          "named": true
+        },
+        {
           "type": "div_assign",
           "named": true
         },
@@ -213,10 +217,6 @@
         },
         {
           "type": "pow_assign",
-          "named": true
-        },
-        {
-          "type": "ref_expression",
           "named": true
         },
         {
@@ -660,11 +660,15 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "colon",
+          "named": true
+        },
+        {
+          "type": "declaration_modifier",
           "named": true
         }
       ]
@@ -747,10 +751,6 @@
         },
         {
           "type": "ident",
-          "named": true
-        },
-        {
-          "type": "ref_expression",
           "named": true
         },
         {
@@ -1845,32 +1845,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "ref_expression",
-    "named": true,
-    "fields": {
-      "value": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "expression",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "ref_keyword",
-          "named": true
-        }
-      ]
     }
   },
   {

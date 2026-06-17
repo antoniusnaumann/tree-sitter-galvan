@@ -150,8 +150,8 @@ module.exports = grammar({
       optional(seq($.assign, $._value_expression)),
     ),
 
-    _value_expression: $ => choice(
-      $.ref_expression,
+    _value_expression: $ => seq(
+      optional($.declaration_modifier),
       $.expression,
     ),
 
