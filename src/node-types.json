@@ -1543,10 +1543,6 @@
           {
             "type": "or",
             "named": true
-          },
-          {
-            "type": "xor",
-            "named": true
           }
         ]
       },
@@ -2796,10 +2792,6 @@
   },
   {
     "type": "where_keyword",
-    "named": true
-  },
-  {
-    "type": "xor",
     "named": true
   },
   {

@@ -23,7 +23,6 @@ const infix_precedence = {
   contains: 10,
   comparison: 9,
   and: 8,
-  xor: 7,
   or: 6,
 };
 

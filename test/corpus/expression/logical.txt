@@ -1,0 +1,53 @@
+=====================================
+Logical xor keyword is rejected
+=====================================
+
+main {
+  true xor false
+}
+
+---
+
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (literal
+            (boolean_literal
+              (true_keyword)))))
+      (brace_close
+        (MISSING "}")))))
+
+=====================================
+Logical xor symbol is rejected
+=====================================
+
+main {
+  true ^^ false
+}
+
+---
+
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (arithmetic_expression
+            (expression
+              (literal
+                (boolean_literal
+                  (true_keyword))))
+            (ERROR
+              (power))
+            (power)
+            (expression
+              (literal
+                (boolean_literal
+                  (false_keyword)))))))
+      (brace_close))))
