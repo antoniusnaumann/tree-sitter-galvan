@@ -87,6 +87,7 @@ const symbols = {
 
   and: $ => token(choice('and', '&&')),
   or: $ => token(choice('or', '||')),
+  xor: $ => 'xor',
   not: $ => token(choice('not', '!')),
 
   concat: $ => '++',

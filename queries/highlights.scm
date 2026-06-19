@@ -11,6 +11,7 @@
  ; logical
  (and)
  (or)
+ (xor)
  ; TODO: add this in once const keyword is used somewhere
  ; (not)
 

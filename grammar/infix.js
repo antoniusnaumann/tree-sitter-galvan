@@ -15,6 +15,7 @@ const infix = {
 
   logical_expression: $ => choice(
     operation($, precedence.and, $.and),
+    operation($, precedence.xor, $.xor),
     operation($, precedence.or, $.or),
   ),
 
