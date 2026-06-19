@@ -6,6 +6,7 @@ const infix = {
     $.member_expression,
     $.logical_expression,
     $.arithmetic_expression,
+    $.bitwise_expression,
     $.collection_expression,
     $.range_expression,
     $.comparison_expression,
@@ -25,6 +26,14 @@ const infix = {
     operation($, precedence.multiply, $.divide),
     operation($, precedence.multiply, $.remainder),
     operation($, precedence.exponent, $.power),
+  ),
+
+  bitwise_expression: $ => choice(
+    operation($, precedence.shift, $.shift_left),
+    operation($, precedence.shift, $.shift_right),
+    operation($, precedence.bitand, $.bitwise_and),
+    operation($, precedence.bitxor, $.bitwise_xor),
+    operation($, precedence.bitor, $.pipe),
   ),
 
   collection_expression: $ => choice(

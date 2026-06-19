@@ -36,6 +36,10 @@ const symbols = {
   divide: $ => '/',
   remainder: $ => '%',
   power: $ => '^',
+  bitwise_and: $ => '&',
+  bitwise_xor: $ => '~',
+  shift_left: $ => token('<<'),
+  shift_right: $ => token('>>'),
 
   // Assignment
   _assignment_operator: $ => choice(

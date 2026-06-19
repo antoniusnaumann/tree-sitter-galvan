@@ -7,6 +7,7 @@
 enum TokenType {
   AUTOSEMI,
   ERROR,
+  NAMED_CLOSURE_PIPE,
 };
 
 void *tree_sitter_galvan_external_scanner_create(void) {
@@ -28,6 +29,41 @@ void tree_sitter_galvan_external_scanner_deserialize(void *payload,
 
 bool tree_sitter_galvan_external_scanner_scan(void *payload, TSLexer *lexer,
                                               const bool *valid_symbols) {
+  // Keep `call arg |value| { ... }` distinct from two bitwise-or operators.
+  // The token ends at the first pipe; the remaining scan only validates that
+  // a closing pipe and closure body follow on the same line.
+  if (valid_symbols[NAMED_CLOSURE_PIPE]) {
+    while (lexer->lookahead == ' ' || lexer->lookahead == '\t') {
+      lexer->advance(lexer, true);
+    }
+  }
+
+  if (valid_symbols[NAMED_CLOSURE_PIPE] && lexer->lookahead == '|') {
+    lexer->advance(lexer, false);
+    lexer->mark_end(lexer);
+
+    while (!lexer->eof(lexer) && lexer->lookahead != '\n' &&
+           lexer->lookahead != '\r') {
+      if (lexer->lookahead == '|') {
+        lexer->advance(lexer, false);
+        while (lexer->lookahead == ' ' || lexer->lookahead == '\t') {
+          lexer->advance(lexer, false);
+        }
+
+        if (lexer->lookahead == '{') {
+          lexer->result_symbol = NAMED_CLOSURE_PIPE;
+          return true;
+        }
+
+        return false;
+      }
+
+      lexer->advance(lexer, false);
+    }
+
+    return false;
+  }
+
   // HACK: If treesitter is in error correction mode, consume everything to
   // avoid hanging
   if (valid_symbols[ERROR]) {
@@ -68,7 +104,8 @@ bool tree_sitter_galvan_external_scanner_scan(void *payload, TSLexer *lexer,
       (lexer->lookahead >= 'A' && lexer->lookahead <= 'Z') ||
       (lexer->lookahead == '_') || (lexer->lookahead == '[') ||
       (lexer->lookahead == '{') || (lexer->lookahead == '(') ||
-      (lexer->lookahead == '\'') || (lexer->lookahead == '"')) {
+      (lexer->lookahead == '\'') || (lexer->lookahead == '"') ||
+      (lexer->lookahead == '|')) {
 
     lexer->result_symbol = AUTOSEMI;
     return true;

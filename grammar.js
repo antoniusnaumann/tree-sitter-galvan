@@ -26,6 +26,7 @@ module.exports = grammar({
   externals: $ => [
     $._autosemi,
     $._error,
+    $._named_closure_pipe,
   ],
 
   rules: {

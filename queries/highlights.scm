@@ -23,6 +23,12 @@
  (remainder)
  (power)
 
+ ; bitwise
+ (bitwise_and)
+ (bitwise_xor)
+ (shift_left)
+ (shift_right)
+
  ; collection
  (concat)
  (remove)
@@ -57,6 +63,9 @@
  ; return arrow
  (single_arrow)
 ] @operator
+
+(bitwise_expression
+  operator: (pipe) @operator)
 
 ; operators
 (yeet_operator) @keyword.exception
@@ -214,4 +223,3 @@
 
 
 (comment) @comment
-

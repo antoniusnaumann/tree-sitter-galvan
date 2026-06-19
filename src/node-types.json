@@ -250,6 +250,58 @@
     }
   },
   {
+    "type": "bitwise_expression",
+    "named": true,
+    "fields": {
+      "lhs": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bitwise_and",
+            "named": true
+          },
+          {
+            "type": "bitwise_xor",
+            "named": true
+          },
+          {
+            "type": "pipe",
+            "named": true
+          },
+          {
+            "type": "shift_left",
+            "named": true
+          },
+          {
+            "type": "shift_right",
+            "named": true
+          }
+        ]
+      },
+      "rhs": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "body",
     "named": true,
     "fields": {},
@@ -1167,6 +1219,10 @@
       "types": [
         {
           "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "bitwise_expression",
           "named": true
         },
         {
@@ -2490,6 +2546,14 @@
     "named": true
   },
   {
+    "type": "bitwise_and",
+    "named": true
+  },
+  {
+    "type": "bitwise_xor",
+    "named": true
+  },
+  {
     "type": "bracket_close",
     "named": true
   },
@@ -2692,6 +2756,14 @@
   },
   {
     "type": "safe_call_operator",
+    "named": true
+  },
+  {
+    "type": "shift_left",
+    "named": true
+  },
+  {
+    "type": "shift_right",
     "named": true
   },
   {

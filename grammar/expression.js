@@ -33,7 +33,7 @@ const expression = {
     $.ident,
     optional(field('arguments', $._trailing_argument_list)),
     optional(seq(
-      $.pipe,
+      alias($._named_closure_pipe, $.pipe),
       separatedTrailing($, $.closure_argument, $._comma),
       $.pipe,
     )),

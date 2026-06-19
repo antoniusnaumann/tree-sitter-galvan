@@ -1,0 +1,134 @@
+=====================================
+Bitwise operators
+=====================================
+
+main {
+  a | b
+  a & b
+  a ~ b
+  a << b
+  a >> b
+}
+
+---
+
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (bitwise_expression
+            (expression
+              (ident))
+            (pipe)
+            (expression
+              (ident)))))
+      (statement
+        (expression
+          (bitwise_expression
+            (expression
+              (ident))
+            (bitwise_and)
+            (expression
+              (ident)))))
+      (statement
+        (expression
+          (bitwise_expression
+            (expression
+              (ident))
+            (bitwise_xor)
+            (expression
+              (ident)))))
+      (statement
+        (expression
+          (bitwise_expression
+            (expression
+              (ident))
+            (shift_left)
+            (expression
+              (ident)))))
+      (statement
+        (expression
+          (bitwise_expression
+            (expression
+              (ident))
+            (shift_right)
+            (expression
+              (ident)))))
+      (brace_close))))
+
+=====================================
+Named trailing closure
+=====================================
+
+main {
+  try something |unwrapped| { print(unwrapped) }
+}
+
+---
+
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (trailing_closure_expression
+            (ident)
+            (function_call_arg
+              (expression
+                (ident)))
+            (pipe)
+            (closure_argument
+              (ident))
+            (pipe)
+            (body
+              (brace_open)
+              (statement
+                (expression
+                  (function_call
+                    (ident)
+                    (paren_open)
+                    (function_call_arg
+                      (expression
+                        (ident)))
+                    (paren_close))))
+              (brace_close)))))
+      (brace_close))))
+
+=====================================
+Closure after completed expression
+=====================================
+
+main {
+  a
+  |x| { x }
+}
+
+---
+
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (ident)))
+      (statement
+        (expression
+          (closure
+            (pipe)
+            (closure_argument
+              (ident))
+            (pipe)
+            (body
+              (brace_open)
+              (statement
+                (expression
+                  (ident)))
+              (brace_close)))))
+      (brace_close))))
