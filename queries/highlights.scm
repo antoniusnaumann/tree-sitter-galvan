@@ -95,7 +95,10 @@
 
 ; do not highlight those as "modifiers"
 (declaration_modifier) @keyword
-(ref_keyword) @keyword
+[
+  (ref_keyword)
+  (mut_keyword)
+] @keyword
 
 (else_keyword) @keyword.conditional
 
