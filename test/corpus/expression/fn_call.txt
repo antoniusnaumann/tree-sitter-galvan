@@ -2,13 +2,19 @@
 No arguments
 =====================================
 
-main {
+fn main() {
   call()
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -23,15 +29,21 @@ main {
 Explicit Semicolon
 =====================================
 
-main {
+fn main() {
   call();
   call();
   call();
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -54,20 +66,25 @@ main {
             (paren_close))))
       (brace_close))))
 
-
 =====================================
 Semicolon Insertion
 =====================================
 
-main {
+fn main() {
   call()
   call()
   call()
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -94,13 +111,19 @@ main {
 Single argument
 =====================================
 
-main {
+fn main() {
   call(a)
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -118,13 +141,19 @@ main {
 Two arguments
 =====================================
 
-main {
+fn main() {
   add(a, b)
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -145,13 +174,19 @@ main {
 Mutable argument
 =====================================
 
-main {
+fn main() {
   call(mut a)
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -167,18 +202,23 @@ main {
             (paren_close))))
       (brace_close))))
 
-
 =====================================
 Ref argument
 =====================================
 
-main {
+fn main() {
   call(ref a)
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -198,13 +238,19 @@ main {
 Postfix mutable argument
 =====================================
 
-main {
+fn main() {
   call(a.mut)
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -226,13 +272,19 @@ main {
 Postfix ref argument
 =====================================
 
-main {
+fn main() {
   call(a.ref)
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement

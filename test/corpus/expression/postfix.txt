@@ -2,89 +2,103 @@
 Yeet expression
 =====================================
 
-main {
+fn main() {
   a()!
 }
 
 ---
 
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
-        (statement
-          (expression
-            (postfix_expression
-              (expression
-                (function_call
-                  (ident)
-                  (paren_open)
-                  (paren_close)))
-              (postfix_operator
-                (yeet_operator)))))
+      (statement
+        (expression
+          (postfix_expression
+            (expression
+              (function_call
+                (ident)
+                (paren_open)
+                (paren_close)))
+            (postfix_operator
+              (yeet_operator)))))
       (brace_close))))
 
 =====================================
 Access expression
 =====================================
 
-main {
+fn main() {
   a[5]
 }
 
 ---
 
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
-        (statement
-          (expression
-            (postfix_expression
-              (expression
-                (ident))
-              (postfix_operator
-                (access_operator
-                  (bracket_open)
-                  (expression
-                    (literal
-                      (number_literal)))
-                  (bracket_close))))))
+      (statement
+        (expression
+          (postfix_expression
+            (expression
+              (ident))
+            (postfix_operator
+              (access_operator
+                (bracket_open)
+                (expression
+                  (literal
+                    (number_literal)))
+                (bracket_close))))))
       (brace_close))))
 
 =====================================
 Access operator on member field
 =====================================
 
-main {
+fn main() {
   a.b[5]
 }
 
 ---
 
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
-        (statement
-          (expression
-            (postfix_expression
-              (expression
-                (member_expression
-                  (expression
-                    (ident))
-                  (member_call_operator)
-                  (expression
-                    (ident))))
-              (postfix_operator
-                (access_operator
-                  (bracket_open)
-                  (expression
-                    (literal
-                      (number_literal)))
-                  (bracket_close))))))
+      (statement
+        (expression
+          (postfix_expression
+            (expression
+              (member_expression
+                (expression
+                  (ident))
+                (member_call_operator)
+                (expression
+                  (ident))))
+            (postfix_operator
+              (access_operator
+                (bracket_open)
+                (expression
+                  (literal
+                    (number_literal)))
+                (bracket_close))))))
       (brace_close))))
-

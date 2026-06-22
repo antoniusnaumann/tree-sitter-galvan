@@ -2,62 +2,72 @@
 Arithmetic expression order
 =====================================
 
-main {
+fn main() {
   a + b * c
 }
 
 ---
 
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
-        (statement
-          (expression
-            (arithmetic_expression
-              (expression
-                (ident))
-              (plus)
-              (expression
-                (arithmetic_expression
-                  (expression
-                    (ident))
-                  (multiply)
-                  (expression
-                    (ident)))))))
+      (statement
+        (expression
+          (arithmetic_expression
+            (expression
+              (ident))
+            (plus)
+            (expression
+              (arithmetic_expression
+                (expression
+                  (ident))
+                (multiply)
+                (expression
+                  (ident)))))))
       (brace_close))))
 
 =====================================
 Comparison expression order
 =====================================
 
-main {
+fn main() {
   a + b * c < 5 - 7
 }
 
 ---
 
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
-        (statement
-          (expression
-            (comparison_expression
-              (expression
-                (arithmetic_expression
-                  (expression
-                    (ident))
-                  (plus)
-                  (expression
-                    (arithmetic_expression
-                      (expression
-                        (ident))
-                      (multiply)
-                      (expression
-                        (ident))))))
+      (statement
+        (expression
+          (comparison_expression
+            (expression
+              (arithmetic_expression
+                (expression
+                  (ident))
+                (plus)
+                (expression
+                  (arithmetic_expression
+                    (expression
+                      (ident))
+                    (multiply)
+                    (expression
+                      (ident))))))
             (less)
             (expression
               (arithmetic_expression
@@ -69,5 +79,3 @@ main {
                   (literal
                     (number_literal))))))))
       (brace_close))))
-
-

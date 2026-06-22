@@ -2,7 +2,7 @@
 Bitwise operators
 =====================================
 
-main {
+fn main() {
   a | b
   a & b
   a ~ b
@@ -13,8 +13,13 @@ main {
 ---
 
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -63,15 +68,20 @@ main {
 Named trailing closure
 =====================================
 
-main {
+fn main() {
   try something |unwrapped| { print(unwrapped) }
 }
 
 ---
 
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -103,7 +113,7 @@ main {
 Closure after completed expression
 =====================================
 
-main {
+fn main() {
   a
   |x| { x }
 }
@@ -111,8 +121,13 @@ main {
 ---
 
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement

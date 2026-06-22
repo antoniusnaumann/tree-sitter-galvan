@@ -60,7 +60,6 @@ type StructWithGenericField {
             (ident))))
       (brace_close))))
 
-
 ====================
 Without field
 ====================
@@ -198,9 +197,9 @@ type ComplexFields {
                     (type_item
                       (basic_type
                         (type_ident)))
-                  (question_mark)))
+                    (question_mark)))
                 (bracket_close)))
-              (brace_close))))
+            (brace_close))))
       (brace_close))))
 
 ====================
@@ -287,5 +286,6 @@ type AnEnum {
       (type_keyword)
       (type_ident)
       (brace_open)
-      (type_ident)
+      (enum_variant
+        (type_ident))
       (brace_close))))

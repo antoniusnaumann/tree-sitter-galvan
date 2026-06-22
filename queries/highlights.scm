@@ -72,7 +72,6 @@
 
 ; keywords
 [
-  (main_keyword)
   (build_keyword)
   (test_keyword)
 ] @keyword.function

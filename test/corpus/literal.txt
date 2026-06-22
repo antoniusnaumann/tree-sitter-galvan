@@ -22,7 +22,8 @@ String with interpolation
   (literal
     (string_literal
       (string_interpolation
-        (expression (ident))))))
+        (expression
+          (ident))))))
 
 ================================================================================
 String with arithmetic interpolation
@@ -36,8 +37,12 @@ String with arithmetic interpolation
   (literal
     (string_literal
       (string_interpolation
-        (expression 
-          (infix_expression 
-            (expression (literal (number_literal)))
+        (expression
+          (infix_expression
+            (expression
+              (literal
+                (number_literal)))
             (plus)
-            (expression (literal (number_literal)))))))))
+            (expression
+              (literal
+                (number_literal)))))))))
