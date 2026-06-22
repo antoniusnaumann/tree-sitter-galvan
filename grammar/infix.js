@@ -4,6 +4,7 @@ const precedence = infix_precedence;
 const infix = {
   _infix_expression: $ => choice(
     $.member_expression,
+    $.argument_modifier_expression,
     $.logical_expression,
     $.arithmetic_expression,
     $.bitwise_expression,
@@ -53,6 +54,12 @@ const infix = {
     operation($, precedence.member, $.member_call_operator),
     operation($, precedence.member, $.safe_call_operator),
   ),
+
+  argument_modifier_expression: $ => prec.left(precedence.member, seq(
+    field('lhs', $.expression),
+    $.member_call_operator,
+    field('modifier', choice($.ref_keyword, $.mut_keyword)),
+  )),
 
   member_call_operator: $ => ".",
   safe_call_operator: $ => token("?."),

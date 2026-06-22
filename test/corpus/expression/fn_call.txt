@@ -194,3 +194,58 @@ main {
             (paren_close))))
       (brace_close))))
 
+=====================================
+Postfix mutable argument
+=====================================
+
+main {
+  call(a.mut)
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (function_call_arg
+              (expression
+                (argument_modifier_expression
+                  (expression
+                    (ident))
+                  (member_call_operator)
+                  (mut_keyword))))
+            (paren_close))))
+      (brace_close))))
+
+=====================================
+Postfix ref argument
+=====================================
+
+main {
+  call(a.ref)
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (function_call_arg
+              (expression
+                (argument_modifier_expression
+                  (expression
+                    (ident))
+                  (member_call_operator)
+                  (ref_keyword))))
+            (paren_close))))
+      (brace_close))))

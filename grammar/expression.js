@@ -173,6 +173,7 @@ const expression = {
 
   group: $ => prec(expression_precedence.group, seq(
     $.paren_open,
+    optional(field('modifier', choice($.ref_keyword, $.mut_keyword))),
     $.expression,
     $.paren_close,
   )),

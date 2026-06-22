@@ -71,6 +71,46 @@
     "fields": {}
   },
   {
+    "type": "argument_modifier_expression",
+    "named": true,
+    "fields": {
+      "lhs": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "modifier": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "mut_keyword",
+            "named": true
+          },
+          {
+            "type": "ref_keyword",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "member_call_operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "arithmetic_expression",
     "named": true,
     "fields": {
@@ -1218,6 +1258,10 @@
       "required": true,
       "types": [
         {
+          "type": "argument_modifier_expression",
+          "named": true
+        },
+        {
           "type": "arithmetic_expression",
           "named": true
         },
@@ -1457,7 +1501,22 @@
   {
     "type": "group",
     "named": true,
-    "fields": {},
+    "fields": {
+      "modifier": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "mut_keyword",
+            "named": true
+          },
+          {
+            "type": "ref_keyword",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,

@@ -1705,6 +1705,31 @@
             "name": "paren_open"
           },
           {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "modifier",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "ref_keyword"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "mut_keyword"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
             "type": "SYMBOL",
             "name": "expression"
           },
@@ -1721,6 +1746,10 @@
         {
           "type": "SYMBOL",
           "name": "member_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "argument_modifier_expression"
         },
         {
           "type": "SYMBOL",
@@ -2540,6 +2569,44 @@
           }
         }
       ]
+    },
+    "argument_modifier_expression": {
+      "type": "PREC_LEFT",
+      "value": 30,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "lhs",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          },
+          {
+            "type": "SYMBOL",
+            "name": "member_call_operator"
+          },
+          {
+            "type": "FIELD",
+            "name": "modifier",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "ref_keyword"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "mut_keyword"
+                }
+              ]
+            }
+          }
+        ]
+      }
     },
     "member_call_operator": {
       "type": "STRING",

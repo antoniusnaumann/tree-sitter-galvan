@@ -76,6 +76,67 @@ main {
       (brace_close))))
 
 =====================================
+Postfix mutable member function call
+=====================================
+
+main {
+  member.mut.call()
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (member_expression
+            (expression
+              (argument_modifier_expression
+                (expression
+                  (ident))
+                (member_call_operator)
+                (mut_keyword)))
+            (member_call_operator)
+            (expression
+              (function_call
+                (ident)
+                (paren_open)
+                (paren_close))))))
+      (brace_close))))
+
+=====================================
+Grouped mutable member function call
+=====================================
+
+main {
+  (mut member).call()
+}
+---
+(source
+  (main
+    (main_keyword)
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (member_expression
+            (expression
+              (group
+                (paren_open)
+                (mut_keyword)
+                (expression
+                  (ident))
+                (paren_close)))
+            (member_call_operator)
+            (expression
+              (function_call
+                (ident)
+                (paren_open)
+                (paren_close))))))
+      (brace_close))))
+
+=====================================
 Chained Member function call
 =====================================
 
@@ -227,5 +288,4 @@ main {
             (expression
               (ident)))))
       (brace_close))))
-
 
