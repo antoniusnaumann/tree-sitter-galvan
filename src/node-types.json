@@ -1050,25 +1050,6 @@
     }
   },
   {
-    "type": "entry_point",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "body",
-          "named": true
-        },
-        {
-          "type": "ident",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "enum",
     "named": true,
     "fields": {},
@@ -1622,25 +1603,6 @@
     }
   },
   {
-    "type": "main",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "body",
-          "named": true
-        },
-        {
-          "type": "main_keyword",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "member_expression",
     "named": true,
     "fields": {
@@ -2088,15 +2050,7 @@
           "named": true
         },
         {
-          "type": "entry_point",
-          "named": true
-        },
-        {
           "type": "function",
-          "named": true
-        },
-        {
-          "type": "main",
           "named": true
         },
         {
@@ -2723,10 +2677,6 @@
   },
   {
     "type": "let_keyword",
-    "named": true
-  },
-  {
-    "type": "main_keyword",
     "named": true
   },
   {

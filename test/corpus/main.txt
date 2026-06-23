@@ -2,12 +2,18 @@
 Empty
 =====================================
 
-main {
+fn main() {
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (brace_close))))
@@ -16,15 +22,89 @@ main {
 Empty with Comment
 =====================================
 
-main {
+fn main() {
   // Empty
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (comment)
       (brace_close))))
 
+=====================================
+Main with argv
+=====================================
+
+fn main(args: [String]) {
+}
+---
+
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (array_type
+              (bracket_open)
+              (type_item
+                (basic_type
+                  (type_ident)))
+              (bracket_close))))
+        (paren_close)))
+    (body
+      (brace_open)
+      (brace_close))))
+
+=====================================
+Command main
+=====================================
+
+cmd main(
+  v verbose: Bool,
+  output: String?
+) {
+}
+---
+
+(source
+  (cmd
+    (cmd_signature
+      (cmd_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (param
+          (ident)
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident))))
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (optional_type
+              (type_item
+                (basic_type
+                  (type_ident)))
+              (question_mark))))
+        (paren_close)))
+    (body
+      (brace_open)
+      (brace_close))))

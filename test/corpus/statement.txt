@@ -2,13 +2,19 @@
 Declaration with Assignment
 =====================================
 
-main {
+fn main() {
   mut result = call()
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -28,13 +34,19 @@ main {
 Typed Declaration with Assignment
 =====================================
 
-main {
+fn main() {
   mut result: Result = call()
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -58,13 +70,19 @@ main {
 Typed Declaration without Assignment
 =====================================
 
-main {
+fn main() {
   mut result: Result
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -82,13 +100,19 @@ main {
 Assignment
 =====================================
 
-main {
+fn main() {
   result = 5 + 3
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -111,13 +135,19 @@ main {
 Add Assignment
 =====================================
 
-main {
+fn main() {
   result += 5 * 3
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -140,13 +170,19 @@ main {
 Concat Assignment
 =====================================
 
-main {
+fn main() {
   result ++= [1, 2, 3]
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -169,4 +205,3 @@ main {
                     (number_literal)))
                 (bracket_close))))))
       (brace_close))))
-

@@ -1,5 +1,4 @@
 const keywords = {
-  main_keyword: $ => 'main',
   build_keyword: $ => 'build',
   test_keyword: $ => 'test',
   fn_keyword: $ => 'fn',

@@ -44,18 +44,11 @@ module.exports = grammar({
     )),
 
     _toplevel: $ => choice(
-      $.main,
       $.build,
       $.test,
       $.function,
       $.cmd,
       $.type_declaration,
-      $.entry_point,
-    ),
-
-    main: $ => seq(
-      $.main_keyword,
-      $.body,
     ),
 
     build: $ => seq(
@@ -69,8 +62,6 @@ module.exports = grammar({
       optional($.string_literal),
       $.body,
     ),
-
-    entry_point: $ => seq($.ident, $.body),
 
     cmd: $ => seq(
       repeat($.annotation),

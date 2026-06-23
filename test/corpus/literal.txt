@@ -2,42 +2,99 @@
 Simple string literal
 ================================================================================
 
-"hello"
+fn literal() {
+  "hello"
+}
 
 --------------------------------------------------------------------------------
 
 (source
-  (literal
-    (string_literal)))
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (literal
+            (string_literal))))
+      (brace_close))))
 
 ================================================================================
 String with interpolation
 ================================================================================
 
-"Hello, \(name)!"
+fn interpolate(name: String) {
+  "Hello, \(name)!"
+}
 
 --------------------------------------------------------------------------------
 
 (source
-  (literal
-    (string_literal
-      (string_interpolation
-        (expression (ident))))))
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (param
+          (ident)
+          (colon)
+          (type_item
+            (basic_type
+              (type_ident))))
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (literal
+            (string_literal
+              (string_interpolation
+                (paren_open)
+                (expression
+                  (ident))
+                (paren_close))))))
+      (brace_close))))
 
 ================================================================================
 String with arithmetic interpolation
 ================================================================================
 
-"Result: \(3 + 7)"
+fn arithmetic_interpolation() {
+  "Result: \(3 + 7)"
+}
 
 --------------------------------------------------------------------------------
 
 (source
-  (literal
-    (string_literal
-      (string_interpolation
-        (expression 
-          (infix_expression 
-            (expression (literal (number_literal)))
-            (plus)
-            (expression (literal (number_literal)))))))))
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (literal
+            (string_literal
+              (string_interpolation
+                (paren_open)
+                (expression
+                  (arithmetic_expression
+                    (expression
+                      (literal
+                        (number_literal)))
+                    (plus)
+                    (expression
+                      (literal
+                        (number_literal)))))
+                (paren_close))))))
+      (brace_close))))

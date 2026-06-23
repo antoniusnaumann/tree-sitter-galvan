@@ -2,13 +2,19 @@
 Member field access
 =====================================
 
-main {
+fn main() {
   member.field
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -25,13 +31,19 @@ main {
 Chained member field access
 =====================================
 
-main {
+fn main() {
   member.field.other_field
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -53,13 +65,19 @@ main {
 Member function call
 =====================================
 
-main {
+fn main() {
   member.call()
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -79,13 +97,19 @@ main {
 Postfix mutable member function call
 =====================================
 
-main {
+fn main() {
   member.mut.call()
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -109,13 +133,19 @@ main {
 Grouped mutable member function call
 =====================================
 
-main {
+fn main() {
   (mut member).call()
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -140,13 +170,19 @@ main {
 Chained Member function call
 =====================================
 
-main {
+fn main() {
   member.call().other_call()
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -157,31 +193,36 @@ main {
                 (expression
                   (ident))
                 (member_call_operator)
-                  (expression
-                    (function_call
-                      (ident)
-                      (paren_open)
-                      (paren_close)))))
-
-                (member_call_operator)
                 (expression
                   (function_call
                     (ident)
                     (paren_open)
-                    (paren_close))))))
+                    (paren_close)))))
+            (member_call_operator)
+            (expression
+              (function_call
+                (ident)
+                (paren_open)
+                (paren_close))))))
       (brace_close))))
 
 =====================================
 Chained function call with newline
 =====================================
 
-main {
+fn main() {
   member.call().other_call()
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -192,32 +233,36 @@ main {
                 (expression
                   (ident))
                 (member_call_operator)
-                  (expression
-                    (function_call
-                      (ident)
-                      (paren_open)
-                      (paren_close)))))
-
-                (member_call_operator)
                 (expression
                   (function_call
                     (ident)
                     (paren_open)
-                    (paren_close))))))
+                    (paren_close)))))
+            (member_call_operator)
+            (expression
+              (function_call
+                (ident)
+                (paren_open)
+                (paren_close))))))
       (brace_close))))
-
 
 =====================================
 Safe member function call
 =====================================
 
-main {
+fn main() {
   member?.call()
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -237,13 +282,19 @@ main {
 As second arithmetic operand
 =====================================
 
-main {
+fn main() {
   a + member.field
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -265,13 +316,19 @@ main {
 As first arithmetic operand
 =====================================
 
-main {
+fn main() {
   member.field + a
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -288,4 +345,3 @@ main {
             (expression
               (ident)))))
       (brace_close))))
-

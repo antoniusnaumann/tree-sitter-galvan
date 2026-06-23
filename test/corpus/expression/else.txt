@@ -2,13 +2,19 @@
 Empty else after variable
 =====================================
 
-main {
+fn main() {
   a else { }
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -26,13 +32,19 @@ main {
 Empty else after function call
 =====================================
 
-main {
+fn main() {
   a() else { }
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -53,13 +65,19 @@ main {
 Yeet after else
 =====================================
 
-main {
+fn main() {
   a else { }!
 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -76,4 +94,3 @@ main {
             (postfix_operator
               (yeet_operator)))))
       (brace_close))))
-

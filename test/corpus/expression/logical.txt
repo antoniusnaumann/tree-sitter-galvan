@@ -2,15 +2,20 @@
 Logical xor keyword
 =====================================
 
-main {
+fn main() {
   true xor false
 }
 
 ---
 
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -31,15 +36,20 @@ main {
 Logical xor symbol is rejected
 =====================================
 
-main {
+fn main() {
   true ^^ false
 }
 
 ---
 
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement

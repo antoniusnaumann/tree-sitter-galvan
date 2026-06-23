@@ -1,11 +1,17 @@
 ===
 Inclusive range
 ===
-main { let range = 0..=5 }
+fn main() { let range = 0..=5 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -16,19 +22,29 @@ main { let range = 0..=5 }
           (assign)
           (expression
             (range_expression
-              (expression (literal (number_literal)))
+              (expression
+                (literal
+                  (number_literal)))
               (inclusive_range)
-              (expression (literal (number_literal)))))))
+              (expression
+                (literal
+                  (number_literal)))))))
       (brace_close))))
 
 ===
 Exclusive range
 ===
-main { let range = 0..<5 }
+fn main() { let range = 0..<5 }
 ---
+
 (source
-  (main
-    (main_keyword)
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
     (body
       (brace_open)
       (statement
@@ -39,7 +55,11 @@ main { let range = 0..<5 }
           (assign)
           (expression
             (range_expression
-              (expression (literal (number_literal)))
+              (expression
+                (literal
+                  (number_literal)))
               (exclusive_range)
-              (expression (literal (number_literal)))))))
+              (expression
+                (literal
+                  (number_literal)))))))
       (brace_close))))

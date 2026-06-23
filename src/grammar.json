@@ -63,10 +63,6 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "main"
-        },
-        {
-          "type": "SYMBOL",
           "name": "build"
         },
         {
@@ -84,23 +80,6 @@
         {
           "type": "SYMBOL",
           "name": "type_declaration"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "entry_point"
-        }
-      ]
-    },
-    "main": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "main_keyword"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "body"
         }
       ]
     },
@@ -135,19 +114,6 @@
               "type": "BLANK"
             }
           ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "body"
-        }
-      ]
-    },
-    "entry_point": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "ident"
         },
         {
           "type": "SYMBOL",
@@ -4062,10 +4028,6 @@
         "type": "STRING",
         "value": "..+"
       }
-    },
-    "main_keyword": {
-      "type": "STRING",
-      "value": "main"
     },
     "build_keyword": {
       "type": "STRING",
