@@ -9,7 +9,7 @@ const literals = {
 
   string_literal: $ => choice(
     seq('"', repeat(choice(
-      /[^"\\{]/,          // Regular characters (not quote, backslash, or opening brace)
+      /[^"\\]/,           // Regular characters (not quote or backslash)
       $.escape_sequence,
       $.string_interpolation
     )), '"'),
@@ -33,9 +33,10 @@ const literals = {
   ),
 
   string_interpolation: $ => seq(
-    "{",
+    "\\",
+    $.paren_open,
     $.expression,
-    "}"
+    $.paren_close
   ),
 
   number_literal: $ => token(seq(

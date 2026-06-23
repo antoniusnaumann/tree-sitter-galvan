@@ -2104,11 +2104,19 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "expression",
+          "named": true
+        },
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
           "named": true
         }
       ]

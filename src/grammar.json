@@ -4164,7 +4164,7 @@
                 "members": [
                   {
                     "type": "PATTERN",
-                    "value": "[^\"\\\\{]"
+                    "value": "[^\"\\\\]"
                   },
                   {
                     "type": "SYMBOL",
@@ -4267,15 +4267,19 @@
       "members": [
         {
           "type": "STRING",
-          "value": "{"
+          "value": "\\"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paren_open"
         },
         {
           "type": "SYMBOL",
           "name": "expression"
         },
         {
-          "type": "STRING",
-          "value": "}"
+          "type": "SYMBOL",
+          "name": "paren_close"
         }
       ]
     },
