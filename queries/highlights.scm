@@ -112,6 +112,11 @@
 (char_literal) @constant.character
 (escape_sequence) @constant.character.escape
 
+(string_interpolation
+  "\\" @punctuation.special
+  (paren_open) @punctuation.special
+  (paren_close) @punctuation.special)
+
 ; function calls
 ((free_function
   (ident) @function.call)
