@@ -108,14 +108,15 @@
 (none_keyword) @constant.builtin
 (boolean_literal) @constant.builtin.boolean
 (number_literal) @constant.numeric
+
+(string_interpolation
+  "\\" @constant.character.escape
+  (paren_open) @punctuation.special
+  (paren_close) @punctuation.special)
+
 (string_literal) @string
 (char_literal) @constant.character
 (escape_sequence) @constant.character.escape
-
-(string_interpolation
-  "\\" @punctuation.special
-  (paren_open) @punctuation.special
-  (paren_close) @punctuation.special)
 
 ; function calls
 ((free_function
