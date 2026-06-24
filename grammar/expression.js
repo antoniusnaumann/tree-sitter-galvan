@@ -3,6 +3,7 @@ const { expression_precedence } = require("../precedence");
 
 const expression = {
   expression: $ => choice(
+    $.match_expression,
     $.else_expression,
     $.trailing_closure_expression,
     $._infix_expression,
@@ -16,6 +17,53 @@ const expression = {
     $.ident,
     $.closure,
     $.group,
+  ),
+
+  match_expression: $ => seq(
+    $.match_keyword,
+    field('scrutinee', $.expression),
+    $.brace_open,
+    repeat1($.match_arm),
+    $.brace_close,
+  ),
+
+  match_arm: $ => seq(
+    field('pattern', $.match_pattern),
+    field('body', $.body),
+  ),
+
+  match_pattern: $ => choice(
+    $.wildcard_match_pattern,
+    $.enum_match_pattern,
+  ),
+
+  wildcard_match_pattern: $ => "_",
+
+  enum_match_pattern: $ => seq(
+    field('case', $.type_ident),
+    optional($.match_pattern_args),
+  ),
+
+  match_pattern_args: $ => seq(
+    $.paren_open,
+    separatedTrailing($, $.match_pattern_arg, $._comma),
+    $.paren_close,
+  ),
+
+  match_pattern_arg: $ => choice(
+    $.named_match_pattern_arg,
+    $.binding_match_pattern,
+  ),
+
+  named_match_pattern_arg: $ => seq(
+    field('field', $.ident),
+    $.colon,
+    field('binding', $.binding_match_pattern),
+  ),
+
+  binding_match_pattern: $ => choice(
+    $.ident,
+    $.wildcard_match_pattern,
   ),
 
   else_expression: $ => seq(

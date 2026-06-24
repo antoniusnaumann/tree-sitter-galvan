@@ -290,6 +290,25 @@
     }
   },
   {
+    "type": "binding_match_pattern",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "wildcard_match_pattern",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "bitwise_expression",
     "named": true,
     "fields": {
@@ -1171,6 +1190,32 @@
     }
   },
   {
+    "type": "enum_match_pattern",
+    "named": true,
+    "fields": {
+      "case": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "match_pattern_args",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "enum_variant",
     "named": true,
     "fields": {},
@@ -1307,6 +1352,10 @@
           "named": true
         },
         {
+          "type": "match_expression",
+          "named": true
+        },
+        {
           "type": "member_expression",
           "named": true
         },
@@ -1368,10 +1417,6 @@
         "multiple": true,
         "required": true,
         "types": [
-          {
-            "type": ",",
-            "named": false
-          },
           {
             "type": "function_call_arg",
             "named": true
@@ -1603,6 +1648,136 @@
     }
   },
   {
+    "type": "match_arm",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "body",
+            "named": true
+          }
+        ]
+      },
+      "pattern": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "match_pattern",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "match_expression",
+    "named": true,
+    "fields": {
+      "scrutinee": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "brace_close",
+          "named": true
+        },
+        {
+          "type": "brace_open",
+          "named": true
+        },
+        {
+          "type": "match_arm",
+          "named": true
+        },
+        {
+          "type": "match_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "match_pattern",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "enum_match_pattern",
+          "named": true
+        },
+        {
+          "type": "wildcard_match_pattern",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "match_pattern_arg",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "binding_match_pattern",
+          "named": true
+        },
+        {
+          "type": "named_match_pattern_arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "match_pattern_args",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "match_pattern_arg",
+          "named": true
+        },
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "member_call_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "member_expression",
     "named": true,
     "fields": {
@@ -1640,6 +1815,42 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "named_match_pattern_arg",
+    "named": true,
+    "fields": {
+      "binding": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "binding_match_pattern",
+            "named": true
+          }
+        ]
+      },
+      "field": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "colon",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1807,10 +2018,6 @@
         "multiple": true,
         "required": true,
         "types": [
-          {
-            "type": ",",
-            "named": false
-          },
           {
             "type": "type_item",
             "named": true
@@ -2035,7 +2242,6 @@
   {
     "type": "source",
     "named": true,
-    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -2250,10 +2456,6 @@
         "multiple": true,
         "required": false,
         "types": [
-          {
-            "type": ",",
-            "named": false
-          },
           {
             "type": "function_call_arg",
             "named": true
@@ -2531,11 +2733,7 @@
     "named": false
   },
   {
-    "type": ",",
-    "named": false
-  },
-  {
-    "type": ";",
+    "type": ".",
     "named": false
   },
   {
@@ -2600,8 +2798,7 @@
   },
   {
     "type": "comment",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "concat",
@@ -2680,7 +2877,7 @@
     "named": true
   },
   {
-    "type": "member_call_operator",
+    "type": "match_keyword",
     "named": true
   },
   {
@@ -2813,6 +3010,10 @@
   },
   {
     "type": "where_keyword",
+    "named": true
+  },
+  {
+    "type": "wildcard_match_pattern",
     "named": true
   },
   {

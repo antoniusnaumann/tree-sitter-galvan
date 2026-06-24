@@ -21,6 +21,7 @@ const keywords = {
   pub_keyword: $ => 'pub',
   
   else_keyword: $ => 'else',
+  match_keyword: $ => 'match',
   break_keyword: $ => 'break',
   continue_keyword: $ => 'continue',
 
