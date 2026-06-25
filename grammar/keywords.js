@@ -4,6 +4,7 @@ const keywords = {
   fn_keyword: $ => 'fn',
   cmd_keyword: $ => 'cmd',
   type_keyword: $ => 'type',
+  use_keyword: $ => 'use',
 
   declaration_modifier: $ => choice($.ref_keyword, $.let_keyword, $.mut_keyword),
   ref_keyword: $ => 'ref',

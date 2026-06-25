@@ -62,6 +62,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "use_declaration"
+        },
+        {
+          "type": "SYMBOL",
           "name": "build"
         },
         {
@@ -94,6 +98,48 @@
           "name": "body"
         }
       ]
+    },
+    "use_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "use_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "use_path"
+        }
+      ]
+    },
+    "use_path": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "ident"
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "double_colon"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "ident"
+                }
+              ]
+            }
+          }
+        ]
+      }
     },
     "test": {
       "type": "SEQ",
@@ -1473,8 +1519,37 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "ident"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "namespace",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "ident"
+                  }
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "double_colon"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "ident"
+          }
         },
         {
           "type": "SYMBOL",
@@ -4328,6 +4403,10 @@
     "type_keyword": {
       "type": "STRING",
       "value": "type"
+    },
+    "use_keyword": {
+      "type": "STRING",
+      "value": "use"
     },
     "declaration_modifier": {
       "type": "CHOICE",

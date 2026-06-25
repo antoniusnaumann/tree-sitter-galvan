@@ -44,6 +44,7 @@ module.exports = grammar({
     )),
 
     _toplevel: $ => choice(
+      $.use_declaration,
       $.build,
       $.test,
       $.function,
@@ -56,6 +57,16 @@ module.exports = grammar({
       // TODO: Special body rules
       $.body,
     ),
+
+    use_declaration: $ => seq(
+      $.use_keyword,
+      $.use_path,
+    ),
+
+    use_path: $ => prec.right(seq(
+      $.ident,
+      repeat(seq($.double_colon, $.ident)),
+    )),
 
     test: $ => seq(
       $.test_keyword,

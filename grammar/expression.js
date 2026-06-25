@@ -155,7 +155,11 @@ const expression = {
   ),
 
   function_call: $ => seq(
-    $.ident,
+    optional(seq(
+      field('namespace', $.ident),
+      $.double_colon,
+    )),
+    field('name', $.ident),
     $.paren_open,
     separatedTrailing($, $.function_call_arg, $._comma),
     $.paren_close,

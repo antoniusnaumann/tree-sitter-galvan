@@ -38,7 +38,7 @@ fn main() {
                 (statement
                   (expression
                     (function_call
-                      (ident)
+                      name: (ident)
                       (paren_open)
                       (paren_close))))
                 (brace_close)))
@@ -57,7 +57,7 @@ fn main() {
                 (statement
                   (expression
                     (function_call
-                      (ident)
+                      name: (ident)
                       (paren_open)
                       (function_call_arg
                         value: (expression
@@ -94,7 +94,7 @@ fn main() {
                 (statement
                   (expression
                     (function_call
-                      (ident)
+                      name: (ident)
                       (paren_open)
                       (function_call_arg
                         value: (expression
@@ -112,7 +112,7 @@ fn main() {
                 (statement
                   (expression
                     (function_call
-                      (ident)
+                      name: (ident)
                       (paren_open)
                       (paren_close))))
                 (brace_close)))

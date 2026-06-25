@@ -1461,17 +1461,38 @@
   {
     "type": "function_call",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "namespace": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "function_call_arg",
+          "type": "double_colon",
           "named": true
         },
         {
-          "type": "ident",
+          "type": "function_call_arg",
           "named": true
         },
         {
@@ -2308,6 +2329,10 @@
         {
           "type": "type_declaration",
           "named": true
+        },
+        {
+          "type": "use_declaration",
+          "named": true
         }
       ]
     }
@@ -2697,6 +2722,44 @@
     }
   },
   {
+    "type": "use_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "use_keyword",
+          "named": true
+        },
+        {
+          "type": "use_path",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "use_path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "double_colon",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "visibility",
     "named": true,
     "fields": {},
@@ -3049,6 +3112,10 @@
   {
     "type": "u",
     "named": false
+  },
+  {
+    "type": "use_keyword",
+    "named": true
   },
   {
     "type": "where_keyword",
