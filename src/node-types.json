@@ -1012,6 +1012,10 @@
           {
             "type": "body",
             "named": true
+          },
+          {
+            "type": "expression",
+            "named": true
           }
         ]
       },

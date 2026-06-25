@@ -66,7 +66,7 @@ const expression = {
     $.wildcard_match_pattern,
   ),
 
-  else_expression: $ => seq(
+  else_expression: $ => prec.right(expression_precedence.else, seq(
     field('receiver', $.expression),
     $.else_keyword,
     optional(seq(
@@ -74,8 +74,8 @@ const expression = {
       separatedTrailing1($, $.closure_argument, $._comma),
       $.pipe,
     )),
-    field('body', $.body),
-  ),
+    field('body', choice($.body, $.expression)),
+  )),
 
   trailing_closure_expression: $ => prec.left(expression_precedence.trailing_closure, seq(
     $.ident,

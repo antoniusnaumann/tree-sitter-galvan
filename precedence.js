@@ -1,6 +1,7 @@
 const expression_precedence = {
   closure: -3,
   trailing_closure: -2,
+  else: -1,
   group: -1,
   infix: 2,
   postfix: 3,
