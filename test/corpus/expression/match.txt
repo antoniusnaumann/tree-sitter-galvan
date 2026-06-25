@@ -60,7 +60,7 @@ fn main() {
                       (ident)
                       (paren_open)
                       (function_call_arg
-                        (expression
+                        value: (expression
                           (ident)))
                       (paren_close))))
                 (brace_close)))
@@ -97,10 +97,10 @@ fn main() {
                       (ident)
                       (paren_open)
                       (function_call_arg
-                        (expression
+                        value: (expression
                           (ident)))
                       (function_call_arg
-                        (expression
+                        value: (expression
                           (ident)))
                       (paren_close))))
                 (brace_close)))

@@ -1488,17 +1488,38 @@
   {
     "type": "function_call_arg",
     "named": true,
-    "fields": {},
+    "fields": {
+      "label": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "declaration_modifier",
+          "type": "colon",
           "named": true
         },
         {
-          "type": "expression",
+          "type": "declaration_modifier",
           "named": true
         }
       ]
@@ -1953,7 +1974,32 @@
   {
     "type": "param",
     "named": true,
-    "fields": {},
+    "fields": {
+      "label": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "bitwise_xor",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -1964,10 +2010,6 @@
         },
         {
           "type": "declaration_modifier",
-          "named": true
-        },
-        {
-          "type": "ident",
           "named": true
         },
         {

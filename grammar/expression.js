@@ -161,9 +161,17 @@ const expression = {
     $.paren_close,
   ),
 
-  function_call_arg: $ => seq(
-    optional($.declaration_modifier),
-    $.expression,
+  function_call_arg: $ => choice(
+    seq(
+      field('label', $.ident),
+      $.colon,
+      optional($.declaration_modifier),
+      field('value', $.expression),
+    ),
+    seq(
+      optional($.declaration_modifier),
+      field('value', $.expression),
+    ),
   ),
 
   constructor_call: $ => seq(

@@ -95,8 +95,10 @@ module.exports = grammar({
     param_list: $ => seq($.paren_open, separatedTrailing($, $.param, $._comma), $.paren_close),
     param: $ => seq(
       optional($.declaration_modifier),
-      $.ident,
-      optional($.ident),
+      choice(
+        seq(field('label', choice($.ident, $.bitwise_xor)), field('name', $.ident)),
+        field('name', $.ident),
+      ),
       $.colon,
       $.type_item,
     ),
