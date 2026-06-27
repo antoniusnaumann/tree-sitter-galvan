@@ -157,7 +157,12 @@
 ))
 
 (use_path
-  (ident) @module)
+  namespace: (ident) @namespace
+  (#set! priority 110))
+
+(use_path
+  name: (ident) @variable
+  (#set! priority 110))
 
 (use_path
   (double_colon) @punctuation.delimiter)

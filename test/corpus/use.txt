@@ -15,13 +15,13 @@ fn main() {
   (use_declaration
     (use_keyword)
     (use_path
-      (ident)))
+      namespace: (ident)))
   (use_declaration
     (use_keyword)
     (use_path
-      (ident)
+      namespace: (ident)
       (double_colon)
-      (ident)))
+      name: (ident)))
   (function
     (fn_signature
       (fn_keyword)

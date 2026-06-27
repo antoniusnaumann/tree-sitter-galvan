@@ -63,10 +63,13 @@ module.exports = grammar({
       $.use_path,
     ),
 
-    use_path: $ => prec.right(seq(
-      $.ident,
-      repeat(seq($.double_colon, $.ident)),
-    )),
+    use_path: $ => choice(
+      field('namespace', $.ident),
+      prec.right(seq(
+        repeat1(seq(field('namespace', $.ident), $.double_colon)),
+        field('name', $.ident),
+      )),
+    ),
 
     test: $ => seq(
       $.test_keyword,
