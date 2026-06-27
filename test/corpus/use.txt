@@ -1,14 +1,9 @@
 =====================================
-Use declarations and qualified calls
+Use declarations
 =====================================
 
 use reader
 use reader::score
-
-fn main() {
-  reader::score()
-  book.reader::read_and_judge()
-}
 ---
 
 (source
@@ -21,7 +16,19 @@ fn main() {
     (use_path
       namespace: (ident)
       (double_colon)
-      name: (ident)))
+      name: (ident))))
+
+=====================================
+Qualified calls without imports
+=====================================
+
+fn main() {
+  reader::score()
+  book.reader::read_and_judge()
+}
+---
+
+(source
   (function
     (fn_signature
       (fn_keyword)
