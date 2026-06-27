@@ -6,10 +6,11 @@ const keywords = {
   type_keyword: $ => 'type',
   use_keyword: $ => 'use',
 
-  declaration_modifier: $ => choice($.ref_keyword, $.let_keyword, $.mut_keyword),
+  declaration_modifier: $ => choice($.ref_keyword, $.let_keyword, $.mut_keyword, $.move_keyword),
   ref_keyword: $ => 'ref',
   let_keyword: $ => 'let',
   mut_keyword: $ => 'mut',
+  move_keyword: $ => 'move',
 
   true_keyword: $ => 'true',
   false_keyword: $ => 'false',

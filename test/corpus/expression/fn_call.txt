@@ -235,6 +235,38 @@ fn main() {
       (brace_close))))
 
 =====================================
+Move argument
+=====================================
+
+fn main() {
+  call(move a)
+}
+---
+
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (function_call
+            (ident)
+            (paren_open)
+            (function_call_arg
+              (declaration_modifier
+                (move_keyword))
+              (expression
+                (ident)))
+            (paren_close))))
+      (brace_close))))
+
+=====================================
 Postfix mutable argument
 =====================================
 

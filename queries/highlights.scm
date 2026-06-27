@@ -90,12 +90,14 @@
 (fn_keyword) @keyword.function
 (cmd_keyword) @keyword.function
 (type_keyword) @keyword.type
+(use_keyword) @keyword.import
 (where_keyword) @keyword
 
 ; do not highlight those as "modifiers"
 (declaration_modifier) @keyword
 [
   (ref_keyword)
+  (move_keyword)
   (mut_keyword)
 ] @keyword
 
@@ -153,6 +155,12 @@
   (double_colon) @punctuation.delimiter
   (type_ident) @type.enum.variant
 ))
+
+(use_path
+  (ident) @module)
+
+(use_path
+  (double_colon) @punctuation.delimiter)
 
 ; punctuation
 (paren_open) @punctuation.bracket

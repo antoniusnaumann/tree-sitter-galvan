@@ -884,6 +884,10 @@
           "named": true
         },
         {
+          "type": "move_keyword",
+          "named": true
+        },
+        {
           "type": "mut_keyword",
           "named": true
         },
@@ -2991,6 +2995,10 @@
   },
   {
     "type": "minus",
+    "named": true
+  },
+  {
+    "type": "move_keyword",
     "named": true
   },
   {

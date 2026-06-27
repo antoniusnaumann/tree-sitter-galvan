@@ -4435,6 +4435,10 @@
         {
           "type": "SYMBOL",
           "name": "mut_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "move_keyword"
         }
       ]
     },
@@ -4449,6 +4453,10 @@
     "mut_keyword": {
       "type": "STRING",
       "value": "mut"
+    },
+    "move_keyword": {
+      "type": "STRING",
+      "value": "move"
     },
     "true_keyword": {
       "type": "STRING",
