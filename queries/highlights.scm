@@ -102,6 +102,7 @@
 ] @keyword
 
 (else_keyword) @keyword.conditional
+(match_keyword) @keyword.conditional
 
 (break_keyword) @keyword.control.return
 (continue_keyword) @keyword.control.return
