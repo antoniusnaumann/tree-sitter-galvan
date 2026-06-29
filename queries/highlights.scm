@@ -157,12 +157,10 @@
 ))
 
 (use_path
-  namespace: (ident) @namespace
-  (#set! priority 110))
+  namespace: (ident) @namespace)
 
 (use_path
-  name: (ident) @variable
-  (#set! priority 110))
+  name: (ident) @variable)
 
 (use_path
   (double_colon) @punctuation.delimiter)
