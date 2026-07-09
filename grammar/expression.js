@@ -114,16 +114,24 @@ const expression = {
 
   collection_literal: $ => choice(
     $.array_literal,
+    $.tuple_literal,
     $.set_literal,
     $.ordered_dict_literal,
     $.dict_literal,
-    // tuple_literal
   ),
 
   array_literal: $ => seq(
     $.bracket_open,
     separatedTrailing($, $.expression, $._comma),
     $.bracket_close,
+  ),
+
+  tuple_literal: $ => seq(
+    $.paren_open,
+    $.expression,
+    $._comma,
+    separatedTrailing($, $.expression, $._comma),
+    $.paren_close,
   ),
 
   set_literal: $ => seq(
@@ -156,7 +164,7 @@ const expression = {
     field('value', $.expression),
   ),
 
-  function_call: $ => seq(
+  function_call: $ => prec.dynamic(1, seq(
     optional(seq(
       field('namespace', $.ident),
       $.double_colon,
@@ -165,7 +173,7 @@ const expression = {
     $.paren_open,
     separatedTrailing($, $.function_call_arg, $._comma),
     $.paren_close,
-  ),
+  )),
 
   function_call_arg: $ => choice(
     seq(

@@ -722,6 +722,10 @@
         {
           "type": "set_literal",
           "named": true
+        },
+        {
+          "type": "tuple_literal",
+          "named": true
         }
       ]
     }
@@ -2655,6 +2659,29 @@
         },
         {
           "type": "visibility",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tuple_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
           "named": true
         }
       ]

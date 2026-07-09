@@ -92,3 +92,59 @@ fn main() {
             (member_call_operator)
             (type_ident))))
       (brace_close))))
+
+=====================================
+Associated function tuple argument
+=====================================
+
+fn main() {
+  SocketAddr.from(([127, 0, 0, 1], 3000))
+}
+---
+
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (associated_function_call
+            (type_ident)
+            (member_call_operator)
+            (function_call
+              (ident)
+              (paren_open)
+              (function_call_arg
+                (expression
+                  (collection_literal
+                    (tuple_literal
+                      (paren_open)
+                      (expression
+                        (collection_literal
+                          (array_literal
+                            (bracket_open)
+                            (expression
+                              (literal
+                                (number_literal)))
+                            (expression
+                              (literal
+                                (number_literal)))
+                            (expression
+                              (literal
+                                (number_literal)))
+                            (expression
+                              (literal
+                                (number_literal)))
+                            (bracket_close))))
+                      (expression
+                        (literal
+                          (number_literal)))
+                      (paren_close)))))
+              (paren_close)))))
+      (brace_close))))

@@ -29,6 +29,10 @@ module.exports = grammar({
     $._named_closure_pipe,
   ],
 
+  conflicts: $ => [
+    [$.tuple_literal, $.function_call_arg],
+  ],
+
   rules: {
     source: $ => repeat($._toplevel),
 
@@ -163,10 +167,10 @@ module.exports = grammar({
       $.expression,
     ),
 
-    free_function: $ => seq(
+    free_function: $ => prec(-1, seq(
       $.ident,
       field("arguments", $._trailing_argument_list),
-    ),
+    )),
 
     break_statement: $ => $.break_keyword,
 
