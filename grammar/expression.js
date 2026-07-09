@@ -207,11 +207,19 @@ const expression = {
     $.paren_close,
   ),
 
-  constructor_call_arg: $ => seq(
-    field('field', $.ident),
-    $.colon,
-    optional($.declaration_modifier),
-    field('value', $.expression),
+  constructor_call_arg: $ => choice(
+    // Named argument: title: "example"
+    seq(
+      field('field', $.ident),
+      $.colon,
+      optional($.declaration_modifier),
+      field('value', $.expression),
+    ),
+    // Anonymous argument (tuple structs): Json(payload)
+    seq(
+      optional($.declaration_modifier),
+      field('value', $.expression),
+    ),
   ),
 
   enum_constructor: $ => seq(

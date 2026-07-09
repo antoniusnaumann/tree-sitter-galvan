@@ -1,0 +1,127 @@
+=====================================
+Named constructor argument
+=====================================
+
+fn f() {
+  CreateTicket(title: "hi")
+}
+---
+
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (constructor_call
+            (type_ident)
+            (paren_open)
+            (constructor_call_arg
+              field: (ident)
+              (colon)
+              value: (expression
+                (literal
+                  (string_literal))))
+            (paren_close))))
+      (brace_close))))
+
+=====================================
+Anonymous constructor argument
+=====================================
+
+fn f() {
+  Json(payload)
+}
+---
+
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (constructor_call
+            (type_ident)
+            (paren_open)
+            (constructor_call_arg
+              value: (expression
+                (ident)))
+            (paren_close))))
+      (brace_close))))
+
+=====================================
+Anonymous constructor argument with modifier
+=====================================
+
+fn f() {
+  Wrapper(mut payload)
+}
+---
+
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (constructor_call
+            (type_ident)
+            (paren_open)
+            (constructor_call_arg
+              (declaration_modifier
+                (mut_keyword))
+              value: (expression
+                (ident)))
+            (paren_close))))
+      (brace_close))))
+
+=====================================
+Multiple anonymous constructor arguments
+=====================================
+
+fn f() {
+  Pair(first, second)
+}
+---
+
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (constructor_call
+            (type_ident)
+            (paren_open)
+            (constructor_call_arg
+              value: (expression
+                (ident)))
+            (constructor_call_arg
+              value: (expression
+                (ident)))
+            (paren_close))))
+      (brace_close))))
