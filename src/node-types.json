@@ -275,6 +275,78 @@
     }
   },
   {
+    "type": "associated_constant",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_ident",
+            "named": true
+          }
+        ]
+      },
+      "receiver": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "member_call_operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "associated_function_call",
+    "named": true,
+    "fields": {
+      "call": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "function_call",
+            "named": true
+          }
+        ]
+      },
+      "receiver": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type_ident",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "member_call_operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "basic_type",
     "named": true,
     "fields": {},
@@ -1297,6 +1369,14 @@
         },
         {
           "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "associated_constant",
+          "named": true
+        },
+        {
+          "type": "associated_function_call",
           "named": true
         },
         {

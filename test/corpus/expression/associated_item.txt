@@ -1,0 +1,94 @@
+=====================================
+Associated function call
+=====================================
+
+fn main() {
+  Router.new()
+}
+---
+
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (associated_function_call
+            (type_ident)
+            (member_call_operator)
+            (function_call
+              (ident)
+              (paren_open)
+              (paren_close)))))
+      (brace_close))))
+
+=====================================
+Associated function call chain
+=====================================
+
+fn main() {
+  Router.new().route()
+}
+---
+
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (member_expression
+            (expression
+              (associated_function_call
+                (type_ident)
+                (member_call_operator)
+                (function_call
+                  (ident)
+                  (paren_open)
+                  (paren_close))))
+            (member_call_operator)
+            (expression
+              (function_call
+                (ident)
+                (paren_open)
+                (paren_close))))))
+      (brace_close))))
+
+=====================================
+Associated uppercase constant
+=====================================
+
+fn main() {
+  StatusCode.CREATED
+}
+---
+
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (associated_constant
+            (type_ident)
+            (member_call_operator)
+            (type_ident))))
+      (brace_close))))

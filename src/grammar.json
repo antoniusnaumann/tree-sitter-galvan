@@ -753,6 +753,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "associated_function_call"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "associated_constant"
+        },
+        {
+          "type": "SYMBOL",
           "name": "function_call"
         },
         {
@@ -1704,6 +1712,56 @@
               }
             }
           ]
+        }
+      ]
+    },
+    "associated_function_call": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "receiver",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_ident"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "member_call_operator"
+        },
+        {
+          "type": "FIELD",
+          "name": "call",
+          "content": {
+            "type": "SYMBOL",
+            "name": "function_call"
+          }
+        }
+      ]
+    },
+    "associated_constant": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "receiver",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_ident"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "member_call_operator"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_ident"
+          }
         }
       ]
     },

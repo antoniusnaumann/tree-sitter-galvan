@@ -9,6 +9,8 @@ const expression = {
     $._infix_expression,
     $.postfix_expression,
     $.collection_literal,
+    $.associated_function_call,
+    $.associated_constant,
     $.function_call,
     $.constructor_call,
     $.enum_constructor,
@@ -176,6 +178,18 @@ const expression = {
       optional($.declaration_modifier),
       field('value', $.expression),
     ),
+  ),
+
+  associated_function_call: $ => seq(
+    field('receiver', $.type_ident),
+    $.member_call_operator,
+    field('call', $.function_call),
+  ),
+
+  associated_constant: $ => seq(
+    field('receiver', $.type_ident),
+    $.member_call_operator,
+    field('name', $.type_ident),
   ),
 
   constructor_call: $ => seq(
