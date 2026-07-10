@@ -71,7 +71,7 @@ module.exports = grammar({
       field('namespace', $.ident),
       prec.right(seq(
         repeat1(seq(field('namespace', $.ident), $.double_colon)),
-        field('name', $.ident),
+        field('name', choice($.ident, $.type_ident)),
       )),
     ),
 

@@ -2866,6 +2866,10 @@
           {
             "type": "ident",
             "named": true
+          },
+          {
+            "type": "type_ident",
+            "named": true
           }
         ]
       },

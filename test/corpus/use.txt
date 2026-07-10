@@ -4,6 +4,8 @@ Use declarations
 
 use reader
 use reader::score
+use serde_json::Value
+use std::net::SocketAddr
 ---
 
 (source
@@ -16,7 +18,21 @@ use reader::score
     (use_path
       namespace: (ident)
       (double_colon)
-      name: (ident))))
+      name: (ident)))
+  (use_declaration
+    (use_keyword)
+    (use_path
+      namespace: (ident)
+      (double_colon)
+      name: (type_ident)))
+  (use_declaration
+    (use_keyword)
+    (use_path
+      namespace: (ident)
+      (double_colon)
+      namespace: (ident)
+      (double_colon)
+      name: (type_ident))))
 
 =====================================
 Qualified calls without imports
