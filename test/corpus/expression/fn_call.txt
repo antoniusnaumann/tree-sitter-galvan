@@ -333,3 +333,36 @@ fn main() {
                   (ref_keyword))))
             (paren_close))))
       (brace_close))))
+
+=====================================
+Multi-Segment Namespace Call
+=====================================
+
+fn serve() {
+    tokio::net::bind(addr)
+}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (function_call
+            namespace: (ident)
+            (double_colon)
+            namespace: (ident)
+            (double_colon)
+            name: (ident)
+            (paren_open)
+            (function_call_arg
+              value: (expression
+                (ident)))
+            (paren_close))))
+      (brace_close))))

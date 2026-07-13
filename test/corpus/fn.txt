@@ -259,3 +259,43 @@ fn get(key: String, from: { String : Float }) -> Float {}
 
 
 
+
+=====================================
+Async Function Declaration
+=====================================
+
+async fn fetch() {}
+---
+(source
+  (function
+    (fn_signature
+      (async_keyword)
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (brace_close))))
+
+=====================================
+Public Async Function Declaration
+=====================================
+
+pub async fn fetch() {}
+---
+(source
+  (function
+    (fn_signature
+      (visibility
+        (pub_keyword))
+      (async_keyword)
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (brace_close))))

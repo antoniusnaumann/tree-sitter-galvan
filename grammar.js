@@ -108,7 +108,10 @@ module.exports = grammar({
       optional($.where_clause),
     ),
 
-    _fn_modifiers: $ => $.visibility,
+    _fn_modifiers: $ => choice(
+      seq($.visibility, optional($.async_keyword)),
+      $.async_keyword,
+    ),
 
     param_list: $ => seq($.paren_open, separatedTrailing($, $.param, $._comma), $.paren_close),
     param: $ => seq(

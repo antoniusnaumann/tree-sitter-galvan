@@ -9,10 +9,13 @@ const literals = {
 
   string_literal: $ => choice(
     seq('"', repeat(choice(
-      /[^"\\]/,           // Regular characters (not quote or backslash)
+      // Regular characters (not quote or backslash), as one immediate token
+      // so extras (comments, whitespace) never lex inside string contents,
+      // e.g. the `//` in "http://example.com".
+      token.immediate(prec(1, /[^"\\]+/)),
       $.escape_sequence,
       $.string_interpolation
-    )), '"'),
+    )), token.immediate('"')),
     $.raw_string_literal
   ),
 

@@ -288,6 +288,16 @@
           }
         ]
       },
+      "namespace": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
       "receiver": {
         "multiple": false,
         "required": true,
@@ -300,9 +310,13 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "double_colon",
+          "named": true
+        },
         {
           "type": "member_call_operator",
           "named": true
@@ -324,6 +338,16 @@
           }
         ]
       },
+      "namespace": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
       "receiver": {
         "multiple": false,
         "required": true,
@@ -336,9 +360,13 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "double_colon",
+          "named": true
+        },
         {
           "type": "member_call_operator",
           "named": true
@@ -577,6 +605,10 @@
       "types": [
         {
           "type": "colon",
+          "named": true
+        },
+        {
+          "type": "declaration_modifier",
           "named": true
         },
         {
@@ -1475,6 +1507,10 @@
       "required": true,
       "types": [
         {
+          "type": "async_keyword",
+          "named": true
+        },
+        {
           "type": "fn_keyword",
           "named": true
         },
@@ -1509,6 +1545,10 @@
         "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": ",",
+            "named": false
+          },
           {
             "type": "function_call_arg",
             "named": true
@@ -1565,7 +1605,7 @@
         ]
       },
       "namespace": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -1907,11 +1947,6 @@
     }
   },
   {
-    "type": "member_call_operator",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "member_expression",
     "named": true,
     "fields": {
@@ -2174,6 +2209,10 @@
         "required": true,
         "types": [
           {
+            "type": ",",
+            "named": false
+          },
+          {
             "type": "type_item",
             "named": true
           }
@@ -2397,6 +2436,7 @@
   {
     "type": "source",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -2615,6 +2655,10 @@
         "multiple": true,
         "required": false,
         "types": [
+          {
+            "type": ",",
+            "named": false
+          },
           {
             "type": "function_call_arg",
             "named": true
@@ -2974,7 +3018,11 @@
     "named": false
   },
   {
-    "type": ".",
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ";",
     "named": false
   },
   {
@@ -3003,6 +3051,10 @@
   },
   {
     "type": "assign",
+    "named": true
+  },
+  {
+    "type": "async_keyword",
     "named": true
   },
   {
@@ -3039,7 +3091,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "concat",
@@ -3119,6 +3172,10 @@
   },
   {
     "type": "match_keyword",
+    "named": true
+  },
+  {
+    "type": "member_call_operator",
     "named": true
   },
   {

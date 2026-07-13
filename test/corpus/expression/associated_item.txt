@@ -148,3 +148,77 @@ fn main() {
                       (paren_close)))))
               (paren_close)))))
       (brace_close))))
+
+=====================================
+Namespaced Associated Function Call
+=====================================
+
+fn listen() {
+    let listener = tokio::net::TcpListener.bind(addr)
+}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (declaration
+          (declaration_modifier
+            (let_keyword))
+          (ident)
+          (assign)
+          (expression
+            (associated_function_call
+              namespace: (ident)
+              (double_colon)
+              namespace: (ident)
+              (double_colon)
+              receiver: (type_ident)
+              (member_call_operator)
+              call: (function_call
+                name: (ident)
+                (paren_open)
+                (function_call_arg
+                  value: (expression
+                    (ident)))
+                (paren_close))))))
+      (brace_close))))
+
+=====================================
+Namespaced Associated Constant
+=====================================
+
+fn created() {
+    let code = http::StatusCode.CREATED
+}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (declaration
+          (declaration_modifier
+            (let_keyword))
+          (ident)
+          (assign)
+          (expression
+            (associated_constant
+              namespace: (ident)
+              (double_colon)
+              receiver: (type_ident)
+              (member_call_operator)
+              name: (type_ident)))))
+      (brace_close))))

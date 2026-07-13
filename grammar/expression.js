@@ -165,7 +165,7 @@ const expression = {
   ),
 
   function_call: $ => prec.dynamic(1, seq(
-    optional(seq(
+    repeat(seq(
       field('namespace', $.ident),
       $.double_colon,
     )),
@@ -189,12 +189,20 @@ const expression = {
   ),
 
   associated_function_call: $ => seq(
+    repeat(seq(
+      field('namespace', $.ident),
+      $.double_colon,
+    )),
     field('receiver', $.type_ident),
     $.member_call_operator,
     field('call', $.function_call),
   ),
 
   associated_constant: $ => seq(
+    repeat(seq(
+      field('namespace', $.ident),
+      $.double_colon,
+    )),
     field('receiver', $.type_ident),
     $.member_call_operator,
     field('name', $.type_ident),
@@ -257,6 +265,7 @@ const expression = {
   )),
 
   closure_argument: $ => seq(
+    optional($.declaration_modifier),
     $.ident,
     optional(seq($.colon, $.type_item)),
   ),

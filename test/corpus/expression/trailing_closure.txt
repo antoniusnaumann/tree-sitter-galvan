@@ -212,3 +212,48 @@ fn main() {
                     (paren_close))))
               (brace_close)))))
       (brace_close))))
+
+=====================================
+Closure Argument With Modifier
+=====================================
+
+fn update() {
+    for tickets |mut ticket| {
+        ticket = other
+    }
+}
+---
+(source
+  (function
+    (fn_signature
+      (fn_keyword)
+      (ident)
+      (param_list
+        (paren_open)
+        (paren_close)))
+    (body
+      (brace_open)
+      (statement
+        (expression
+          (trailing_closure_expression
+            (ident)
+            arguments: (function_call_arg
+              value: (expression
+                (ident)))
+            (pipe)
+            (closure_argument
+              (declaration_modifier
+                (mut_keyword))
+              (ident))
+            (pipe)
+            (body
+              (brace_open)
+              (statement
+                (assignment
+                  (expression
+                    (ident))
+                  (assign)
+                  (expression
+                    (ident))))
+              (brace_close)))))
+      (brace_close))))
